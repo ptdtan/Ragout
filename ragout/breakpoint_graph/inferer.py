@@ -10,6 +10,7 @@ by recovering perfect matching
 from collections import namedtuple
 import logging
 import os
+from copy import copy
 
 import networkx as nx
 
@@ -22,9 +23,10 @@ Adjacency = namedtuple("Adjacency", ["block", "distance",
 
 
 class AdjacencyInferer(object):
-    def __init__(self, breakpoint_graph, phylogeny):
+    def __init__(self, breakpoint_graph, phylogeny, ancestral = False):
         self.main_graph = breakpoint_graph
         self.phylogeny = phylogeny
+        self.ancestral = ancestral
 
     def infer_adjacencies(self):
         """
@@ -74,8 +76,16 @@ class AdjacencyInferer(object):
         """
         Processes a connected component of the breakpoint graph
         """
-        adjacency = subgraph.to_weighted_graph(self.phylogeny)
-        trimmed_graph = self._trim_known_edges(adjacency)
+        if not self.ancestral:
+            adjacency = subgraph.to_weighted_graph(self.phylogeny)
+        else:
+            adjacency = subgraph.to_weighted_graph2(self, phylogeny)
+
+        if not self.ancestral:
+            trimmed_graph = self._trim_known_edges(adjacency)
+        else:
+            trimmed_graph = copy(adjacency)
+
         unused_nodes = set(trimmed_graph.nodes())
 
         chosen_edges = []

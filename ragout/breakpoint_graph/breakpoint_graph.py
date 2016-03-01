@@ -26,11 +26,12 @@ class BreakpointGraph(object):
     """
     Breakpoint graph implementation
     """
-    def __init__(self, perm_container=None):
+    def __init__(self, perm_container=None, ancestral=False):
         self.bp_graph = nx.MultiGraph()
         self.target = None
         self.references = []
         self.debug_nodes = set()
+        self.ancestral = ancestral
         if perm_container is not None:
             self.build_from(perm_container)
 
@@ -64,6 +65,13 @@ class BreakpointGraph(object):
                                        infinity=False)
 
             if perm.genome_name in self.references and not perm.draft:
+                self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
+                                       perm.blocks[0].signed_id(),
+                                       genome_id=perm.genome_name,
+                                       chr_name=perm.chr_name,
+                                       infinity=True)
+
+            if perm.genome_name in self.target and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
