@@ -60,7 +60,7 @@ class Phylogeny:
         self.mu = float(1) / _median(lengths)
         logger.debug("Branch lengths: {0}, mu = {1}".format(lengths, self.mu))
 
-    def estimate_tree(self, leaf_states):
+    def estimate_tree(self, leaf_states, internal_scores):
         """
         Scores the tree with weighted parsimony procedure
         """
@@ -85,7 +85,10 @@ class Phylogeny:
 
             nodes_scores = {}
             for node, _bootstrap, _length  in root.get_edges():
-                nodes_scores[node] = rec_helper(node)
+                if node in internal_scores:
+                    nodes_scores[node] = internal_scores[node]
+                else:
+                    nodes_scores[node] = rec_helper(node)
 
             root_scores = defaultdict(float)
             for root_state in all_states:
@@ -188,14 +191,12 @@ def estimate_labeled_tree(tree, leaves_states, internal_states):
 
         nodes_scores = {}
         for node, _bootstrap, _length  in root.get_edges():
-            if node in internal_scores:
-                nodes_scores[node] = internal_scores[node]
-            else:
                 nodes_scores[node] = rec_helper(node)
 
         root_scores = defaultdict(float)
         for root_state in all_states:
-            if root_state != internal_states[root.identifier]:
+
+            if root.identifier in internal_states and root_state != internal_states[root.identifier]:
                 root_scores[root_state] = float("inf")
                 continue
 
