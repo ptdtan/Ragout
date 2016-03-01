@@ -86,6 +86,16 @@ def check_extern_modules(backend):
         raise BackendException("overlap binary is missing, "
                                "did you run 'make'?")
 
+def ancestor_construct(scaffolds, ancestor, target, stage, perm_container):
+    ####debug ancestor reconstruction
+    target_perms = []
+    for scf in scaffolds:
+        perm = Permutation.with_scaffold(scf, recipe["target"], scf.name)
+        target_perms.append(perm)
+
+    perm_container.target_perms = target_perms[:]
+
+    ancestor_breakpoint_graph = BreakpointGraph(perm_container)
 
 def make_run_stages(block_sizes, resolve_repeats):
     """
