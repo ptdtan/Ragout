@@ -16,6 +16,7 @@ import networkx as nx
 
 from ragout.parsers.phylogeny_parser import (parse_tree, PhyloException)
 from ragout.phylogeny.inferer import TreeInferer
+from newick.tree import (Tree, Leaf)
 logger = logging.getLogger()
 
 class Phylogeny:
@@ -141,3 +142,72 @@ class Phylogeny:
 def _median(values):
     sorted_values = sorted(values)
     return sorted_values[(len(values) - 1) / 2]
+
+def _is_leaf(Node):
+    if type(Node) == Leaf:
+        return True
+    return False
+
+def _get_node(Tree, identifier):
+    if Tree.identifier != identifier:
+        if _is_leaf(Tree):
+            return None
+        else:
+            for u, _bootstrap, length in Tree.get_edges():
+                found = _get_node(u, identifier)
+                if found:
+                    return found
+                else:
+                    continue
+            return None
+    else:
+        return Tree
+
+def estimate_labeled_tree(tree, leaves_states, internal_states):
+    """
+    Scores the labeled-subtree with weighted parsimony procedure
+    """
+    all_states = set(leaves_states.values())
+
+    #score of a tree branch
+    def branch_score(parent, child, branch):
+        if parent == child or child is None:
+            return 0.0
+        else:
+            #prevent underflow
+            length = max(branch, 0.0000001)
+            #adding one to counter possibly small exp value 
+            return 1.0 + math.exp(-self.mu * length)
+
+    #recursive
+    def rec_helper(root):
+        if root.terminal:
+            leaf_score = (lambda s: 0.0 if s == leaf_states[root.identifier]
+                                        else float("inf"))
+            return {s : leaf_score(s) for s in all_states}
+
+        nodes_scores = {}
+        for node, _bootstrap, _length  in root.get_edges():
+            if node in internal_scores:
+                nodes_scores[node] = internal_scores[node]
+            else:
+                nodes_scores[node] = rec_helper(node)
+
+        root_scores = defaultdict(float)
+        for root_state in all_states:
+            if root_state != internal_states[root.identifier]:
+                root_scores[root_state] = float("inf")
+                continue
+
+            for node, _bootstrap, branch_length in root.edges:
+                min_score = float("inf")
+                for child_state in all_states:
+                    score = (nodes_scores[node][child_state] +
+                            branch_score(root_state, child_state,
+                                         branch_length))
+                    min_score = min(min_score, score)
+                root_scores[root_state] += min_score
+
+        return root_scores
+
+    return min(rec_helper(self.tree).values())

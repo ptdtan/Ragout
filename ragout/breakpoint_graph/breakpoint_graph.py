@@ -16,7 +16,7 @@ from collections import namedtuple
 import networkx as nx
 
 from ragout.shared.debug import DebugConfig
-
+from ragout.phylogeny.phylogeny import *
 logger = logging.getLogger()
 debugger = DebugConfig.get_instance()
 
@@ -127,6 +127,43 @@ class BreakpointGraph(object):
 
         return g
 
+    def to_weighted_graph2(self, phylogeny, ancestor):
+        """
+        Converts a breakpoint graph into a weighted ancestral adjacency graph
+        using half-breakpoint state parsimony problem
+        """
+        assert len(self.bp_graph) >= 2
+        g = nx.Graph()
+        g.add_nodes_from(self.bp_graph.nodes())
+
+        for node in self.bp_graph.nodes():
+            adjacencies = {}
+            for neighbor in self.bp_graph.neighbors(node):
+                for edge in self.bp_graph[node][neighbor].values():
+                    adjacencies[edge["genome_id"]] = neighbor
+
+            for ref_id in self.references:
+                if ref_id not in adjacencies:
+                    adjacencies[ref_id] = None  #"void" state in paper
+            for target_id in self.target:
+                if target_id not in adjacencies:
+                    adjacencies[target_id] = None #"void" state for target genome
+
+            break_weights = {}
+            for neighbor in self.bp_graph.neighbors(node):
+                ancestor_state = {ancestor: neighbor} #assign state for ancestor
+                ancestor_tree = _get_node(phylogeny, ancestor)
+                ancestor_scores = estimate_tree_labeled_tree(ancestor_tree, adjacencies, ancestor_state)
+                break_weights[neighbor] = phylogeny.estimate_tree(adjacencies, internal_scores={ancestor_tree: ancestor_scores})
+
+            #normalization
+            total_weights = sum(break_weights.values())
+            for neighbor in self.bp_graph.neighbors(node):
+                weight = (break_weights[neighbor] / total_weights
+                          if total_weights != 0 else 0)
+                _update_edge(g, node, neighbor, weight)
+
+        return g
     """
     def add_debug_node(self, node):
         self.debug_nodes.add(node)

@@ -66,6 +66,19 @@ class Permutation:
                             list(map(lambda b: b.signed_id(), self.blocks)),
                             self.seq_start, self.seq_end))
 
+    @staticmethod
+    def with_scaffold(scaffold, genome_name, chr_name):
+        blocks = []
+        kicker = 0
+        perm_len = 0
+        for contig in scaffold.contigs:
+            for b in contig.perm.blocks:
+                blocks.append(b)
+                blocks[-1].start = b.start+kicker
+                blocks[-1].end = b.end + kicker
+            kicker = contig.link.gap
+            perm_len += contig.perm.length() + contig.link.gap
+        return Permutation(genome_name, chr_name, perm_len, blocks)
 
 def output_permutations(permutations, out_file):
     with open(out_file, "w") as f:
