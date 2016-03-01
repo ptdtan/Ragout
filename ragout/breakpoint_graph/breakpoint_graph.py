@@ -26,12 +26,13 @@ class BreakpointGraph(object):
     """
     Breakpoint graph implementation
     """
-    def __init__(self, perm_container=None, ancestral=False):
+    def __init__(self, perm_container=None, ancestral=False), ancestor=None):
         self.bp_graph = nx.MultiGraph()
         self.target = None
         self.references = []
         self.debug_nodes = set()
         self.ancestral = ancestral
+        self.ancestor = ancestor
         if perm_container is not None:
             self.build_from(perm_container)
 
@@ -88,6 +89,8 @@ class BreakpointGraph(object):
             bg = BreakpointGraph()
             bg.target = self.target
             bg.references = copy(self.references)
+            bg.ancestral =self.ancestral
+            bg.ancestor = self.ancestor
             bg.bp_graph = subgr
             bp_graphs.append(bg)
         return bp_graphs
@@ -135,7 +138,7 @@ class BreakpointGraph(object):
 
         return g
 
-    def to_weighted_graph2(self, phylogeny, ancestor):
+    def to_weighted_graph2(self, phylogeny):
         """
         Converts a breakpoint graph into a weighted ancestral adjacency graph
         using half-breakpoint state parsimony problem
@@ -159,8 +162,8 @@ class BreakpointGraph(object):
 
             break_weights = {}
             for neighbor in self.bp_graph.neighbors(node):
-                ancestor_state = {ancestor: neighbor} #assign state for ancestor
-                ancestor_tree = _get_node(phylogeny, ancestor)
+                ancestor_state = {self.ancestor: neighbor} #assign state for ancestor
+                ancestor_tree = _get_node(phylogeny, self.ancestor)
                 ancestor_scores = estimate_tree_labeled_tree(ancestor_tree, adjacencies, ancestor_state)
                 break_weights[neighbor] = phylogeny.estimate_tree(adjacencies, internal_scores={ancestor_tree: ancestor_scores})
 
