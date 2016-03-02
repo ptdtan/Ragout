@@ -267,7 +267,7 @@ def _extend_perms(genome_name, adjacencies, blocks):
 
             scf.left = scf.contigs[0].left_end()"""
             visited.add(new_block.block_id)
-                continue
+            continue
 
         if len(prm.blocks) > 1:
             perms.append(prm)
