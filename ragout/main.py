@@ -108,6 +108,9 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
     adjacencies = adj_inferer.infer_adjacencies()
     using_blocks = _adj_to_blocks(adjacencies)
     cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
+    
+    for u, adj in adjacencies.items():
+        print u, adj
     for perm in cur_perms:
         print [block.block_id for block in perm.blocks]
     #rearrang blocks in adjacencies into permutation, permutation into scaffold
