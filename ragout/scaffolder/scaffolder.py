@@ -1,4 +1,3 @@
-
 #(c) 2013-2014 by Authors
 #This file is a part of Ragout program.
 #Released under the BSD license (see LICENSE file)
@@ -16,7 +15,7 @@ import copy
 import logging
 
 from ragout.shared.debug import DebugConfig
-from ragout.shared.datatypes import (Block, Permutation, Contig, Scaffold, Link,
+from ragout.shared.datatypes import (Permutation, Contig, Scaffold, Link,
                                      output_scaffolds_premutations,
                                      output_permutations)
 from ragout.scaffolder.output_generator import output_links
@@ -27,13 +26,17 @@ debugger = DebugConfig.get_instance()
 
 
 def build_scaffolds(adjacencies, perm_container, debug_output=True,
-                    correct_distances=True):
+                    correct_distances=True, ancestral=False):
     """
     Assembles scaffolds wrt to inferred adjacencies
     """
     if debug_output:
         logger.info("Building scaffolds")
-    contigs, contig_index = _make_contigs(perm_container)
+    if not ancestral:
+        contigs, contig_index = _make_contigs(perm_container)
+    else:
+        contigs, contig_index = _make_contigs(perm_container, ancestral=ancestral)
+        
     scaffolds = _extend_scaffolds(adjacencies, contigs, contig_index,
                                   correct_distances)
     num_contigs = sum(map(lambda s: len(s.contigs), scaffolds))
@@ -206,8 +209,8 @@ def _extend_perms(genome_name, adjacencies, blocks):
         visited.add(block)
         prm_name = "ragout-perm-{0}".format(counter[0])
         counter[0] += 1
-        ini_block = Block(block, abs(block)/block)
-        prm = Permutation(genome_name, prm_name, seq_len=None, blocks = [ini_block])
+        prm = Permutation(genome_name, prm_name)
+        prm.blocks = [block]
 
         already_complete = (prm.right() in adjacencies and
                             adjacencies[prm.right()].block == prm.left() and
@@ -218,8 +221,8 @@ def _extend_perms(genome_name, adjacencies, blocks):
 
         #go right
         while prm.right() in adjacencies and not adjacencies[prm.right()].infinity:
-            adj_block = adjacencies[prm.right()].block
-            adj_distance = adjacencies[prm.right()].distance
+            adj_block = adjacencies[prm.right].block
+            adj_distance = adjacencies[prm.right].distance
             adj_supporting_genomes = adjacencies[prm.right()].supporting_genomes
             new_block = Block(abs(adj_block),abs(adj_block)/adj_block )
 
@@ -264,7 +267,7 @@ def _extend_perms(genome_name, adjacencies, blocks):
 
             scf.left = scf.contigs[0].left_end()"""
             visited.add(new_block.block_id)
-            continue
+                continue
 
         if len(prm.blocks) > 1:
             perms.append(prm)
@@ -275,17 +278,24 @@ def _extend_perms(genome_name, adjacencies, blocks):
 
     return perms
 
-def _make_contigs(perm_container):
+def _make_contigs(perm_container, ancestral=False):
     """
     A helper function to make Contig structures
     """
     contigs = []
     index = {}
-    for perm in perm_container.target_perms:
-        assert len(perm.blocks)
-        contigs.append(Contig.with_perm(perm))
-        for block in perm.blocks:
-            assert block.block_id not in index
-            index[block.block_id] = contigs[-1]
-
+    if not ancestral:
+        for perm in perm_container.target_perms:
+            assert len(perm.blocks)
+            contigs.append(Contig.with_perm(perm))
+            for block in perm.blocks:
+                assert block.block_id not in index
+                index[block.block_id] = contigs[-1]
+    else:
+        for perm in perm_container.ancestor_perms:
+            assert len(perm.blocks)
+            contigs.append(Contig.with_perm(perm))
+            for block in perm.blocks:
+                assert block.block_id not in index
+                index[block.block_id] = contigs[-1]
     return contigs, index

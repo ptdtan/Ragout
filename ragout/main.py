@@ -88,7 +88,7 @@ def check_extern_modules(backend):
         raise BackendException("overlap binary is missing, "
                                "did you run 'make'?")
 
-def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
+def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref):
     ####debug ancestor reconstruction
     def _adj_to_blocks(adjacencies):
         blocks = set()
@@ -111,11 +111,12 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
     ancestor_breakpoint_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
-    #using_blocks = _adj_to_blocks(adjacencies)
+    using_blocks = _adj_to_blocks(adjacencies)
     #cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
-    
-    for u, adj in adjacencies.items():
-        print u, adj
+    scaffolds = scfldr.build_scaffolds(adjacencies, perm_container, ancestral=True)
+    print [scaffold.contigs for scaffold in scaffolds]
+    scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
+
     #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
 def make_run_stages(block_sizes, resolve_repeats):
@@ -242,7 +243,7 @@ def run_ragout(args):
 
     last_stage = run_stages[-1]
 
-    ancestor_construct(scaffolds, 'G2', recipe['target'], stage_perms[last_stage], phylogeny)
+    ancestor_construct(scaffolds, 'G2', recipe['target'], stage_perms[last_stage], phylogeny, naming_ref)
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     if not args.no_refine:
