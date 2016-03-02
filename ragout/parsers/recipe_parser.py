@@ -113,5 +113,4 @@ def parse_ragout_recipe(filename):
     for g, g_params in recipe_dict["genomes"].items():
         for def_key, def_val in defaults.items():
             g_params.setdefault(def_key, def_val)
-    print recipe_dict["ancestor"]
     return recipe_dict

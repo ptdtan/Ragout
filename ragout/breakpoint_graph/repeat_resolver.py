@@ -49,7 +49,7 @@ def resolve_repeats(ref_perms, target_perms, repeats,
     logger.debug("Unique repeat blocks: {0}".format(len(repeats)))
 
     next_block_id = 0
-    for perm in chain(ref_perms, target_perms):
+    for perm in chain(ref_perms, target_perms, ancestor_perms):
         next_block_id = max(next_block_id,
                             max(map(lambda b: b.block_id, perm.blocks)) + 1)
     first_block_id = next_block_id

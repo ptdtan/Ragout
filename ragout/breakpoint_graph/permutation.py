@@ -36,6 +36,7 @@ class PermutationContainer:
         """
         self.ref_perms = []
         self.target_perms = []
+        self.ancestor_perms = []
         self.recipe = recipe
 
         logging.debug("Reading permutation file")
@@ -55,9 +56,10 @@ class PermutationContainer:
             has_sequences.add(p.genome_name)
             if p.genome_name == recipe["target"]:
                 self.target_perms.append(p)
-            else:
+            elif p.genome_name == recipe["reference"]:
                 self.ref_perms.append(p)
-
+            else:
+                self.ancestor.append(p)
         for genome in recipe["genomes"]:
             if genome not in has_sequences:
                 raise PermException("No sequences read for genome {0}. Check "
@@ -74,12 +76,17 @@ class PermutationContainer:
         if not len(self.target_perms):
             raise PermException("No synteny blocks found in "
                                 "target sequences")
-
+        logger.debug("Read {0} ancestor sequences"
+                    .format(len(self.ancestor_perms)))
+        """if not len(self.ancestor_perms):
+            raise PermException("No synteny blocks found in "
+                                "ancestor sequences")"""
         self._filter_indels(allow_ref_indels)
         logger.debug("{0} target sequences left after indel filtering"
                                         .format(len(self.target_perms)))
 
         repeats = _find_repeats(self.ref_perms + self.target_perms)
+        ancs_repeats = _find_repeats(self.ancestor_perms)
         ###
         if resolve_repeats:
             if phylogeny is None:
@@ -87,8 +94,14 @@ class PermutationContainer:
                                     "yet unknown phylogeny")
             rr.resolve_repeats(self.ref_perms, self.target_perms,
                                repeats, phylogeny, draft_names)
+            if self.ancestor_perms:
+                rr.resolve_repeats(self.ref_perms, self.ancestor_perms,
+                                ancs_repeats, phylogeny, draft_names)
         ###
         self._filter_repeats(repeats)
+        if ancs_repeats:
+            self._filter_repeats(ancs_repeats, ancestral=True)
+
         logger.debug("{0} target sequences left after repeat filtering"
                      .format(len(self.target_perms)))
 
@@ -104,6 +117,7 @@ class PermutationContainer:
         multiplicity = defaultdict(int)
         target_blocks = set()
         reference_blocks = set()
+        ancestor_blocks = set()
         def process(perms, block_set):
             for perm in perms:
                 for block in perm.blocks:
@@ -112,9 +126,9 @@ class PermutationContainer:
 
         process(self.target_perms, target_blocks)
         process(self.ref_perms, reference_blocks)
-
+        process(self.ancestor_perms, ancestor_blocks)
         if allow_ref_indels:
-            to_keep = target_blocks.intersection(reference_blocks)
+            to_keep = target_blocks.intersection(reference_blocks+ancestor_blocks)
         else:
             num_genomes = len(self.recipe["genomes"])
             to_keep = set(filter(lambda b: multiplicity[b] >= num_genomes,
@@ -122,16 +136,20 @@ class PermutationContainer:
 
         self.ref_perms = _filter_permutations(self.ref_perms, to_keep)
         self.target_perms = _filter_permutations(self.target_perms, to_keep)
+        self.ancestor_perms = _filter_permutations(self.ancestor_perms, to_keep)
 
-
-    def _filter_repeats(self, repeats):
+    def _filter_repeats(self, repeats, ancestral = False):
         """
         Filters repetitive blocks
         """
-        self.target_perms = _filter_permutations(self.target_perms, repeats,
+        if not ancestral:
+            self.target_perms = _filter_permutations(self.target_perms, repeats,
                                                  inverse=True)
-        self.ref_perms = _filter_permutations(self.ref_perms, repeats,
+            self.ref_perms = _filter_permutations(self.ref_perms, repeats,
                                               inverse=True)
+        if ancestral:
+            self.ancestor_perms = _filter_permutations(self.ancestor_perms, repeats,
+                                        inverse=True)
 
 
 def _find_repeats(permutations):
