@@ -95,6 +95,10 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
         for adj in adjacencies:
             blocks.add(abs(adj))
         return blocks
+    
+    def move_target(perm_container):
+        perm_container.ref_perms.extend(perm_container.target_perms)
+        perm_container.target_perms = deepcopy(perm_container.ancestor_perms)
 
     target_perms = []
     for scf in scaffolds:
@@ -102,17 +106,16 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
         target_perms.append(perm)
 
     perm_container.target_perms = target_perms[:]
+    #move_target(perm_container)
 
     ancestor_breakpoint_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
-    using_blocks = _adj_to_blocks(adjacencies)
-    cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
+    #using_blocks = _adj_to_blocks(adjacencies)
+    #cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
     
     for u, adj in adjacencies.items():
         print u, adj
-    for perm in cur_perms:
-        print [block.block_id for block in perm.blocks]
     #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
 def make_run_stages(block_sizes, resolve_repeats):
