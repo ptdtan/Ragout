@@ -56,10 +56,10 @@ class PermutationContainer:
             has_sequences.add(p.genome_name)
             if p.genome_name == recipe["target"]:
                 self.target_perms.append(p)
-            elif p.genome_name == recipe["reference"]:
+            elif p.genome_name in recipe["references"]:
                 self.ref_perms.append(p)
             else:
-                self.ancestor.append(p)
+                self.ancestor_perms.append(p)
         for genome in recipe["genomes"]:
             if genome not in has_sequences:
                 raise PermException("No sequences read for genome {0}. Check "
@@ -128,7 +128,7 @@ class PermutationContainer:
         process(self.ref_perms, reference_blocks)
         process(self.ancestor_perms, ancestor_blocks)
         if allow_ref_indels:
-            to_keep = target_blocks.intersection(reference_blocks+ancestor_blocks)
+            to_keep = target_blocks.intersection(reference_blocks|ancestor_blocks)
         else:
             num_genomes = len(self.recipe["genomes"])
             to_keep = set(filter(lambda b: multiplicity[b] >= num_genomes,
