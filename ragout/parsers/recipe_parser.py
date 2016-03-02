@@ -28,7 +28,7 @@ def parse_ragout_recipe(filename):
 
     recipe_dict = {"genomes" : {}}
     known_params = ["tree", "target", "blocks", "maf", "hal", "fasta",
-                    "draft", "references", "naming_ref"]
+                    "draft", "references", "naming_ref", "ancestor"]
     deprecated = ["circular"]
     required_params = ["references", "target"]
 
@@ -92,11 +92,11 @@ def parse_ragout_recipe(filename):
             raise RecipeException("Required parameter '{0}' not found in recipe"
                                   .format(param))
 
-    genomes = recipe_dict["references"] + [recipe_dict["target"]]
+    genomes = recipe_dict["references"] + [recipe_dict["target"]] + [recipe_dict["ancestor"]]
     if "tree" in recipe_dict:
         try:
             leaves = get_leaves_names(recipe_dict["tree"])
-            if set(leaves) != set(genomes):
+            if set(leaves) != set(genomes).discard(recipe_dict["ancestor"]):
                 raise RecipeException("The tree does not agree with "
                                       "the specified set of genomes")
         except PhyloException as e:
@@ -113,5 +113,5 @@ def parse_ragout_recipe(filename):
     for g, g_params in recipe_dict["genomes"].items():
         for def_key, def_val in defaults.items():
             g_params.setdefault(def_key, def_val)
-
+    print recipe_dict["ancestor"]
     return recipe_dict
