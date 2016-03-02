@@ -207,6 +207,9 @@ def run_ragout(args):
         raw_bp_graphs[stage] = BreakpointGraph(stage_perms[stage])
 
     target_sequences = read_fasta_dict(backend.get_target_fasta())
+    if backend.get_ancestor_fasta():
+        ancestor_sequences = read_fasta_dict(backend.get_ancestor_fasta())
+
     if not args.solid_scaffolds:
         chim_detect = ChimeraDetector(raw_bp_graphs, run_stages, target_sequences)
 
@@ -243,7 +246,12 @@ def run_ragout(args):
 
     last_stage = run_stages[-1]
 
-    ancestor_construct(scaffolds, 'G2', recipe['target'], stage_perms[last_stage], phylogeny, naming_ref)
+    ancestor_construct(scaffolds, 
+                    recipe['ancestor'], 
+                    recipe['target'], 
+                    stage_perms[last_stage], 
+                    phylogeny, 
+                    naming_ref)
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     if not args.no_refine:
