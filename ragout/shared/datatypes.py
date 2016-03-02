@@ -65,6 +65,10 @@ class Permutation:
                     .format(self.genome_name, self.chr_name,
                             list(map(lambda b: b.signed_id(), self.blocks)),
                             self.seq_start, self.seq_end))
+    def left(self):
+        return self.blocks[0].signed_id
+    def right(self):
+        return -self.blocks[-1].signed_id
 
     @staticmethod
     def with_scaffold(scaffold, genome_name, chr_name):

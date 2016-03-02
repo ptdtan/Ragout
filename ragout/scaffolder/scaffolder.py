@@ -15,7 +15,7 @@ import copy
 import logging
 
 from ragout.shared.debug import DebugConfig
-from ragout.shared.datatypes import (Contig, Scaffold, Link,
+from ragout.shared.datatypes import (Permutation, Contig, Scaffold, Link,
                                      output_scaffolds_premutations,
                                      output_permutations)
 from ragout.scaffolder.output_generator import output_links
@@ -193,6 +193,86 @@ def _extend_scaffolds(adjacencies, contigs, contig_index, correct_distances):
 
     return scaffolds
 
+def _extend_perms(genome_name, adjacencies, blocks):
+    """
+    Assembles blocks into permss
+    """
+    perms = []
+    visited = set()
+    counter = [0]
+
+    def extend_perm(block):
+        visited.add(block)
+        prm_name = "ragout-perm-{0}".format(counter[0])
+        counter[0] += 1
+        prm = Permutation(genome_name, prm_name)
+        prm.blocks = [block]
+
+        already_complete = (prm.right() in adjacencies and
+                            adjacencies[prm.right()].block == prm.left() and
+                            adjacencies[prm.right()].infinity)
+        if already_complete:
+            perms.append(prm)
+            return
+
+        #go right
+        while prm.right() in adjacencies and not adjacencies[prm.right()].infinity:
+            adj_block = adjacencies[prm.right].block
+            adj_distance = adjacencies[prm.right].distance
+            adj_supporting_genomes = adjacencies[prm.right()].supporting_genomes
+            new_block = Block(abs(adj_block),abs(adj_block)/adj_block )
+
+            #contig = contig_index[abs(adj_block)]
+            if new_block.block_id in visited:
+                break
+
+            """if adj_block in [contig.left_end(), contig.right_end()]:
+                if contig.left_end() == adj_block:
+                    scf.contigs.append(contig)
+                else:
+                    scf.contigs.append(contig.reverse_copy())"""
+            prm.blocks.append(new_block)
+
+            """flank = scf.contigs[-2].right_gap() + scf.contigs[-1].left_gap()
+            gap = adj_distance - flank if correct_distances else adj_distance
+            scf.contigs[-2].link = Link(gap, adj_supporting_genomes)"""
+
+            #scf.right = scf.contigs[-1].right_end()
+            visited.add(new_block.block_id)
+            continue
+
+        #go left
+        while prm.left() in adjacencies and not adjacencies[prm.left()].infinity:
+            adj_block = adjacencies[prm.left()].block
+            adj_distance = adjacencies[prm.left()].distance
+            adj_supporting_genomes = adjacencies[prm.left()].supporting_genomes
+
+            new_block = Block(abs(adj_block), -abs(adj_block)/adj_block)
+            if new_block.block_id in visited:
+                break
+
+            """if adj_block in [contig.right_end(), contig.left_end()]:
+                if contig.right_end() == adj_block:
+                    scf.contigs.insert(0, contig)
+                else:
+                    scf.contigs.insert(0, contig.reverse_copy())"""
+            prm.blocks.insert(0, new_block)
+                """flank = scf.contigs[0].right_gap() + scf.contigs[1].left_gap()
+                gap = adj_distance - flank if correct_distances else adj_distance
+                scf.contigs[0].link = Link(gap, adj_supporting_genomes)
+
+                scf.left = scf.contigs[0].left_end()"""
+            visited.add(new_block.block_id)
+                continue
+
+        if len(prm.blocks) > 1:
+            perms.append(prm)
+
+    for block in blocks:
+        if block not in visited:
+            extend_perm(block)
+
+    return perms
 
 def _make_contigs(perm_container):
     """

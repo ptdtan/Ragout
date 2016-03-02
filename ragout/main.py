@@ -90,6 +90,12 @@ def check_extern_modules(backend):
 
 def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
     ####debug ancestor reconstruction
+    def _adj_to_blocks(adjacencies):
+        blocks = set()
+        for adj in adjacencies:
+            blocks.add(abs(adj))
+        return blocks
+
     target_perms = []
     for scf in scaffolds:
         perm = Permutation.with_scaffold(scf, target, scf.name)
@@ -100,6 +106,9 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
     ancestor_breakpoint_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
+    using_blocks = _adj_to_blocks(adjacencies)
+    cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
+    print cur_perms
     #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
 def make_run_stages(block_sizes, resolve_repeats):
