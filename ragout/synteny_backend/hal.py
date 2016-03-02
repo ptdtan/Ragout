@@ -94,12 +94,13 @@ class HalBackend(SyntenyBackend):
             logger.info("Converting HAL to MAF")
             out_maf = os.path.join(workdir, "alignment.maf")
             ref_genome = recipe["target"]   #Tricky notation, huh?
-            export_genomes = ",".join(recipe["genomes"])
+            export_genomes = ",".join(recipe["genomes"]) + ',G2'
 
-            cmdline = [HAL2MAF, recipe["hal"], out_maf, "--noAncestors",
+            cmdline = [HAL2MAF, recipe["hal"], out_maf,
                         "--numProc", str(self.threads),  "--refGenome",
                         ref_genome, "--targetGenomes", export_genomes,
                         "--inMemory"]
+            #removed --noAncestor parameter
             logger.debug(" ".join(cmdline))
             subprocess.check_call(cmdline, stdout=open(os.devnull, "w"))
 

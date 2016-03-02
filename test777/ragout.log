@@ -1,0 +1,5 @@
+[02:48:49] root: INFO: Starting Ragout v2.0b
+[02:48:49] root: WARNING: Using synteny blocks from previous run
+[02:48:49] root: WARNING: Use --overwrite to force alignment
+[02:48:49] root: ERROR: An error occured while running Ragout:
+[02:48:49] root: ERROR: Exitsing results are incompatible with current run

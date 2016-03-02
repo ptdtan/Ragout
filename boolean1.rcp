@@ -1,0 +1,6 @@
+.references = G5
+.target = G2
+.hal = boolean14.hal
+.tree = (G2:1,G5:1);
+.blocks = large
+.naming_ref = G2_scaffold

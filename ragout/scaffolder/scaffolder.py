@@ -218,8 +218,8 @@ def _extend_perms(genome_name, adjacencies, blocks):
 
         #go right
         while prm.right() in adjacencies and not adjacencies[prm.right()].infinity:
-            adj_block = adjacencies[prm.right].block
-            adj_distance = adjacencies[prm.right].distance
+            adj_block = adjacencies[prm.right()].block
+            adj_distance = adjacencies[prm.right()].distance
             adj_supporting_genomes = adjacencies[prm.right()].supporting_genomes
             new_block = Block(abs(adj_block),abs(adj_block)/adj_block )
 
