@@ -84,7 +84,7 @@ class AdjacencyInferer(object):
         if not self.ancestral:
             trimmed_graph = self._trim_known_edges(adjacency)
         else:
-            trimmed_graph = copy(adjacency)
+            trimmed_graph = self._trim_known_edges(adjacency, ancestral=True)
 
         unused_nodes = set(trimmed_graph.nodes())
 
@@ -120,7 +120,7 @@ class AdjacencyInferer(object):
 
         return chosen_edges
 
-    def _trim_known_edges(self, graph):
+    def _trim_known_edges(self, graph, ancestral=False):
         """
         Removes edges with known target adjacencies (red edges from paper)
         """
@@ -130,10 +130,16 @@ class AdjacencyInferer(object):
                 continue
 
             genome_ids = set(self.main_graph.genomes_support(v1, v2))
-            if self.main_graph.target in genome_ids:
-                for node in [v1, v2]:
-                    trimmed_graph.remove_node(node)
-                self.trimmed_count += 1
+            if not ancestral:
+                if self.main_graph.target in genome_ids:
+                    for node in [v1, v2]:
+                        trimmed_graph.remove_node(node)
+                    self.trimmed_count += 1
+            else:
+                if self.main_graph.ancestor in genome_ids:
+                    for node in [v1,v2]:
+                        trimmed_graph.remove_node(node)
+                    self.trimmed_count += 1
 
         return trimmed_graph
 
