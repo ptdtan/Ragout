@@ -17,6 +17,7 @@ import networkx as nx
 
 from ragout.shared.debug import DebugConfig
 from ragout.phylogeny.phylogeny import *
+
 logger = logging.getLogger()
 debugger = DebugConfig.get_instance()
 
@@ -26,7 +27,7 @@ class BreakpointGraph(object):
     """
     Breakpoint graph implementation
     """
-    def __init__(self, perm_container=None, ancestral=False), ancestor=None):
+    def __init__(self, perm_container=None, ancestral=False, ancestor=None):
         self.bp_graph = nx.MultiGraph()
         self.target = None
         self.references = []
@@ -153,7 +154,7 @@ class BreakpointGraph(object):
                 for edge in self.bp_graph[node][neighbor].values():
                     adjacencies[edge["genome_id"]] = neighbor
 
-            for ref_id in self.references:
+            for ref_id in self.references: #maybe unessesary
                 if ref_id not in adjacencies:
                     adjacencies[ref_id] = None  #"void" state in paper
             for target_id in self.target:
@@ -163,8 +164,9 @@ class BreakpointGraph(object):
             break_weights = {}
             for neighbor in self.bp_graph.neighbors(node):
                 ancestor_state = {self.ancestor: neighbor} #assign state for ancestor
-                ancestor_tree = _get_node(phylogeny, self.ancestor)
-                ancestor_scores = estimate_tree_labeled_tree(ancestor_tree, adjacencies, ancestor_state)
+                ancestor_tree = get_node(phylogeny.tree, self.ancestor)
+                ancestor_phylo = Phylogeny(ancestor_tree)
+                ancestor_scores = estimate_labeled_tree(ancestor_phylo, adjacencies, ancestor_state)
                 break_weights[neighbor] = phylogeny.estimate_tree(adjacencies, internal_scores={ancestor_tree: ancestor_scores})
 
             #normalization

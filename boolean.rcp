@@ -1,0 +1,5 @@
+.references = G3,G5,G4
+.target = G4
+.hal = boolean14.hal
+.tree = ((G3:1,G4:1)G2:1,G5:1)G1;
+.blocks = large

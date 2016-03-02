@@ -30,9 +30,11 @@ from ragout.synteny_backend.synteny_backend import (SyntenyBackend,
 from ragout.parsers.recipe_parser import parse_ragout_recipe, RecipeException
 from ragout.parsers.fasta_parser import read_fasta_dict, FastaError
 from ragout.shared.debug import DebugConfig
+from ragout.shared.datatypes import (Permutation, Block, Contig, Scaffold, Link)
 from ragout.breakpoint_graph.breakpoint_graph import BreakpointGraph
 from ragout.breakpoint_graph.inferer import AdjacencyInferer
 from ragout.breakpoint_graph.chimera_detector import ChimeraDetector
+from ragout.phylogeny.phylogeny import *
 from ragout.__version__ import __version__
 
 #register backends
@@ -90,16 +92,15 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny):
     ####debug ancestor reconstruction
     target_perms = []
     for scf in scaffolds:
-        perm = Permutation.with_scaffold(scf, recipe["target"], scf.name)
+        perm = Permutation.with_scaffold(scf, target, scf.name)
         target_perms.append(perm)
 
     perm_container.target_perms = target_perms[:]
 
-    ancestor_breakpoint_graph = BreakpointGraph(perm_container, ancestral=True)
-    adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, acestral=True)
+    ancestor_breakpoint_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
+    adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
-    for adj in adjacencies:
-        print adj
+    #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
 def make_run_stages(block_sizes, resolve_repeats):
     """

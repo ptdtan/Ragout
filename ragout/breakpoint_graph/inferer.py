@@ -79,7 +79,7 @@ class AdjacencyInferer(object):
         if not self.ancestral:
             adjacency = subgraph.to_weighted_graph(self.phylogeny)
         else:
-            adjacency = subgraph.to_weighted_graph2(self, phylogeny)
+            adjacency = subgraph.to_weighted_graph2(self.phylogeny)
 
         if not self.ancestral:
             trimmed_graph = self._trim_known_edges(adjacency)

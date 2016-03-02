@@ -60,7 +60,7 @@ class Phylogeny:
         self.mu = float(1) / _median(lengths)
         logger.debug("Branch lengths: {0}, mu = {1}".format(lengths, self.mu))
 
-    def estimate_tree(self, leaf_states, internal_scores):
+    def estimate_tree(self, leaf_states, internal_scores={}):
         """
         Scores the tree with weighted parsimony procedure
         """
@@ -146,18 +146,18 @@ def _median(values):
     sorted_values = sorted(values)
     return sorted_values[(len(values) - 1) / 2]
 
-def _is_leaf(Node):
+def is_leaf(Node):
     if type(Node) == Leaf:
         return True
     return False
 
-def _get_node(Tree, identifier):
+def get_node(Tree, identifier):
     if Tree.identifier != identifier:
-        if _is_leaf(Tree):
+        if is_leaf(Tree):
             return None
         else:
             for u, _bootstrap, length in Tree.get_edges():
-                found = _get_node(u, identifier)
+                found = get_node(u, identifier)
                 if found:
                     return found
                 else:
@@ -166,11 +166,11 @@ def _get_node(Tree, identifier):
     else:
         return Tree
 
-def estimate_labeled_tree(tree, leaves_states, internal_states):
+def estimate_labeled_tree(phylogeny, leaf_states, internal_states):
     """
     Scores the labeled-subtree with weighted parsimony procedure
     """
-    all_states = set(leaves_states.values())
+    all_states = set(leaf_states.values())
 
     #score of a tree branch
     def branch_score(parent, child, branch):
@@ -180,7 +180,7 @@ def estimate_labeled_tree(tree, leaves_states, internal_states):
             #prevent underflow
             length = max(branch, 0.0000001)
             #adding one to counter possibly small exp value 
-            return 1.0 + math.exp(-self.mu * length)
+            return 1.0 + math.exp(-phylogeny.mu * length)
 
     #recursive
     def rec_helper(root):
@@ -208,7 +208,6 @@ def estimate_labeled_tree(tree, leaves_states, internal_states):
                                          branch_length))
                     min_score = min(min_score, score)
                 root_scores[root_state] += min_score
-
         return root_scores
 
-    return min(rec_helper(self.tree).values())
+    return rec_helper(phylogeny.tree)

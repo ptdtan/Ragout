@@ -1,0 +1,59 @@
+[07:13:26] root: INFO: Starting Ragout v2.0b
+[07:13:26] root: INFO: Extracting FASTA from HAL
+[07:13:26] root: INFO: Converting HAL to MAF
+[07:13:26] root: DEBUG: hal2mafMP.py boolean14.hal test1/hal-workdir/alignment.maf --noAncestors --numProc 1 --refGenome G4 --targetGenomes G5,G4,G3 --inMemory
+[07:17:21] root: INFO: Extracting synteny blocks from MAF
+[07:17:21] root: INFO: Running maf2synteny module
+[07:17:21] root: DEBUG: Parsing MAF file
+[07:17:21] root: DEBUG: Started initial compression
+[07:17:21] root: DEBUG: Simplification with 30 500
+[07:17:21] root: DEBUG: Simplification with 100 5000
+[07:17:21] root: DEBUG: Simplification with 500 50000
+[07:17:21] root: DEBUG: Simplification with 5000 500000
+[07:17:21] root: INFO: Phylogeny is taken from the recipe
+[07:17:21] root: DEBUG: Branch lengths: [1, 1, 1, 1], mu = 1.0
+[07:17:21] root: INFO: 'G3' is chosen as a naming reference
+[07:17:21] root: INFO: Processing permutation files
+[07:17:21] root: DEBUG: Reading permutation file
+[07:17:21] root: DEBUG: "G5" synteny blocks coverage: 94.1%
+[07:17:21] root: DEBUG: "G4" synteny blocks coverage: 94.09%
+[07:17:21] root: DEBUG: "G3" synteny blocks coverage: 94.1%
+[07:17:21] root: DEBUG: Read 2 reference sequences
+[07:17:21] root: DEBUG: Read 5 target sequences
+[07:17:21] root: DEBUG: 5 target sequences left after indel filtering
+[07:17:21] root: DEBUG: 5 target sequences left after repeat filtering
+[07:17:21] root: DEBUG: Built breakpoint graph with 54 nodes
+[07:17:21] root: DEBUG: Reading permutation file
+[07:17:21] root: DEBUG: "G5" synteny blocks coverage: 96.42%
+[07:17:21] root: DEBUG: "G4" synteny blocks coverage: 96.41%
+[07:17:21] root: DEBUG: "G3" synteny blocks coverage: 96.42%
+[07:17:21] root: DEBUG: Read 2 reference sequences
+[07:17:21] root: DEBUG: Read 5 target sequences
+[07:17:21] root: DEBUG: 5 target sequences left after indel filtering
+[07:17:21] root: DEBUG: 5 target sequences left after repeat filtering
+[07:17:21] root: DEBUG: Built breakpoint graph with 956 nodes
+[07:17:21] root: DEBUG: Reading permutation file
+[07:17:21] root: DEBUG: "G5" synteny blocks coverage: 98.26%
+[07:17:21] root: DEBUG: "G4" synteny blocks coverage: 98.26%
+[07:17:21] root: DEBUG: "G3" synteny blocks coverage: 98.26%
+[07:17:21] root: DEBUG: Read 2 reference sequences
+[07:17:21] root: DEBUG: Read 5 target sequences
+[07:17:22] root: DEBUG: 5 target sequences left after indel filtering
+[07:17:22] root: DEBUG: 5 target sequences left after repeat filtering
+[07:17:22] root: DEBUG: Built breakpoint graph with 1578 nodes
+[07:17:22] root: DEBUG: Reading permutation file
+[07:17:22] root: DEBUG: "G5" synteny blocks coverage: 98.26%
+[07:17:22] root: DEBUG: "G4" synteny blocks coverage: 98.26%
+[07:17:22] root: DEBUG: "G3" synteny blocks coverage: 98.26%
+[07:17:22] root: DEBUG: Read 2 reference sequences
+[07:17:22] root: DEBUG: Read 5 target sequences
+[07:17:22] root: DEBUG: 5 target sequences left after indel filtering
+[07:17:22] root: DEBUG: 5 target sequences left after repeat filtering
+[07:17:22] root: DEBUG: Built breakpoint graph with 1578 nodes
+[07:17:22] root: INFO: Reading contigs file
+[07:17:22] root: DEBUG: Detecting chimeric adjacencies
+[07:17:22] root: INFO: Stage "10000"
+[07:17:22] root: DEBUG: Chimera Detector: 1 cuts made in 1 sequences
+[07:17:22] root: DEBUG: Built breakpoint graph with 54 nodes
+[07:17:22] root: INFO: Inferring missing adjacencies
+[07:17:22] root: DEBUG: Found 19 connected components
