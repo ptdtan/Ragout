@@ -205,8 +205,7 @@ def _extend_perms(genome_name, adjacencies, blocks):
         visited.add(block)
         prm_name = "ragout-perm-{0}".format(counter[0])
         counter[0] += 1
-        prm = Permutation(genome_name, prm_name)
-        prm.blocks = [block]
+        prm = Permutation(genome_name, prm_name, seq_len=None, blocks = [block])
 
         already_complete = (prm.right() in adjacencies and
                             adjacencies[prm.right()].block == prm.left() and
@@ -263,7 +262,7 @@ def _extend_perms(genome_name, adjacencies, blocks):
 
             scf.left = scf.contigs[0].left_end()"""
             visited.add(new_block.block_id)
-                continue
+            continue
 
         if len(prm.blocks) > 1:
             perms.append(prm)
