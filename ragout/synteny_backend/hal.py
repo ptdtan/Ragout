@@ -97,7 +97,10 @@ class HalBackend(SyntenyBackend):
                 subprocess.check_call(cmdline, stdout=open(ancestor_fasta, "w"))
 
             self.target_fasta = target_fasta
-            self.ancestor_fasta = ancestor_fasta
+            if ancestor_fasta:
+                self.ancestor_fasta = ancestor_fasta
+            else:
+                self.ancestor_fasta = None
 
             logger.info("Converting HAL to MAF")
             out_maf = os.path.join(workdir, "alignment.maf")

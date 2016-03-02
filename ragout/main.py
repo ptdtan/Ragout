@@ -88,7 +88,7 @@ def check_extern_modules(backend):
         raise BackendException("overlap binary is missing, "
                                "did you run 'make'?")
 
-def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref):
+def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref, ancestor_sequences):
     ####debug ancestor reconstruction
     def _adj_to_blocks(adjacencies):
         blocks = set()
@@ -117,6 +117,8 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     print [scaffold.contigs for scaffold in scaffolds]
     scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
 
+    out_gen = OutputGenerator(ancestor_sequences, scaffolds)
+    out_gen.make_output(args.out_dir, ancestor)
     #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
 def make_run_stages(block_sizes, resolve_repeats):
@@ -251,7 +253,8 @@ def run_ragout(args):
                     recipe['target'], 
                     stage_perms[last_stage], 
                     phylogeny, 
-                    naming_ref)
+                    naming_ref,
+                    ancestor_sequences)
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     if not args.no_refine:

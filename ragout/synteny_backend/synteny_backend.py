@@ -54,6 +54,12 @@ class SyntenyBackend:
         """
         return self.target_fasta
 
+    def get_ancestor_fasta(self):
+        """
+        Returns a path to a ancestor fasta file with contigs
+        """
+        return self.ancestor_fasta
+
     def infer_block_scale(self, recipe):
         """
         Infers synteny block scale based on target assembly size
