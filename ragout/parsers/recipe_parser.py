@@ -96,7 +96,7 @@ def parse_ragout_recipe(filename):
     if "tree" in recipe_dict:
         try:
             leaves = get_leaves_names(recipe_dict["tree"])
-            if set(leaves) != set(genomes).discard(recipe_dict["ancestor"]):
+            if set(leaves) != set(genomes)-set([recipe_dict["ancestor"]]):
                 raise RecipeException("The tree does not agree with "
                                       "the specified set of genomes")
         except PhyloException as e:
