@@ -72,11 +72,16 @@ class HalBackend(SyntenyBackend):
                 files[block_size] = os.path.abspath(coords_file)
 
             target_fasta = os.path.join(workdir, TARGET_FASTA)
+            ancestor_fasta = os.path.join(workdir, ANCESTOR_FASTA)
             if not os.path.isfile(target_fasta):
                 all_good = False
             else:
                 self.target_fasta = target_fasta
 
+            if "ancestor" in recipe and not os.path.isfile(ancestor_fasta):
+                all_good = False
+            else:
+                self.ancestor_fasta = ancestor_fasta
             if not all_good:
                 raise BackendException("Exitsing results are incompatible "
                                            "with current run")

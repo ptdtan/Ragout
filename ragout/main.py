@@ -88,18 +88,8 @@ def check_extern_modules(backend):
         raise BackendException("overlap binary is missing, "
                                "did you run 'make'?")
 
-def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref, ancestor_sequences):
+def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref, ancestor_sequences, out_dir):
     ####debug ancestor reconstruction
-    def _adj_to_blocks(adjacencies):
-        blocks = set()
-        for adj in adjacencies:
-            blocks.add(abs(adj))
-        return blocks
-    
-    def move_target(perm_container):
-        perm_container.ref_perms.extend(perm_container.target_perms)
-        perm_container.target_perms = deepcopy(perm_container.ancestor_perms)
-
     target_perms = []
     for scf in scaffolds:
         perm = Permutation.with_scaffold(scf, target, scf.name)
@@ -111,14 +101,13 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     ancestor_breakpoint_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
-    using_blocks = _adj_to_blocks(adjacencies)
     #cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
     scaffolds = scfldr.build_scaffolds(adjacencies, perm_container, ancestral=True)
     print [scaffold.contigs for scaffold in scaffolds]
     scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
 
     out_gen = OutputGenerator(ancestor_sequences, scaffolds)
-    out_gen.make_output(args.out_dir, ancestor)
+    out_gen.make_output(out_dir, ancestor)
     #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
 def make_run_stages(block_sizes, resolve_repeats):
@@ -254,7 +243,8 @@ def run_ragout(args):
                     stage_perms[last_stage], 
                     phylogeny, 
                     naming_ref,
-                    ancestor_sequences)
+                    ancestor_sequences,
+                    args.out_dir)
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     if not args.no_refine:
