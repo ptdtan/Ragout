@@ -80,12 +80,12 @@ class BreakpointGraph(object):
                                        infinity=True)
         if self.ancestral:
             for perm in perm_container.ancestor_perms:
-            assert perm.blocks
-            for prev_block, next_block in perm.iter_pairs():
-                self.bp_graph.add_node(-prev_block.signed_id())
-                self.bp_graph.add_node(next_block.signed_id())
+                assert perm.blocks
+                for prev_block, next_block in perm.iter_pairs():
+                    self.bp_graph.add_node(-prev_block.signed_id())
+                    self.bp_graph.add_node(next_block.signed_id())
 
-                self.bp_graph.add_edge(-prev_block.signed_id(),
+                    self.bp_graph.add_edge(-prev_block.signed_id(),
                                        next_block.signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,

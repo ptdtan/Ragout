@@ -115,7 +115,7 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     #cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
     scaffolds = scfldr.build_scaffolds(adjacencies, perm_container, ancestral=True)
     print [scaffold.contigs for scaffold in scaffolds]
-    scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
+    scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
 
     #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
