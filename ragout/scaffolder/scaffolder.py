@@ -1,3 +1,4 @@
+
 #(c) 2013-2014 by Authors
 #This file is a part of Ragout program.
 #Released under the BSD license (see LICENSE file)
@@ -15,7 +16,7 @@ import copy
 import logging
 
 from ragout.shared.debug import DebugConfig
-from ragout.shared.datatypes import (Permutation, Contig, Scaffold, Link,
+from ragout.shared.datatypes import (Block, Permutation, Contig, Scaffold, Link,
                                      output_scaffolds_premutations,
                                      output_permutations)
 from ragout.scaffolder.output_generator import output_links
@@ -205,7 +206,8 @@ def _extend_perms(genome_name, adjacencies, blocks):
         visited.add(block)
         prm_name = "ragout-perm-{0}".format(counter[0])
         counter[0] += 1
-        prm = Permutation(genome_name, prm_name, seq_len=None, blocks = [block])
+        ini_block = Block(block, abs(block)/block)
+        prm = Permutation(genome_name, prm_name, seq_len=None, blocks = [ini_block])
 
         already_complete = (prm.right() in adjacencies and
                             adjacencies[prm.right()].block == prm.left() and
