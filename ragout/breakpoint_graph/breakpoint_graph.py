@@ -45,7 +45,6 @@ class BreakpointGraph(object):
             if perm.genome_name not in self.references:
                 self.references.append(perm.genome_name)
         self.target = perm_container.target_perms[0].genome_name
-
         self.contig_ends = []
         for perm in perm_container.target_perms:
             self.contig_ends.append((perm.blocks[0].signed_id(),
@@ -79,6 +78,20 @@ class BreakpointGraph(object):
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
                                        infinity=True)
+        if self.ancestral:
+            for perm in perm_container.ancestor_perms:
+            assert perm.blocks
+            for prev_block, next_block in perm.iter_pairs():
+                self.bp_graph.add_node(-prev_block.signed_id())
+                self.bp_graph.add_node(next_block.signed_id())
+
+                self.bp_graph.add_edge(-prev_block.signed_id(),
+                                       next_block.signed_id(),
+                                       genome_id=perm.genome_name,
+                                       chr_name=perm.chr_name,
+                                       start=prev_block.end,
+                                       end=next_block.start,
+                                       infinity=False)
 
         logger.debug("Built breakpoint graph with {0} nodes"
                                         .format(len(self.bp_graph)))
