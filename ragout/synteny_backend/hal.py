@@ -24,7 +24,7 @@ HAL2MAF = "hal2mafMP.py"
 HAL2FASTA = "hal2fasta"
 HAL_STATS = "halStats"
 TARGET_FASTA = "target.fasta"
-
+ANCESTOR_FASTA = "ancestor.fasta"
 
 class HalBackend(SyntenyBackend):
     def __init__(self):
@@ -47,7 +47,7 @@ class HalBackend(SyntenyBackend):
         else:
             return "large"
 
-    def run_backend(self, recipe, output_dir, overwrite):
+    def run_backend(self, recipe, output_dir, overwrite, ancestral = False):
         workdir = os.path.join(output_dir, HAL_WORKDIR)
         if overwrite and os.path.isdir(workdir):
             shutil.rmtree(workdir)
@@ -84,17 +84,25 @@ class HalBackend(SyntenyBackend):
         else:
             os.mkdir(workdir)
 
-            logger.info("Extracting FASTA from HAL")
+            logger.info("Extracting target FASTA from HAL")
             target_fasta = os.path.join(workdir, TARGET_FASTA)
             cmdline = [HAL2FASTA, recipe["hal"], recipe["target"],
                        "--inMemory"]
             subprocess.check_call(cmdline, stdout=open(target_fasta, "w"))
+            if ancestral:
+                logger.info("Extracting ancestor FASTA from HAL")
+                ancestor_fasta = os.path.join(workdir, ANCESTOR_FASTA)
+                cmdline = [HAL2FASTA, recipe["hal"], recipe["ancestor"],
+                       "--inMemory"]
+                subprocess.check_call(cmdline, stdout=open(ancestor_fasta, "w"))
+
             self.target_fasta = target_fasta
+            self.ancestor_fasta = ancestor_fasta
 
             logger.info("Converting HAL to MAF")
             out_maf = os.path.join(workdir, "alignment.maf")
             ref_genome = recipe["target"]   #Tricky notation, huh?
-            export_genomes = ",".join(recipe["genomes"]) + ',G2'
+            export_genomes = ",".join(recipe["genomes"])
 
             cmdline = [HAL2MAF, recipe["hal"], out_maf,
                         "--numProc", str(self.threads),  "--refGenome",

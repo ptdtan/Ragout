@@ -33,7 +33,10 @@ class SyntenyBackend:
         self.threads = threads
         self.blocks = blocks
 
-        files = self.run_backend(recipe, output_dir, overwrite)
+        if not "ancestor" in recipe:
+            files = self.run_backend(recipe, output_dir, overwrite)
+        else:
+            files = self.run_backend(recipe, output_dir, overwrite, ancestral=True)
         assert sorted(files.keys()) == sorted(blocks)
 
         return files
