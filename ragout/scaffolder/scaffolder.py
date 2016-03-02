@@ -257,11 +257,11 @@ def _extend_perms(genome_name, adjacencies, blocks):
                 else:
                     scf.contigs.insert(0, contig.reverse_copy())"""
             prm.blocks.insert(0, new_block)
-                """flank = scf.contigs[0].right_gap() + scf.contigs[1].left_gap()
-                gap = adj_distance - flank if correct_distances else adj_distance
-                scf.contigs[0].link = Link(gap, adj_supporting_genomes)
+            """flank = scf.contigs[0].right_gap() + scf.contigs[1].left_gap()
+            gap = adj_distance - flank if correct_distances else adj_distance
+            scf.contigs[0].link = Link(gap, adj_supporting_genomes)
 
-                scf.left = scf.contigs[0].left_end()"""
+            scf.left = scf.contigs[0].left_end()"""
             visited.add(new_block.block_id)
                 continue
 
