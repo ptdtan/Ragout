@@ -93,6 +93,7 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     target_perms = []
     for scf in scaffolds:
         perm = Permutation.with_scaffold(scf, target, scf.name)
+        print [block.signed_id() for block in perm.blocks]
         target_perms.append(perm)
 
     perm_container.target_perms = target_perms[:]
@@ -103,7 +104,9 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     adjacencies = adj_inferer.infer_adjacencies()
     #cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
     scaffolds = scfldr.build_scaffolds(adjacencies, perm_container, ancestral=True)
-    print [scaffold.contigs for scaffold in scaffolds]
+    for scaffold in scaffolds:
+        for contig in scaffold.contigs:
+            print [block.signed_id() for block in contig.perm.blocks]
     scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
 
     out_gen = OutputGenerator(ancestor_sequences, scaffolds)
