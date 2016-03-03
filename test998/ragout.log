@@ -1,0 +1,193 @@
+[21:36:31] root: INFO: Starting Ragout v2.0b
+[21:36:31] root: INFO: Extracting target FASTA from HAL
+[21:36:31] root: INFO: Extracting ancestor FASTA from HAL
+[21:36:31] root: INFO: Converting HAL to MAF
+[21:36:31] root: DEBUG: hal2mafMP.py boolean14.hal test998/hal-workdir/alignment.maf --numProc 32 --refGenome G4 --targetGenomes G5,G4,G3,G2 --inMemory
+[21:37:17] root: INFO: Extracting synteny blocks from MAF
+[21:37:17] root: INFO: Running maf2synteny module
+[21:37:17] root: DEBUG: Parsing MAF file
+[21:37:17] root: DEBUG: Started initial compression
+[21:37:17] root: DEBUG: Simplification with 30 500
+[21:37:18] root: DEBUG: Simplification with 100 5000
+[21:37:18] root: DEBUG: Simplification with 500 50000
+[21:37:18] root: DEBUG: Simplification with 5000 500000
+[21:37:18] root: INFO: Phylogeny is taken from the recipe
+[21:37:18] root: DEBUG: Branch lengths: [1, 1, 1, 1], mu = 1.0
+[21:37:18] root: INFO: Processing permutation files
+[21:37:18] root: DEBUG: Reading permutation file
+[21:37:18] root: DEBUG: "G5" synteny blocks coverage: 88.42%
+[21:37:18] root: DEBUG: "G4" synteny blocks coverage: 88.41%
+[21:37:18] root: DEBUG: "G3" synteny blocks coverage: 88.42%
+[21:37:18] root: DEBUG: Read 2 reference sequences
+[21:37:18] root: DEBUG: Read 5 target sequences
+[21:37:18] root: DEBUG: Read 6 ancestor sequences
+[21:37:18] root: DEBUG: 5 target sequences left after indel filtering
+[21:37:18] root: DEBUG: 5 target sequences left after repeat filtering
+[21:37:18] root: DEBUG: Built breakpoint graph with 42 nodes
+[21:37:18] root: DEBUG: Reading permutation file
+[21:37:18] root: DEBUG: "G5" synteny blocks coverage: 88.42%
+[21:37:18] root: DEBUG: "G4" synteny blocks coverage: 88.41%
+[21:37:18] root: DEBUG: "G3" synteny blocks coverage: 88.42%
+[21:37:18] root: DEBUG: Read 2 reference sequences
+[21:37:18] root: DEBUG: Read 5 target sequences
+[21:37:18] root: DEBUG: Read 6 ancestor sequences
+[21:37:18] root: DEBUG: 5 target sequences left after indel filtering
+[21:37:18] root: DEBUG: 5 target sequences left after repeat filtering
+[21:37:18] root: DEBUG: Built breakpoint graph with 42 nodes
+[21:37:18] root: INFO: Reading contigs file
+[21:37:18] root: INFO: Reading contigs file
+[21:37:18] root: INFO: Stage "70000"
+[21:37:18] root: DEBUG: Built breakpoint graph with 42 nodes
+[21:37:18] root: INFO: Inferring missing adjacencies
+[21:37:18] root: DEBUG: Found 13 connected components
+[21:37:18] root: DEBUG: Inferred 5 adjacencies
+[21:37:18] root: DEBUG: 0 orphaned nodes
+[21:37:18] root: DEBUG: 0 guessed edges
+[21:37:18] root: DEBUG: 16 trimmed edges
+[21:37:18] root: INFO: Building scaffolds
+[21:37:18] root: DEBUG: 5 contigs were joined into 1 scaffolds
+[21:37:18] root: INFO: Stage "refine"
+[21:37:18] root: DEBUG: Built breakpoint graph with 42 nodes
+[21:37:18] root: INFO: Inferring missing adjacencies
+[21:37:18] root: DEBUG: Found 13 connected components
+[21:37:18] root: DEBUG: Inferred 5 adjacencies
+[21:37:18] root: DEBUG: 0 orphaned nodes
+[21:37:18] root: DEBUG: 0 guessed edges
+[21:37:18] root: DEBUG: 16 trimmed edges
+[21:37:18] root: INFO: Building scaffolds
+[21:37:18] root: DEBUG: 5 contigs were joined into 1 scaffolds
+[21:37:18] root: INFO: Merging two iterations
+[21:37:18] root: DEBUG: Fail: not found: 0
+[21:37:18] root: DEBUG: Fail: different scaffolds: 0
+[21:37:18] root: DEBUG: Fail: different orientatilns: 0
+[21:37:18] root: DEBUG: Fail: inconsistent: 0
+[21:37:18] root: DEBUG: Total success: 4
+[21:37:18] root: DEBUG: Total fail: 0
+[21:37:18] root: DEBUG: Total inserted: 0
+[21:37:18] root: DEBUG: Result: 5 contigs in 1 scaffolds
+[21:37:18] root: DEBUG: Merging consequtive contigs: 5 left
+[21:37:18] root: DEBUG: Built breakpoint graph with 42 nodes
+[21:37:18] root: INFO: Inferring missing adjacencies
+[21:37:18] root: DEBUG: Found 13 connected components
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Branch lengths: [1, 1], mu = 1.0
+[21:37:18] root: DEBUG: Inferred 6 adjacencies
+[21:37:18] root: DEBUG: 0 orphaned nodes
+[21:37:18] root: DEBUG: 0 guessed edges
+[21:37:18] root: DEBUG: 15 trimmed edges
+[21:37:18] root: INFO: Building scaffolds
+[21:37:18] root: DEBUG: 6 contigs were joined into 1 scaffolds
+[21:37:18] root: INFO: Generating FASTA output
+[21:37:18] root: INFO: Assembly statistics:
+
+	Scaffolds:		1
+	Used fragments:		6
+	Scaffolds length:	4629877
+
+	Unplaced fragments:	0
+	Unplaced length:	0 (0.00%)
+	Introduced Ns length:	55 (0.00%)
+
+	Fragments N50:		1322801
+	Assembly N50:		4629877
+
+[21:37:18] root: INFO: Building assembly graph
+[21:37:18] root: DEBUG: Reading FASTA
+[21:37:18] root: DEBUG: Building FM-index
+[21:37:18] root: DEBUG: Overapping
+[21:37:18] root: DEBUG: Kmer size is set to -1
+[21:37:18] root: INFO: Refining with assembly graph
+[21:37:18] root: DEBUG: Max path len = 30
+[21:37:18] root: WARNING: Too few overlaps (0) between contigs were detected -- refine procedure will be useless. Possible reasons:
+
+1. Some contigs output by assembler are missing
+2. Contigs overlap not on a constant value (like k-mer for assemblers which use debruijn graph)
+3. Contigs ends are trimmed/postprocessed
+
+[21:37:18] root: INFO: Generating FASTA output
+[21:37:18] root: INFO: Assembly statistics:
+
+	Scaffolds:		1
+	Used fragments:		5
+	Scaffolds length:	4629856
+
+	Unplaced fragments:	0
+	Unplaced length:	0 (0.00%)
+	Introduced Ns length:	44 (0.00%)
+
+	Fragments N50:		1500000
+	Assembly N50:		4629856
+
+[21:37:18] root: INFO: Done!
