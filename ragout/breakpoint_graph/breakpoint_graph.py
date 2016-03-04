@@ -160,7 +160,7 @@ class BreakpointGraph(object):
         assert len(self.bp_graph) >= 2
         g = nx.Graph()
         g.add_nodes_from(self.bp_graph.nodes())
-
+        #print self.references, self.target
         for node in self.bp_graph.nodes():
             adjacencies = {}
             for neighbor in self.bp_graph.neighbors(node):
@@ -170,9 +170,8 @@ class BreakpointGraph(object):
             for ref_id in self.references: #maybe unessesary
                 if ref_id not in adjacencies:
                     adjacencies[ref_id] = None  #"void" state in paper
-            for target_id in self.target:
-                if target_id not in adjacencies:
-                    adjacencies[target_id] = None #"void" state for target genome
+            if self.target not in adjacencies:
+                adjacencies[self.target] = None #"void" state for target genome
 
             break_weights = {}
             for neighbor in self.bp_graph.neighbors(node):
