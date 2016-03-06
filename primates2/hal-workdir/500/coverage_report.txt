@@ -1,0 +1,10 @@
+6	1
+9	1
+10	3
+5	19
+--------------------------------------------------------------------------------
+simHuman.simHuman.chr6	99.6523
+Anc2.Anc2refChr0	99.6382
+simChimp.simChimp.chr6	99.6086
+simOrang.simOrang.chr6	99.6694
+simGorilla.simGorilla.chr6	99.6353

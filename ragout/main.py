@@ -94,7 +94,6 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     target_perms = []
     for scf in scaffolds:
         perm = Permutation.with_scaffold(scf, target, scf.name)
-        print [block.signed_id() for block in perm.blocks]
         target_perms.append(perm)
 
     perm_container.target_perms = target_perms[:]
@@ -250,7 +249,8 @@ def run_ragout(args):
                     phylogeny, 
                     naming_ref,
                     ancestor_sequences,
-                    args.out_dir)
+                    args.out_dir,
+                    [last_stage])
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     if not args.no_refine:

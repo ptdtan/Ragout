@@ -1,0 +1,5 @@
+##agp-version  2.0
+#ASSEMBLY NAME: simHuman
+#DESCRIPTION: Pseudochromosome assembly
+#PROGRAM: Ragout v2.0b
+chr	1	597871	1	W	simHuman.chr6	1	597871	+

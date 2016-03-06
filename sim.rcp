@@ -1,0 +1,7 @@
+.references = simChimp, simGorilla, simOrang
+.target = simHuman
+.ancestor = Anc2
+.hal = primates.hal
+.tree = (((simHuman:0.0067,simChimp:0.006667)Anc2:0.00225,simGorilla:0.008825)Anc1:0.00968,simOrang:0.018318)Anc0;
+.blocks = small
+.naming_ref = ancestor_2

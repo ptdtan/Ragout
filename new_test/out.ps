@@ -1,0 +1,5882 @@
+%!PS-Adobe-2.0
+%%Title: out.ps
+%%Creator: gnuplot 4.6 patchlevel 4
+%%CreationDate: Sun Mar  6 00:08:21 2016
+%%DocumentFonts: (atend)
+%%BoundingBox: 50 50 554 770
+%%Orientation: Landscape
+%%Pages: (atend)
+%%EndComments
+%%BeginProlog
+/gnudict 256 dict def
+gnudict begin
+%
+% The following true/false flags may be edited by hand if desired.
+% The unit line width and grayscale image gamma correction may also be changed.
+%
+/Color true def
+/Blacktext false def
+/Solid true def
+/Dashlength 1 def
+/Landscape true def
+/Level1 false def
+/Rounded false def
+/ClipToBoundingBox false def
+/SuppressPDFMark false def
+/TransparentPatterns false def
+/gnulinewidth 5.000 def
+/userlinewidth gnulinewidth def
+/Gamma 1.0 def
+/BackgroundColor {-1.000 -1.000 -1.000} def
+%
+/vshift -26 def
+/dl1 {
+  10.0 Dashlength mul mul
+  Rounded { currentlinewidth 0.75 mul sub dup 0 le { pop 0.01 } if } if
+} def
+/dl2 {
+  10.0 Dashlength mul mul
+  Rounded { currentlinewidth 0.75 mul add } if
+} def
+/hpt_ 31.5 def
+/vpt_ 31.5 def
+/hpt hpt_ def
+/vpt vpt_ def
+/doclip {
+  ClipToBoundingBox {
+    newpath 50 50 moveto 554 50 lineto 554 770 lineto 50 770 lineto closepath
+    clip
+  } if
+} def
+%
+% Gnuplot Prolog Version 4.6 (September 2012)
+%
+%/SuppressPDFMark true def
+%
+/M {moveto} bind def
+/L {lineto} bind def
+/R {rmoveto} bind def
+/V {rlineto} bind def
+/N {newpath moveto} bind def
+/Z {closepath} bind def
+/C {setrgbcolor} bind def
+/f {rlineto fill} bind def
+/g {setgray} bind def
+/Gshow {show} def   % May be redefined later in the file to support UTF-8
+/vpt2 vpt 2 mul def
+/hpt2 hpt 2 mul def
+/Lshow {currentpoint stroke M 0 vshift R 
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/Rshow {currentpoint stroke M dup stringwidth pop neg vshift R
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/Cshow {currentpoint stroke M dup stringwidth pop -2 div vshift R 
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/UP {dup vpt_ mul /vpt exch def hpt_ mul /hpt exch def
+  /hpt2 hpt 2 mul def /vpt2 vpt 2 mul def} def
+/DL {Color {setrgbcolor Solid {pop []} if 0 setdash}
+ {pop pop pop 0 setgray Solid {pop []} if 0 setdash} ifelse} def
+/BL {stroke userlinewidth 2 mul setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/AL {stroke userlinewidth 2 div setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/UL {dup gnulinewidth mul /userlinewidth exch def
+	dup 1 lt {pop 1} if 10 mul /udl exch def} def
+/PL {stroke userlinewidth setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+3.8 setmiterlimit
+% Default Line colors
+/LCw {1 1 1} def
+/LCb {0 0 0} def
+/LCa {0 0 0} def
+/LC0 {1 0 0} def
+/LC1 {0 1 0} def
+/LC2 {0 0 1} def
+/LC3 {1 0 1} def
+/LC4 {0 1 1} def
+/LC5 {1 1 0} def
+/LC6 {0 0 0} def
+/LC7 {1 0.3 0} def
+/LC8 {0.5 0.5 0.5} def
+% Default Line Types
+/LTw {PL [] 1 setgray} def
+/LTb {BL [] LCb DL} def
+/LTa {AL [1 udl mul 2 udl mul] 0 setdash LCa setrgbcolor} def
+/LT0 {PL [] LC0 DL} def
+/LT1 {PL [4 dl1 2 dl2] LC1 DL} def
+/LT2 {PL [2 dl1 3 dl2] LC2 DL} def
+/LT3 {PL [1 dl1 1.5 dl2] LC3 DL} def
+/LT4 {PL [6 dl1 2 dl2 1 dl1 2 dl2] LC4 DL} def
+/LT5 {PL [3 dl1 3 dl2 1 dl1 3 dl2] LC5 DL} def
+/LT6 {PL [2 dl1 2 dl2 2 dl1 6 dl2] LC6 DL} def
+/LT7 {PL [1 dl1 2 dl2 6 dl1 2 dl2 1 dl1 2 dl2] LC7 DL} def
+/LT8 {PL [2 dl1 2 dl2 2 dl1 2 dl2 2 dl1 2 dl2 2 dl1 4 dl2] LC8 DL} def
+/Pnt {stroke [] 0 setdash gsave 1 setlinecap M 0 0 V stroke grestore} def
+/Dia {stroke [] 0 setdash 2 copy vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke
+  Pnt} def
+/Pls {stroke [] 0 setdash vpt sub M 0 vpt2 V
+  currentpoint stroke M
+  hpt neg vpt neg R hpt2 0 V stroke
+ } def
+/Box {stroke [] 0 setdash 2 copy exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke
+  Pnt} def
+/Crs {stroke [] 0 setdash exch hpt sub exch vpt add M
+  hpt2 vpt2 neg V currentpoint stroke M
+  hpt2 neg 0 R hpt2 vpt2 V stroke} def
+/TriU {stroke [] 0 setdash 2 copy vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke
+  Pnt} def
+/Star {2 copy Pls Crs} def
+/BoxF {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath fill} def
+/TriUF {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath fill} def
+/TriD {stroke [] 0 setdash 2 copy vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke
+  Pnt} def
+/TriDF {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath fill} def
+/DiaF {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath fill} def
+/Pent {stroke [] 0 setdash 2 copy gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore Pnt} def
+/PentF {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath fill grestore} def
+/Circle {stroke [] 0 setdash 2 copy
+  hpt 0 360 arc stroke Pnt} def
+/CircleF {stroke [] 0 setdash hpt 0 360 arc fill} def
+/C0 {BL [] 0 setdash 2 copy moveto vpt 90 450 arc} bind def
+/C1 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C2 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C3 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C4 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C5 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc
+	2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc} bind def
+/C6 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C7 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C8 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C9 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 450 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C10 {BL [] 0 setdash 2 copy 2 copy moveto vpt 270 360 arc closepath fill
+	2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C11 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C12 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C13 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C14 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 360 arc closepath fill
+	vpt 0 360 arc} bind def
+/C15 {BL [] 0 setdash 2 copy vpt 0 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/Rec {newpath 4 2 roll moveto 1 index 0 rlineto 0 exch rlineto
+	neg 0 rlineto closepath} bind def
+/Square {dup Rec} bind def
+/Bsquare {vpt sub exch vpt sub exch vpt2 Square} bind def
+/S0 {BL [] 0 setdash 2 copy moveto 0 vpt rlineto BL Bsquare} bind def
+/S1 {BL [] 0 setdash 2 copy vpt Square fill Bsquare} bind def
+/S2 {BL [] 0 setdash 2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S3 {BL [] 0 setdash 2 copy exch vpt sub exch vpt2 vpt Rec fill Bsquare} bind def
+/S4 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S5 {BL [] 0 setdash 2 copy 2 copy vpt Square fill
+	exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S6 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S7 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S8 {BL [] 0 setdash 2 copy vpt sub vpt Square fill Bsquare} bind def
+/S9 {BL [] 0 setdash 2 copy vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S10 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt Square fill
+	Bsquare} bind def
+/S11 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt2 vpt Rec fill
+	Bsquare} bind def
+/S12 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill Bsquare} bind def
+/S13 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S14 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S15 {BL [] 0 setdash 2 copy Bsquare fill Bsquare} bind def
+/D0 {gsave translate 45 rotate 0 0 S0 stroke grestore} bind def
+/D1 {gsave translate 45 rotate 0 0 S1 stroke grestore} bind def
+/D2 {gsave translate 45 rotate 0 0 S2 stroke grestore} bind def
+/D3 {gsave translate 45 rotate 0 0 S3 stroke grestore} bind def
+/D4 {gsave translate 45 rotate 0 0 S4 stroke grestore} bind def
+/D5 {gsave translate 45 rotate 0 0 S5 stroke grestore} bind def
+/D6 {gsave translate 45 rotate 0 0 S6 stroke grestore} bind def
+/D7 {gsave translate 45 rotate 0 0 S7 stroke grestore} bind def
+/D8 {gsave translate 45 rotate 0 0 S8 stroke grestore} bind def
+/D9 {gsave translate 45 rotate 0 0 S9 stroke grestore} bind def
+/D10 {gsave translate 45 rotate 0 0 S10 stroke grestore} bind def
+/D11 {gsave translate 45 rotate 0 0 S11 stroke grestore} bind def
+/D12 {gsave translate 45 rotate 0 0 S12 stroke grestore} bind def
+/D13 {gsave translate 45 rotate 0 0 S13 stroke grestore} bind def
+/D14 {gsave translate 45 rotate 0 0 S14 stroke grestore} bind def
+/D15 {gsave translate 45 rotate 0 0 S15 stroke grestore} bind def
+/DiaE {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke} def
+/BoxE {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke} def
+/TriUE {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke} def
+/TriDE {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke} def
+/PentE {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore} def
+/CircE {stroke [] 0 setdash 
+  hpt 0 360 arc stroke} def
+/Opaque {gsave closepath 1 setgray fill grestore 0 setgray closepath} def
+/DiaW {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V Opaque stroke} def
+/BoxW {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V Opaque stroke} def
+/TriUW {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V Opaque stroke} def
+/TriDW {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V Opaque stroke} def
+/PentW {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  Opaque stroke grestore} def
+/CircW {stroke [] 0 setdash 
+  hpt 0 360 arc Opaque stroke} def
+/BoxFill {gsave Rec 1 setgray fill grestore} def
+/Density {
+  /Fillden exch def
+  currentrgbcolor
+  /ColB exch def /ColG exch def /ColR exch def
+  /ColR ColR Fillden mul Fillden sub 1 add def
+  /ColG ColG Fillden mul Fillden sub 1 add def
+  /ColB ColB Fillden mul Fillden sub 1 add def
+  ColR ColG ColB setrgbcolor} def
+/BoxColFill {gsave Rec PolyFill} def
+/PolyFill {gsave Density fill grestore grestore} def
+/h {rlineto rlineto rlineto gsave closepath fill grestore} bind def
+%
+% PostScript Level 1 Pattern Fill routine for rectangles
+% Usage: x y w h s a XX PatternFill
+%	x,y = lower left corner of box to be filled
+%	w,h = width and height of box
+%	  a = angle in degrees between lines and x-axis
+%	 XX = 0/1 for no/yes cross-hatch
+%
+/PatternFill {gsave /PFa [ 9 2 roll ] def
+  PFa 0 get PFa 2 get 2 div add PFa 1 get PFa 3 get 2 div add translate
+  PFa 2 get -2 div PFa 3 get -2 div PFa 2 get PFa 3 get Rec
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+  clip
+  currentlinewidth 0.5 mul setlinewidth
+  /PFs PFa 2 get dup mul PFa 3 get dup mul add sqrt def
+  0 0 M PFa 5 get rotate PFs -2 div dup translate
+  0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 M 0 PFs V} for
+  0 PFa 6 get ne {
+	0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 2 1 roll M PFs 0 V} for
+ } if
+  stroke grestore} def
+%
+/languagelevel where
+ {pop languagelevel} {1} ifelse
+ 2 lt
+	{/InterpretLevel1 true def}
+	{/InterpretLevel1 Level1 def}
+ ifelse
+%
+% PostScript level 2 pattern fill definitions
+%
+/Level2PatternFill {
+/Tile8x8 {/PaintType 2 /PatternType 1 /TilingType 1 /BBox [0 0 8 8] /XStep 8 /YStep 8}
+	bind def
+/KeepColor {currentrgbcolor [/Pattern /DeviceRGB] setcolorspace} bind def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke} 
+>> matrix makepattern
+/Pat1 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke
+	0 4 M 4 8 L 8 4 L 4 0 L 0 4 L stroke}
+>> matrix makepattern
+/Pat2 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 0 8 L
+	8 8 L 8 0 L 0 0 L fill}
+>> matrix makepattern
+/Pat3 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 8 M 8 -4 L
+	0 12 M 12 0 L stroke}
+>> matrix makepattern
+/Pat4 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 0 M 8 12 L
+	0 -4 M 12 8 L stroke}
+>> matrix makepattern
+/Pat5 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 8 M 4 -4 L
+	0 12 M 8 -4 L 4 12 M 10 0 L stroke}
+>> matrix makepattern
+/Pat6 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 0 M 4 12 L
+	0 -4 M 8 12 L 4 -4 M 10 8 L stroke}
+>> matrix makepattern
+/Pat7 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 8 -2 M -4 4 L
+	12 0 M -4 8 L 12 4 M 0 10 L stroke}
+>> matrix makepattern
+/Pat8 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 -2 M 12 4 L
+	-4 0 M 12 8 L -4 4 M 8 10 L stroke}
+>> matrix makepattern
+/Pat9 exch def
+/Pattern1 {PatternBgnd KeepColor Pat1 setpattern} bind def
+/Pattern2 {PatternBgnd KeepColor Pat2 setpattern} bind def
+/Pattern3 {PatternBgnd KeepColor Pat3 setpattern} bind def
+/Pattern4 {PatternBgnd KeepColor Landscape {Pat5} {Pat4} ifelse setpattern} bind def
+/Pattern5 {PatternBgnd KeepColor Landscape {Pat4} {Pat5} ifelse setpattern} bind def
+/Pattern6 {PatternBgnd KeepColor Landscape {Pat9} {Pat6} ifelse setpattern} bind def
+/Pattern7 {PatternBgnd KeepColor Landscape {Pat8} {Pat7} ifelse setpattern} bind def
+} def
+%
+%
+%End of PostScript Level 2 code
+%
+/PatternBgnd {
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+} def
+%
+% Substitute for Level 2 pattern fill codes with
+% grayscale if Level 2 support is not selected.
+%
+/Level1PatternFill {
+/Pattern1 {0.250 Density} bind def
+/Pattern2 {0.500 Density} bind def
+/Pattern3 {0.750 Density} bind def
+/Pattern4 {0.125 Density} bind def
+/Pattern5 {0.375 Density} bind def
+/Pattern6 {0.625 Density} bind def
+/Pattern7 {0.875 Density} bind def
+} def
+%
+% Now test for support of Level 2 code
+%
+Level1 {Level1PatternFill} {Level2PatternFill} ifelse
+%
+/Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
+dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
+currentdict end definefont pop
+Level1 SuppressPDFMark or 
+{} {
+/SDict 10 dict def
+systemdict /pdfmark known not {
+  userdict /pdfmark systemdict /cleartomark get put
+} if
+SDict begin [
+  /Title (out.ps)
+  /Subject (gnuplot plot)
+  /Creator (gnuplot 4.6 patchlevel 4)
+  /Author (ptdtan)
+%  /Producer (gnuplot)
+%  /Keywords ()
+  /CreationDate (Sun Mar  6 00:08:21 2016)
+  /DOCINFO pdfmark
+end
+} ifelse
+end
+%%EndProlog
+%%Page: 1 1
+gnudict begin
+gsave
+doclip
+50 50 translate
+0.100 0.100 scale
+90 rotate
+0 -5040 translate
+0 setgray
+newpath
+(Courier) findfont 80 scalefont setfont
+BackgroundColor 0 lt 3 1 roll 0 lt exch 0 lt or or not {gsave BackgroundColor C clippath fill grestore} if
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 256 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 256 M
+6519 0 R
+488 256 M
+(0) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 754 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 754 M
+6519 0 R
+488 754 M
+(500000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 1251 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 1251 M
+6519 0 R
+-6567 0 R
+(1000000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 1749 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 1749 M
+6519 0 R
+-6567 0 R
+(1500000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 2246 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 2246 M
+6519 0 R
+-6567 0 R
+(2000000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 2744 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 2744 M
+6519 0 R
+-6567 0 R
+(2500000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 3242 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 3242 M
+6519 0 R
+-6567 0 R
+(3000000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 3739 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 3739 M
+6519 0 R
+-6567 0 R
+(3500000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 4237 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 4237 M
+6519 0 R
+-6567 0 R
+(4000000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 4735 M
+6519 0 V
+stroke
+LTb
+LCb setrgbcolor
+536 4735 M
+6519 0 R
+-6567 0 R
+(4500000) Rshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+536 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+536 256 M
+0 4687 R
+536 176 M
+(0) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+1240 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+1240 256 M
+0 4687 R
+0 -4767 R
+(500000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+1944 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+1944 256 M
+0 4687 R
+0 -4767 R
+(1000000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+2648 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+2648 256 M
+0 4687 R
+0 -4767 R
+(1500000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+3352 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+3352 256 M
+0 4687 R
+0 -4767 R
+(2000000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+4056 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+4056 256 M
+0 4687 R
+0 -4767 R
+(2500000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+4760 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+4760 256 M
+0 4687 R
+0 -4767 R
+(3000000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+5464 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+5464 256 M
+0 4687 R
+0 -4767 R
+(3500000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+6168 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+6168 256 M
+0 4687 R
+0 -4767 R
+(4000000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTa
+LCa setrgbcolor
+6872 256 M
+0 4687 V
+stroke
+LTb
+LCb setrgbcolor
+6872 256 M
+0 4687 R
+0 -4767 R
+(4500000) Cshow
+1.000 UL
+LTb
+LCb setrgbcolor
+1.000 UL
+LTb
+LCb setrgbcolor
+536 4943 N
+536 256 L
+6519 0 V
+0 4687 V
+-6519 0 V
+Z stroke
+LCb setrgbcolor
+64 2599 M
+currentpoint gsave translate -270 rotate 0 0 M
+(chr) Cshow
+grestore
+LTb
+LCb setrgbcolor
+3795 56 M
+(G4) Cshow
+LTb
+1.000 UP
+1.000 UL
+LTb
+LCb setrgbcolor
+% Begin plot #1
+0.500 UP
+2.000 UL
+LT0
+LC0 setrgbcolor
+1213 3343 M
+0 1 V
+7018 2891 M
+6610 1990 M
+2 1 V
+3135 4192 M
+0 1 V
+5211 1688 M
+-2022 19 R
+2 2 V
+2020 -21 R
+1025 2981 M
+1 0 V
+5211 602 M
+326 149 R
+1 1 V
+-1 1218 R
+1 1 V
+332 235 R
+2 1 V
+5744 1970 M
+1 1 V
+5744 751 M
+1 1 V
+125 1308 R
+2 1 V
+5505 1099 M
+675 883 R
+1 1 V
+1028 4781 M
+1 1 V
+6826 604 M
+1 0 V
+1025 4686 M
+1 0 V
+6692 602 M
+2630 3464 M
+3691 2497 M
+0 1 V
+6178 1980 M
+0 1 V
+2037 2153 M
+1654 35 R
+0 1 V
+797 1291 R
+1075 111 R
+5837 2294 M
+2037 2464 M
+4488 1317 M
+2630 2087 M
+0 1 V
+3669 3591 M
+22 15 R
+2562 2823 M
+5837 846 M
+5613 2498 M
+2630 2229 M
+1070 4917 M
+1 0 V
+7018 634 M
+4026 4584 M
+0 1 V
+1025 2823 M
+1 0 V
+2 2094 R
+1 0 V
+7018 604 M
+2630 3257 M
+5837 2497 M
+0 1 V
+3691 846 M
+6398 3591 M
+3669 2153 M
+5613 3606 M
+0 -1684 R
+1070 4917 M
+1 0 V
+7018 634 M
+1213 4917 M
+7018 734 M
+1 1 V
+2037 3480 M
+3691 2294 M
+2037 2612 M
+4698 1317 M
+3870 1099 M
+1 0 V
+617 2255 R
+5613 4584 M
+0 1 V
+0 -2291 R
+3669 3480 M
+3847 1015 M
+0 2591 R
+1213 4917 M
+7018 734 M
+0 1 V
+1371 4584 M
+0 1 V
+6548 846 M
+5563 2153 M
+50 35 R
+0 1 V
+-50 -195 R
+274 194 R
+0 1 V
+stroke 5837 2189 M
+1213 4917 M
+3669 1994 M
+5837 3606 M
+5563 1317 M
+2037 3598 M
+4173 2981 M
+5003 1377 M
+1609 2122 M
+3847 1099 M
+3691 4584 M
+0 1 V
+4026 1099 M
+-179 823 R
+851 231 R
+1707 2882 M
+1 1 V
+2465 98 R
+3669 1317 M
+11 3267 R
+1 1 V
+6197 2129 M
+1 0 R
+4536 4584 M
+0 1 V
+6548 2498 M
+6197 2129 M
+1 0 R
+5706 4575 M
+1213 4917 M
+7018 734 M
+0 1 V
+4536 3606 M
+2037 3591 M
+-308 993 R
+0 1 V
+5046 2498 M
+6548 1099 M
+0 2507 R
+0 -1418 R
+0 1 V
+4698 3480 M
+5613 846 M
+3847 4584 M
+0 1 V
+4163 1099 M
+3669 2612 M
+3116 4190 M
+1 0 V
+1028 4917 M
+1 0 V
+7018 604 M
+3847 2188 M
+0 1 V
+5563 3480 M
+3847 2294 M
+4026 1015 M
+3110 4818 M
+1 0 V
+10 0 R
+1474 0 R
+6878 2540 M
+1 0 V
+1371 3606 M
+238 -816 R
+3680 2294 M
+1 0 V
+-1 203 R
+1 1 V
+3669 716 M
+5046 2294 M
+2411 4917 M
+1 0 V
+7018 1581 M
+0 1 V
+4247 4584 M
+0 1 V
+6548 2294 M
+1371 2497 M
+0 1 V
+4536 846 M
+1170 253 R
+1729 2122 M
+3847 846 M
+851 1148 R
+2411 4917 M
+1 0 V
+7018 1581 M
+0 1 V
+2893 2294 M
+0 204 R
+4247 1922 M
+289 0 R
+2037 3464 M
+4247 2188 M
+0 1 V
+3669 3598 M
+11 8 R
+1 0 V
+3680 846 M
+1 0 V
+2174 4817 M
+1 1 V
+6877 1414 M
+1 0 V
+stroke 6878 1414 M
+4222 4817 M
+1 1 V
+6877 2276 M
+1 1 V
+-1 -260 R
+1 1 V
+2327 4817 M
+1 1 V
+6877 1522 M
+1 1 V
+876 4817 M
+1 1 V
+29 -1 R
+1 1 V
+6877 496 M
+1 1 V
+-1 21 R
+1 0 V
+3847 2498 M
+1802 4817 M
+1 1 V
+6877 1151 M
+1 0 V
+3625 4817 M
+1 1 V
+-1621 -1 R
+1 1 V
+6877 1295 M
+1 0 V
+1371 3816 M
+1522 768 R
+0 1 V
+1420 232 R
+1 1 V
+4698 3354 M
+6548 1922 M
+329 418 R
+1 1 V
+569 4817 M
+1 1 V
+6877 279 M
+1 1 V
+4698 2852 M
+0 1 V
+3691 1922 M
+4698 3464 M
+6197 2128 M
+1 0 R
+1 0 R
+3669 3354 M
+357 252 R
+672 -15 R
+3680 1922 M
+1 0 V
+3372 3354 M
+654 462 R
+1371 2188 M
+0 1 V
+4247 3606 M
+1972 2823 M
+3372 1317 M
+3870 846 M
+1 0 V
+3117 4191 M
+1 0 V
+4247 3816 M
+1371 2294 M
+4247 846 M
+451 2752 R
+3372 3464 M
+498 352 R
+1 0 V
+4536 2188 M
+0 1 V
+1692 4494 M
+0 1 V
+6420 1073 M
+1 0 V
+4017 991 M
+1108 2613 M
+1 1 V
+4700 661 M
+1692 4494 M
+0 1 V
+6420 1073 M
+1 0 V
+2893 3606 M
+0 -1418 R
+0 1 V
+978 2386 R
+5563 2612 M
+3870 2294 M
+1 0 V
+393 2379 R
+6673 2305 M
+0 1 V
+3680 2188 M
+1 1 V
+5563 3598 M
+3813 661 M
+2379 3628 M
+1301 947 R
+1 0 V
+6534 2188 M
+0 1 V
+stroke 6534 2189 M
+3721 1975 M
+1 0 V
+5864 3568 M
+1 1 V
+-4528 -1 R
+2 1 V
+3721 498 M
+1 0 V
+5255 4673 M
+6673 3012 M
+-2409 0 R
+991 1529 R
+0 -2236 R
+0 1 V
+1232 706 R
+3719 498 M
+2 1 V
+5046 4575 M
+878 1975 M
+1 0 V
+5542 498 M
+1 1 V
+1337 3569 M
+2 2 V
+5875 825 M
+2 2 V
+3638 1561 M
+5864 822 M
+1 1 V
+1337 2202 M
+2 1 V
+1454 809 R
+5255 1851 M
+0 1 V
+3107 4186 M
+1 0 V
+3719 1975 M
+2 0 V
+5864 3570 M
+1 1 V
+3100 4182 M
+3 2 V
+3813 2613 M
+0 1 V
+5542 1975 M
+1 0 V
+321 228 R
+1 0 V
+5255 4673 M
+6673 3013 M
+5321 4536 M
+1 1 V
+6479 3059 M
+2 1 V
+2743 4909 M
+7007 1816 M
+2793 4673 M
+5 3 V
+1466 -3 R
+4 3 V
+6674 1852 M
+4 3 V
+-4 451 R
+4 3 V
+2793 3013 M
+5 3 V
+5255 1851 M
+5 4 V
+4264 3013 M
+4 3 V
+987 -711 R
+5 4 V
+4264 4541 M
+7 6 V
+6487 2305 M
+7 6 V
+1234 1969 M
+5 3 V
+2376 3628 M
+4269 4677 M
+2 2 V
+6678 2309 M
+3 2 V
+2793 4541 M
+8 6 V
+6487 1851 M
+7 6 V
+2798 4677 M
+3 2 V
+6678 1855 M
+3 2 V
+1350 2613 M
+0 1 V
+3813 831 M
+887 0 R
+555 3842 R
+8 5 V
+6674 3013 M
+7 5 V
+5261 4504 M
+2 2 V
+6434 3017 M
+2 1 V
+1033 2479 M
+2 1 V
+stroke 1035 2480 M
+4510 608 M
+1 0 V
+2798 3016 M
+2 2 V
+1469 -2 R
+2 2 V
+989 -709 R
+3 2 V
+-3 -456 R
+3 2 V
+876 2276 M
+1 1 V
+29 63 R
+1 1 V
+126 339 R
+1 1 V
+32 -202 R
+2 1 V
+-2 2355 R
+2 1 V
+-2 -17 R
+2 1 V
+-2 -2140 R
+2 1 V
+-2 1732 R
+2 0 V
+1408 2680 M
+1 1 V
+-1 -202 R
+1 1 V
+-1 2355 R
+1 1 V
+-1 -17 R
+1 1 V
+20 -1 R
+1 1 V
+-1 -2140 R
+1 1 V
+-1 2154 R
+1 1 V
+-1 -2357 R
+1 1 V
+372 -204 R
+1 1 V
+391 2558 R
+1 1 V
+-1 -17 R
+1 1 V
+-1 -407 R
+1 0 V
+132 451 R
+1 1 V
+-1 -2848 R
+1 1 V
+-1 258 R
+1 1 V
+-1 63 R
+1 1 V
+4222 1522 M
+1 1 V
+4222 496 M
+1 1 V
+-1 654 R
+1 0 V
+90 371 R
+1 1 V
+4313 518 M
+1 0 V
+196 113 R
+1 1 V
+-1 240 R
+1 1 V
+-1 14 R
+1 1 V
+4794 631 M
+1 1 V
+-1 -24 R
+1 0 V
+-1 279 R
+1 1 V
+-1 -16 R
+1 1 V
+1009 14 R
+1 1 V
+-1 -16 R
+1 1 V
+-1 555 R
+1 1 V
+-1 -798 R
+1 1 V
+500 796 R
+1 1 V
+-1 -798 R
+1 1 V
+574 796 R
+1 1 V
+-1 -542 R
+1 1 V
+-1 -257 R
+1 1 V
+-1 240 R
+1 1 V
+22 -1 R
+1 1 V
+stroke 6904 873 M
+-1 -242 R
+1 1 V
+-1 796 R
+1 1 V
+-1 -542 R
+1 1 V
+40 634 R
+1 1 V
+1033 4413 M
+1 0 V
+-1 422 R
+1 1 V
+-1 -17 R
+1 1 V
+374 -407 R
+1 0 V
+5804 608 M
+1 0 V
+500 0 R
+1 0 V
+-1 264 R
+1 1 V
+6880 608 M
+1 0 V
+22 0 R
+1 0 V
+2194 2680 M
+1 1 V
+-1 -202 R
+1 1 V
+4510 1428 M
+1 1 V
+283 -1 R
+1 1 V
+1429 4413 M
+1 0 V
+6305 887 M
+1 1 V
+1366 4819 M
+1 1 V
+4794 4284 M
+1 1 V
+6123 2680 M
+1 1 V
+6880 843 M
+1 1 V
+569 2276 M
+1 1 V
+4222 279 M
+1 1 V
+2005 4864 M
+1 1 V
+2174 2340 M
+1 1 V
+4313 1414 M
+1 0 V
+6944 1295 M
+1 0 V
+5804 2479 M
+1 1 V
+5255 4541 M
+5 4 V
+6487 3013 M
+4 3 V
+-5425 78 R
+2 1 V
+238 1318 R
+1 0 V
+-1 422 R
+1 1 V
+-1 -17 R
+1 1 V
+-1 -2341 R
+1 1 V
+-1 200 R
+1 1 V
+59 1732 R
+1 0 V
+41 -1319 R
+1 1 V
+765 -819 R
+1 1 V
+19 817 R
+1 1 V
+3625 2340 M
+1 1 V
+-1 -927 R
+1 0 V
+-1 3450 R
+1 1 V
+596 -1 R
+1 1 V
+-1 -3451 R
+1 0 V
+90 3450 R
+1 1 V
+196 -581 R
+1 1 V
+4510 800 M
+1 1 V
+283 -1 R
+1 1 V
+575 71 R
+2 1 V
+stroke 5372 873 M
+-2 555 R
+2 1 V
+-2 -798 R
+2 1 V
+432 3515 R
+1 1 V
+5804 800 M
+1 1 V
+318 1678 R
+1 1 V
+6305 843 M
+1 1 V
+-1 -44 R
+1 1 V
+-1 2836 R
+1 0 V
+6880 800 M
+1 1 V
+-1 2836 R
+1 0 V
+6903 800 M
+1 1 V
+40 1539 R
+1 1 V
+-1 -65 R
+1 1 V
+569 2340 M
+1 1 V
+-1 2523 R
+1 1 V
+796 -30 R
+1 1 V
+62 -1742 R
+1 1 V
+575 -755 R
+1 1 V
+-1 -324 R
+1 1 V
+-1 258 R
+1 1 V
+1619 -1 R
+1 1 V
+-1 -260 R
+1 1 V
+596 -723 R
+1 0 V
+90 722 R
+1 1 V
+4313 279 M
+1 1 V
+-1 1015 R
+1 0 V
+196 2342 R
+1 0 V
+-1 510 R
+1 1 V
+283 -511 R
+1 0 V
+-1 510 R
+1 1 V
+5370 887 M
+2 1 V
+432 2749 R
+1 0 V
+-1 647 R
+1 1 V
+5929 2479 M
+1 1 V
+-1 200 R
+1 1 V
+6903 843 M
+1 1 V
+-1 2793 R
+1 0 V
+6944 279 M
+1 1 V
+1033 3094 M
+1 1 V
+332 -616 R
+1 1 V
+-1 200 R
+1 1 V
+4510 843 M
+1 1 V
+283 -1 R
+1 1 V
+5370 608 M
+2 0 V
+432 235 R
+1 1 V
+569 2017 M
+1 1 V
+3652 -1 R
+1 1 V
+876 2017 M
+1 1 V
+2194 4284 M
+1 1 V
+6123 1428 M
+1 1 V
+1368 2430 M
+2 2 V
+4440 844 M
+2 1 V
+stroke 4442 845 M
+3461 2430 M
+2 2 V
+5260 4545 M
+3 1 V
+6492 3016 M
+2 2 V
+4595 4495 M
+2 1 V
+6421 2540 M
+2 1 V
+3461 844 M
+2 1 V
+876 2340 M
+1 1 V
+-1 2523 R
+1 1 V
+1033 3637 M
+1 0 V
+32 647 R
+2 1 V
+-2 -138 R
+2 1 V
+1306 3094 M
+1 1 V
+59 -1 R
+1 1 V
+41 1052 R
+1 1 V
+-1 -511 R
+1 0 V
+-1 647 R
+1 1 V
+20 -1 R
+1 1 V
+1802 2017 M
+1 1 V
+-1 2846 R
+1 1 V
+2194 3637 M
+1 0 V
+3625 1522 M
+1 1 V
+3625 496 M
+1 1 V
+-1 654 R
+1 0 V
+4313 496 M
+1 1 V
+196 2597 R
+1 1 V
+283 -1 R
+1 1 V
+5370 843 M
+2 1 V
+-2 2793 R
+2 0 V
+-2 -957 R
+2 1 V
+-2 -202 R
+2 1 V
+5370 800 M
+2 1 V
+557 71 R
+1 1 V
+-1 -242 R
+1 1 V
+193 -1 R
+1 1 V
+-1 240 R
+1 1 V
+-1 14 R
+1 1 V
+820 263 R
+1 0 V
+-1 -655 R
+1 1 V
+906 4864 M
+1 1 V
+906 2276 M
+1 1 V
+-1 -260 R
+1 1 V
+126 2129 R
+1 1 V
+32 -511 R
+2 0 V
+361 510 R
+1 1 V
+-1 -511 R
+1 0 V
+764 510 R
+1 1 V
+3625 518 M
+1 0 V
+596 0 R
+1 0 V
+5370 4413 M
+2 0 V
+-2 406 R
+2 1 V
+-2 15 R
+2 1 V
+-2 -552 R
+2 1 V
+stroke 5372 4285 M
+5804 3094 M
+1 1 V
+5929 608 M
+1 0 V
+-1 279 R
+1 1 V
+-1 540 R
+1 1 V
+193 1665 R
+1 1 V
+181 -1 R
+1 1 V
+574 -1 R
+1 1 V
+22 -1 R
+1 1 V
+6944 518 M
+1 0 V
+1033 4284 M
+1 1 V
+1802 2340 M
+1 1 V
+4313 1151 M
+1 0 V
+5370 4147 M
+2 1 V
+5929 3094 M
+1 1 V
+6123 608 M
+1 0 V
+3625 279 M
+1 1 V
+5804 4413 M
+1 0 V
+3110 2540 M
+2 1 V
+9 -1 R
+2 1 V
+-2 1954 R
+2 1 V
+-13 -1 R
+2 1 V
+2793 2305 M
+8 6 V
+4264 1851 M
+7 6 V
+536 256 M
+2930 1948 L
+5887 4117 M
+1168 826 V
+558 2430 M
+2 2 V
+581 1320 R
+2 1 V
+163 531 R
+1 1 V
+-1 -138 R
+1 1 V
+-1 -511 R
+1 0 V
+59 0 R
+1 0 V
+-1 647 R
+1 1 V
+-1 -138 R
+1 1 V
+807 716 R
+1 1 V
+-1 -2848 R
+1 1 V
+479 1623 R
+1 0 V
+88 1268 R
+50 -236 R
+6 -169 R
+1 1 V
+12 -2073 R
+2 1 V
+-2 1189 R
+2 1 V
+-2 -1517 R
+2 2 V
+3461 271 M
+2 2 V
+162 1022 R
+1 0 V
+19 -453 R
+1 1 V
+1 1 R
+550 1414 R
+704 498 V
+4269 4504 M
+2 1 V
+4440 271 M
+2 2 V
+1 1833 R
+2 2 V
+-2 -243 R
+2 1 V
+-2 1756 R
+2 1 V
+65 1212 R
+1 1 V
+-1 -423 R
+1 0 V
+-1 406 R
+1 1 V
+27 -2018 R
+256 2033 R
+1 1 V
+-1 -423 R
+1 0 V
+-1 406 R
+1 1 V
+5183 2961 M
+281 199 V
+5677 842 M
+1 1 V
+1 1 R
+125 1836 R
+1 1 V
+-1 2154 R
+1 1 V
+-1 -17 R
+1 1 V
+5929 3637 M
+1 0 V
+5929 843 M
+1 1 V
+-1 -44 R
+1 1 V
+193 2836 R
+1 0 V
+6123 843 M
+1 1 V
+-1 -44 R
+1 1 V
+181 1879 R
+1 1 V
+-1 -202 R
+1 1 V
+128 -625 R
+2 2 V
+-2 452 R
+2 2 V
+237 -460 R
+0 1 V
+207 828 R
+1 1 V
+-1 -202 R
+1 1 V
+22 200 R
+1 1 V
+stroke 6904 2681 M
+-1 -202 R
+1 1 V
+40 -463 R
+1 1 V
+-1 -604 R
+1 0 V
+61 402 R
+1 0 V
+1213 3343 Circle
+1213 3344 Circle
+7018 2891 Circle
+7018 2891 Circle
+6610 1990 Circle
+6612 1991 Circle
+3135 4192 Circle
+3135 4193 Circle
+5211 1688 Circle
+5211 1688 Circle
+3189 1707 Circle
+3191 1709 Circle
+5211 1688 Circle
+5211 1688 Circle
+1025 2981 Circle
+1026 2981 Circle
+5211 602 Circle
+5211 602 Circle
+5537 751 Circle
+5538 752 Circle
+5537 1970 Circle
+5538 1971 Circle
+5870 2206 Circle
+5872 2207 Circle
+5744 1970 Circle
+5745 1971 Circle
+5744 751 Circle
+5745 752 Circle
+5870 2060 Circle
+5872 2061 Circle
+5505 1099 Circle
+5505 1099 Circle
+6180 1982 Circle
+6181 1983 Circle
+1028 4781 Circle
+1029 4782 Circle
+6826 604 Circle
+6827 604 Circle
+1025 4686 Circle
+1026 4686 Circle
+6692 602 Circle
+6692 602 Circle
+2630 3464 Circle
+2630 3464 Circle
+3691 2497 Circle
+3691 2498 Circle
+6178 1980 Circle
+6178 1981 Circle
+2037 2153 Circle
+2037 2153 Circle
+3691 2188 Circle
+3691 2189 Circle
+4488 3480 Circle
+4488 3480 Circle
+5563 3591 Circle
+5563 3591 Circle
+5837 2294 Circle
+5837 2294 Circle
+2037 2464 Circle
+2037 2464 Circle
+4488 1317 Circle
+4488 1317 Circle
+2630 2087 Circle
+2630 2088 Circle
+3669 3591 Circle
+3669 3591 Circle
+3691 3606 Circle
+3691 3606 Circle
+2562 2823 Circle
+2562 2823 Circle
+5837 846 Circle
+5837 846 Circle
+5613 2498 Circle
+5613 2498 Circle
+2630 2229 Circle
+2630 2229 Circle
+1070 4917 Circle
+1071 4917 Circle
+7018 634 Circle
+7018 634 Circle
+4026 4584 Circle
+4026 4585 Circle
+1025 2823 Circle
+1026 2823 Circle
+1028 4917 Circle
+1029 4917 Circle
+7018 604 Circle
+7018 604 Circle
+2630 3257 Circle
+2630 3257 Circle
+5837 2497 Circle
+5837 2498 Circle
+3691 846 Circle
+3691 846 Circle
+6398 3591 Circle
+6398 3591 Circle
+3669 2153 Circle
+3669 2153 Circle
+5613 3606 Circle
+5613 3606 Circle
+5613 1922 Circle
+5613 1922 Circle
+1070 4917 Circle
+1071 4917 Circle
+7018 634 Circle
+7018 634 Circle
+1213 4917 Circle
+1213 4917 Circle
+7018 734 Circle
+7019 735 Circle
+2037 3480 Circle
+2037 3480 Circle
+3691 2294 Circle
+3691 2294 Circle
+2037 2612 Circle
+2037 2612 Circle
+4698 1317 Circle
+4698 1317 Circle
+3870 1099 Circle
+3871 1099 Circle
+4488 3354 Circle
+4488 3354 Circle
+5613 4584 Circle
+5613 4585 Circle
+5613 2294 Circle
+5613 2294 Circle
+3669 3480 Circle
+3669 3480 Circle
+3847 1015 Circle
+3847 1015 Circle
+3847 3606 Circle
+3847 3606 Circle
+1213 4917 Circle
+1213 4917 Circle
+7018 734 Circle
+7018 735 Circle
+1371 4584 Circle
+1371 4585 Circle
+6548 846 Circle
+6548 846 Circle
+5563 2153 Circle
+5563 2153 Circle
+5613 2188 Circle
+5613 2189 Circle
+5563 1994 Circle
+5563 1994 Circle
+5837 2188 Circle
+5837 2189 Circle
+1213 4917 Circle
+1213 4917 Circle
+3669 1994 Circle
+3669 1994 Circle
+5837 3606 Circle
+5837 3606 Circle
+5563 1317 Circle
+5563 1317 Circle
+2037 3598 Circle
+2037 3598 Circle
+4173 2981 Circle
+4173 2981 Circle
+5003 1377 Circle
+5003 1377 Circle
+1609 2122 Circle
+1609 2122 Circle
+3847 1099 Circle
+3847 1099 Circle
+3691 4584 Circle
+3691 4585 Circle
+4026 1099 Circle
+4026 1099 Circle
+3847 1922 Circle
+3847 1922 Circle
+4698 2153 Circle
+4698 2153 Circle
+1707 2882 Circle
+1708 2883 Circle
+4173 2981 Circle
+4173 2981 Circle
+3669 1317 Circle
+3669 1317 Circle
+3680 4584 Circle
+3681 4585 Circle
+6197 2129 Circle
+6197 2129 Circle
+6198 2129 Circle
+6198 2129 Circle
+4536 4584 Circle
+4536 4585 Circle
+6548 2498 Circle
+6548 2498 Circle
+6197 2129 Circle
+6197 2129 Circle
+6198 2129 Circle
+6198 2129 Circle
+5706 4575 Circle
+5706 4575 Circle
+1213 4917 Circle
+1213 4917 Circle
+7018 734 Circle
+7018 735 Circle
+4536 3606 Circle
+4536 3606 Circle
+2037 3591 Circle
+2037 3591 Circle
+1729 4584 Circle
+1729 4585 Circle
+5046 2498 Circle
+5046 2498 Circle
+6548 1099 Circle
+6548 1099 Circle
+6548 3606 Circle
+6548 3606 Circle
+6548 2188 Circle
+6548 2189 Circle
+4698 3480 Circle
+4698 3480 Circle
+5613 846 Circle
+5613 846 Circle
+3847 4584 Circle
+3847 4585 Circle
+4163 1099 Circle
+4163 1099 Circle
+3669 2612 Circle
+3669 2612 Circle
+3116 4190 Circle
+3117 4190 Circle
+1028 4917 Circle
+1029 4917 Circle
+7018 604 Circle
+7018 604 Circle
+3847 2188 Circle
+3847 2189 Circle
+5563 3480 Circle
+5563 3480 Circle
+3847 2294 Circle
+3847 2294 Circle
+4026 1015 Circle
+4026 1015 Circle
+3110 4818 Circle
+3111 4818 Circle
+3121 4818 Circle
+3121 4818 Circle
+4595 4818 Circle
+4595 4818 Circle
+6878 2540 Circle
+6879 2540 Circle
+1371 3606 Circle
+1371 3606 Circle
+1609 2790 Circle
+1609 2790 Circle
+3680 2294 Circle
+3681 2294 Circle
+3680 2497 Circle
+3681 2498 Circle
+3669 716 Circle
+3669 716 Circle
+5046 2294 Circle
+5046 2294 Circle
+2411 4917 Circle
+2412 4917 Circle
+7018 1581 Circle
+7018 1582 Circle
+4247 4584 Circle
+4247 4585 Circle
+6548 2294 Circle
+6548 2294 Circle
+1371 2497 Circle
+1371 2498 Circle
+4536 846 Circle
+4536 846 Circle
+5706 1099 Circle
+5706 1099 Circle
+1729 2122 Circle
+1729 2122 Circle
+3847 846 Circle
+3847 846 Circle
+4698 1994 Circle
+4698 1994 Circle
+2411 4917 Circle
+2412 4917 Circle
+7018 1581 Circle
+7018 1582 Circle
+2893 2294 Circle
+2893 2294 Circle
+2893 2498 Circle
+2893 2498 Circle
+4247 1922 Circle
+4247 1922 Circle
+4536 1922 Circle
+4536 1922 Circle
+2037 3464 Circle
+2037 3464 Circle
+4247 2188 Circle
+4247 2189 Circle
+3669 3598 Circle
+3669 3598 Circle
+3680 3606 Circle
+3681 3606 Circle
+3680 846 Circle
+3681 846 Circle
+2174 4817 Circle
+2175 4818 Circle
+6877 1414 Circle
+6878 1414 Circle
+4222 4817 Circle
+4223 4818 Circle
+6877 2276 Circle
+6878 2277 Circle
+6877 2017 Circle
+6878 2018 Circle
+2327 4817 Circle
+2328 4818 Circle
+6877 1522 Circle
+6878 1523 Circle
+876 4817 Circle
+877 4818 Circle
+906 4817 Circle
+907 4818 Circle
+6877 496 Circle
+6878 497 Circle
+6877 518 Circle
+6878 518 Circle
+3847 2498 Circle
+3847 2498 Circle
+1802 4817 Circle
+1803 4818 Circle
+6877 1151 Circle
+6878 1151 Circle
+3625 4817 Circle
+3626 4818 Circle
+2005 4817 Circle
+2006 4818 Circle
+6877 1295 Circle
+6878 1295 Circle
+1371 3816 Circle
+1371 3816 Circle
+2893 4584 Circle
+2893 4585 Circle
+4313 4817 Circle
+4314 4818 Circle
+4698 3354 Circle
+4698 3354 Circle
+6548 1922 Circle
+6548 1922 Circle
+6877 2340 Circle
+6878 2341 Circle
+569 4817 Circle
+570 4818 Circle
+6877 279 Circle
+6878 280 Circle
+4698 2852 Circle
+4698 2853 Circle
+3691 1922 Circle
+3691 1922 Circle
+4698 3464 Circle
+4698 3464 Circle
+6197 2128 Circle
+6197 2128 Circle
+6198 2128 Circle
+6198 2128 Circle
+6199 2128 Circle
+6199 2128 Circle
+3669 3354 Circle
+3669 3354 Circle
+4026 3606 Circle
+4026 3606 Circle
+4698 3591 Circle
+4698 3591 Circle
+3680 1922 Circle
+3681 1922 Circle
+3372 3354 Circle
+3372 3354 Circle
+4026 3816 Circle
+4026 3816 Circle
+1371 2188 Circle
+1371 2189 Circle
+4247 3606 Circle
+4247 3606 Circle
+1972 2823 Circle
+1972 2823 Circle
+3372 1317 Circle
+3372 1317 Circle
+3870 846 Circle
+3871 846 Circle
+3117 4191 Circle
+3118 4191 Circle
+4247 3816 Circle
+4247 3816 Circle
+1371 2294 Circle
+1371 2294 Circle
+4247 846 Circle
+4247 846 Circle
+4698 3598 Circle
+4698 3598 Circle
+3372 3464 Circle
+3372 3464 Circle
+3870 3816 Circle
+3871 3816 Circle
+4536 2188 Circle
+4536 2189 Circle
+1692 4494 Circle
+1692 4495 Circle
+6420 1073 Circle
+6421 1073 Circle
+4017 991 Circle
+4017 991 Circle
+1108 2613 Circle
+1109 2614 Circle
+4700 661 Circle
+4700 661 Circle
+1692 4494 Circle
+1692 4495 Circle
+6420 1073 Circle
+6421 1073 Circle
+2893 3606 Circle
+2893 3606 Circle
+2893 2188 Circle
+2893 2189 Circle
+3871 4575 Circle
+3871 4575 Circle
+5563 2612 Circle
+5563 2612 Circle
+3870 2294 Circle
+3871 2294 Circle
+4264 4673 Circle
+4264 4673 Circle
+6673 2305 Circle
+6673 2306 Circle
+3680 2188 Circle
+3681 2189 Circle
+5563 3598 Circle
+5563 3598 Circle
+3813 661 Circle
+3813 661 Circle
+2379 3628 Circle
+2379 3628 Circle
+3680 4575 Circle
+3681 4575 Circle
+6534 2188 Circle
+6534 2189 Circle
+3721 1975 Circle
+3722 1975 Circle
+5864 3568 Circle
+5865 3569 Circle
+1337 3568 Circle
+1339 3569 Circle
+3721 498 Circle
+3722 498 Circle
+5255 4673 Circle
+5255 4673 Circle
+6673 3012 Circle
+6673 3012 Circle
+4264 3012 Circle
+4264 3012 Circle
+5255 4541 Circle
+5255 4541 Circle
+5255 2305 Circle
+5255 2306 Circle
+6487 3012 Circle
+6487 3012 Circle
+3719 498 Circle
+3721 499 Circle
+5046 4575 Circle
+5046 4575 Circle
+878 1975 Circle
+879 1975 Circle
+5542 498 Circle
+5543 499 Circle
+1337 3569 Circle
+1339 3571 Circle
+5875 825 Circle
+5877 827 Circle
+3638 1561 Circle
+3638 1561 Circle
+5864 822 Circle
+5865 823 Circle
+1337 2202 Circle
+1339 2203 Circle
+2793 3012 Circle
+2793 3012 Circle
+5255 1851 Circle
+5255 1852 Circle
+3107 4186 Circle
+3108 4186 Circle
+3719 1975 Circle
+3721 1975 Circle
+5864 3570 Circle
+5865 3571 Circle
+3100 4182 Circle
+3103 4184 Circle
+3813 2613 Circle
+3813 2614 Circle
+5542 1975 Circle
+5543 1975 Circle
+5864 2203 Circle
+5865 2203 Circle
+5255 4673 Circle
+5255 4673 Circle
+6673 3013 Circle
+6673 3013 Circle
+5321 4536 Circle
+5322 4537 Circle
+6479 3059 Circle
+6481 3060 Circle
+2743 4909 Circle
+2743 4909 Circle
+7007 1816 Circle
+7007 1816 Circle
+2793 4673 Circle
+2798 4676 Circle
+4264 4673 Circle
+4268 4676 Circle
+6674 1852 Circle
+6678 1855 Circle
+6674 2306 Circle
+6678 2309 Circle
+2793 3013 Circle
+2798 3016 Circle
+5255 1851 Circle
+5260 1855 Circle
+4264 3013 Circle
+4268 3016 Circle
+5255 2305 Circle
+5260 2309 Circle
+4264 4541 Circle
+4271 4547 Circle
+6487 2305 Circle
+6494 2311 Circle
+1234 1969 Circle
+1239 1972 Circle
+2376 3628 Circle
+2376 3628 Circle
+4269 4677 Circle
+4271 4679 Circle
+6678 2309 Circle
+6681 2311 Circle
+2793 4541 Circle
+2801 4547 Circle
+6487 1851 Circle
+6494 1857 Circle
+2798 4677 Circle
+2801 4679 Circle
+6678 1855 Circle
+6681 1857 Circle
+1350 2613 Circle
+1350 2614 Circle
+3813 831 Circle
+3813 831 Circle
+4700 831 Circle
+4700 831 Circle
+5255 4673 Circle
+5263 4678 Circle
+6674 3013 Circle
+6681 3018 Circle
+5261 4504 Circle
+5263 4506 Circle
+6434 3017 Circle
+6436 3018 Circle
+1033 2479 Circle
+1035 2480 Circle
+4510 608 Circle
+4511 608 Circle
+2798 3016 Circle
+2800 3018 Circle
+4269 3016 Circle
+4271 3018 Circle
+5260 2309 Circle
+5263 2311 Circle
+5260 1855 Circle
+5263 1857 Circle
+876 2276 Circle
+877 2277 Circle
+906 2340 Circle
+907 2341 Circle
+1033 2680 Circle
+1034 2681 Circle
+1066 2479 Circle
+1068 2480 Circle
+1066 4835 Circle
+1068 4836 Circle
+1066 4819 Circle
+1068 4820 Circle
+1066 2680 Circle
+1068 2681 Circle
+1066 4413 Circle
+1068 4413 Circle
+1408 2680 Circle
+1409 2681 Circle
+1408 2479 Circle
+1409 2480 Circle
+1408 4835 Circle
+1409 4836 Circle
+1408 4819 Circle
+1409 4820 Circle
+1429 4819 Circle
+1430 4820 Circle
+1429 2680 Circle
+1430 2681 Circle
+1429 4835 Circle
+1430 4836 Circle
+1429 2479 Circle
+1430 2480 Circle
+1802 2276 Circle
+1803 2277 Circle
+2194 4835 Circle
+2195 4836 Circle
+2194 4819 Circle
+2195 4820 Circle
+2194 4413 Circle
+2195 4413 Circle
+2327 4864 Circle
+2328 4865 Circle
+2327 2017 Circle
+2328 2018 Circle
+2327 2276 Circle
+2328 2277 Circle
+2327 2340 Circle
+2328 2341 Circle
+4222 1522 Circle
+4223 1523 Circle
+4222 496 Circle
+4223 497 Circle
+4222 1151 Circle
+4223 1151 Circle
+4313 1522 Circle
+4314 1523 Circle
+4313 518 Circle
+4314 518 Circle
+4510 631 Circle
+4511 632 Circle
+4510 872 Circle
+4511 873 Circle
+4510 887 Circle
+4511 888 Circle
+4794 631 Circle
+4795 632 Circle
+4794 608 Circle
+4795 608 Circle
+4794 887 Circle
+4795 888 Circle
+4794 872 Circle
+4795 873 Circle
+5804 887 Circle
+5805 888 Circle
+5804 872 Circle
+5805 873 Circle
+5804 1428 Circle
+5805 1429 Circle
+5804 631 Circle
+5805 632 Circle
+6305 1428 Circle
+6306 1429 Circle
+6305 631 Circle
+6306 632 Circle
+6880 1428 Circle
+6881 1429 Circle
+6880 887 Circle
+6881 888 Circle
+6880 631 Circle
+6881 632 Circle
+6880 872 Circle
+6881 873 Circle
+6903 872 Circle
+6904 873 Circle
+6903 631 Circle
+6904 632 Circle
+6903 1428 Circle
+6904 1429 Circle
+6903 887 Circle
+6904 888 Circle
+6944 1522 Circle
+6945 1523 Circle
+1033 4413 Circle
+1034 4413 Circle
+1033 4835 Circle
+1034 4836 Circle
+1033 4819 Circle
+1034 4820 Circle
+1408 4413 Circle
+1409 4413 Circle
+5804 608 Circle
+5805 608 Circle
+6305 608 Circle
+6306 608 Circle
+6305 872 Circle
+6306 873 Circle
+6880 608 Circle
+6881 608 Circle
+6903 608 Circle
+6904 608 Circle
+2194 2680 Circle
+2195 2681 Circle
+2194 2479 Circle
+2195 2480 Circle
+4510 1428 Circle
+4511 1429 Circle
+4794 1428 Circle
+4795 1429 Circle
+1429 4413 Circle
+1430 4413 Circle
+6305 887 Circle
+6306 888 Circle
+1366 4819 Circle
+1367 4820 Circle
+4794 4284 Circle
+4795 4285 Circle
+6123 2680 Circle
+6124 2681 Circle
+6880 843 Circle
+6881 844 Circle
+569 2276 Circle
+570 2277 Circle
+4222 279 Circle
+4223 280 Circle
+2005 4864 Circle
+2006 4865 Circle
+2174 2340 Circle
+2175 2341 Circle
+4313 1414 Circle
+4314 1414 Circle
+6944 1295 Circle
+6945 1295 Circle
+5804 2479 Circle
+5805 2480 Circle
+5255 4541 Circle
+5260 4545 Circle
+6487 3013 Circle
+6491 3016 Circle
+1066 3094 Circle
+1068 3095 Circle
+1306 4413 Circle
+1307 4413 Circle
+1306 4835 Circle
+1307 4836 Circle
+1306 4819 Circle
+1307 4820 Circle
+1306 2479 Circle
+1307 2480 Circle
+1306 2680 Circle
+1307 2681 Circle
+1366 4413 Circle
+1367 4413 Circle
+1408 3094 Circle
+1409 3095 Circle
+2174 2276 Circle
+2175 2277 Circle
+2194 3094 Circle
+2195 3095 Circle
+3625 2340 Circle
+3626 2341 Circle
+3625 1414 Circle
+3626 1414 Circle
+3625 4864 Circle
+3626 4865 Circle
+4222 4864 Circle
+4223 4865 Circle
+4222 1414 Circle
+4223 1414 Circle
+4313 4864 Circle
+4314 4865 Circle
+4510 4284 Circle
+4511 4285 Circle
+4510 800 Circle
+4511 801 Circle
+4794 800 Circle
+4795 801 Circle
+5370 872 Circle
+5372 873 Circle
+5370 1428 Circle
+5372 1429 Circle
+5370 631 Circle
+5372 632 Circle
+5804 4147 Circle
+5805 4148 Circle
+5804 800 Circle
+5805 801 Circle
+6123 2479 Circle
+6124 2480 Circle
+6305 843 Circle
+6306 844 Circle
+6305 800 Circle
+6306 801 Circle
+6305 3637 Circle
+6306 3637 Circle
+6880 800 Circle
+6881 801 Circle
+6880 3637 Circle
+6881 3637 Circle
+6903 800 Circle
+6904 801 Circle
+6944 2340 Circle
+6945 2341 Circle
+6944 2276 Circle
+6945 2277 Circle
+569 2340 Circle
+570 2341 Circle
+569 4864 Circle
+570 4865 Circle
+1366 4835 Circle
+1367 4836 Circle
+1429 3094 Circle
+1430 3095 Circle
+2005 2340 Circle
+2006 2341 Circle
+2005 2017 Circle
+2006 2018 Circle
+2005 2276 Circle
+2006 2277 Circle
+3625 2276 Circle
+3626 2277 Circle
+3625 2017 Circle
+3626 2018 Circle
+4222 1295 Circle
+4223 1295 Circle
+4313 2017 Circle
+4314 2018 Circle
+4313 279 Circle
+4314 280 Circle
+4313 1295 Circle
+4314 1295 Circle
+4510 3637 Circle
+4511 3637 Circle
+4510 4147 Circle
+4511 4148 Circle
+4794 3637 Circle
+4795 3637 Circle
+4794 4147 Circle
+4795 4148 Circle
+5370 887 Circle
+5372 888 Circle
+5804 3637 Circle
+5805 3637 Circle
+5804 4284 Circle
+5805 4285 Circle
+5929 2479 Circle
+5930 2480 Circle
+5929 2680 Circle
+5930 2681 Circle
+6903 843 Circle
+6904 844 Circle
+6903 3637 Circle
+6904 3637 Circle
+6944 279 Circle
+6945 280 Circle
+1033 3094 Circle
+1034 3095 Circle
+1366 2479 Circle
+1367 2480 Circle
+1366 2680 Circle
+1367 2681 Circle
+4510 843 Circle
+4511 844 Circle
+4794 843 Circle
+4795 844 Circle
+5370 608 Circle
+5372 608 Circle
+5804 843 Circle
+5805 844 Circle
+569 2017 Circle
+570 2018 Circle
+4222 2017 Circle
+4223 2018 Circle
+876 2017 Circle
+877 2018 Circle
+2194 4284 Circle
+2195 4285 Circle
+6123 1428 Circle
+6124 1429 Circle
+1368 2430 Circle
+1370 2432 Circle
+4440 844 Circle
+4442 845 Circle
+3461 2430 Circle
+3463 2432 Circle
+5260 4545 Circle
+5263 4546 Circle
+6492 3016 Circle
+6494 3018 Circle
+4595 4495 Circle
+4597 4496 Circle
+6421 2540 Circle
+6423 2541 Circle
+3461 844 Circle
+3463 845 Circle
+876 2340 Circle
+877 2341 Circle
+876 4864 Circle
+877 4865 Circle
+1033 3637 Circle
+1034 3637 Circle
+1066 4284 Circle
+1068 4285 Circle
+1066 4147 Circle
+1068 4148 Circle
+1306 3094 Circle
+1307 3095 Circle
+1366 3094 Circle
+1367 3095 Circle
+1408 4147 Circle
+1409 4148 Circle
+1408 3637 Circle
+1409 3637 Circle
+1408 4284 Circle
+1409 4285 Circle
+1429 4284 Circle
+1430 4285 Circle
+1802 2017 Circle
+1803 2018 Circle
+1802 4864 Circle
+1803 4865 Circle
+2194 3637 Circle
+2195 3637 Circle
+3625 1522 Circle
+3626 1523 Circle
+3625 496 Circle
+3626 497 Circle
+3625 1151 Circle
+3626 1151 Circle
+4313 496 Circle
+4314 497 Circle
+4510 3094 Circle
+4511 3095 Circle
+4794 3094 Circle
+4795 3095 Circle
+5370 843 Circle
+5372 844 Circle
+5370 3637 Circle
+5372 3637 Circle
+5370 2680 Circle
+5372 2681 Circle
+5370 2479 Circle
+5372 2480 Circle
+5370 800 Circle
+5372 801 Circle
+5929 872 Circle
+5930 873 Circle
+5929 631 Circle
+5930 632 Circle
+6123 631 Circle
+6124 632 Circle
+6123 872 Circle
+6124 873 Circle
+6123 887 Circle
+6124 888 Circle
+6944 1151 Circle
+6945 1151 Circle
+6944 496 Circle
+6945 497 Circle
+906 4864 Circle
+907 4865 Circle
+906 2276 Circle
+907 2277 Circle
+906 2017 Circle
+907 2018 Circle
+1033 4147 Circle
+1034 4148 Circle
+1066 3637 Circle
+1068 3637 Circle
+1429 4147 Circle
+1430 4148 Circle
+1429 3637 Circle
+1430 3637 Circle
+2194 4147 Circle
+2195 4148 Circle
+3625 518 Circle
+3626 518 Circle
+4222 518 Circle
+4223 518 Circle
+5370 4413 Circle
+5372 4413 Circle
+5370 4819 Circle
+5372 4820 Circle
+5370 4835 Circle
+5372 4836 Circle
+5370 4284 Circle
+5372 4285 Circle
+5804 3094 Circle
+5805 3095 Circle
+5929 608 Circle
+5930 608 Circle
+5929 887 Circle
+5930 888 Circle
+5929 1428 Circle
+5930 1429 Circle
+6123 3094 Circle
+6124 3095 Circle
+6305 3094 Circle
+6306 3095 Circle
+6880 3094 Circle
+6881 3095 Circle
+6903 3094 Circle
+6904 3095 Circle
+6944 518 Circle
+6945 518 Circle
+1033 4284 Circle
+1034 4285 Circle
+1802 2340 Circle
+1803 2341 Circle
+4313 1151 Circle
+4314 1151 Circle
+5370 4147 Circle
+5372 4148 Circle
+5929 3094 Circle
+5930 3095 Circle
+6123 608 Circle
+6124 608 Circle
+3625 279 Circle
+3626 280 Circle
+5804 4413 Circle
+5805 4413 Circle
+3110 2540 Circle
+3112 2541 Circle
+3121 2540 Circle
+3123 2541 Circle
+3121 4495 Circle
+3123 4496 Circle
+3110 4495 Circle
+3112 4496 Circle
+2793 2305 Circle
+2801 2311 Circle
+4264 1851 Circle
+4271 1857 Circle
+536 256 Circle
+2930 1948 Circle
+5887 4117 Circle
+7055 4943 Circle
+558 2430 Circle
+560 2432 Circle
+1141 3752 Circle
+1143 3753 Circle
+1306 4284 Circle
+1307 4285 Circle
+1306 4147 Circle
+1307 4148 Circle
+1306 3637 Circle
+1307 3637 Circle
+1366 3637 Circle
+1367 3637 Circle
+1366 4284 Circle
+1367 4285 Circle
+1366 4147 Circle
+1367 4148 Circle
+2174 4864 Circle
+2175 4865 Circle
+2174 2017 Circle
+2175 2018 Circle
+2654 3641 Circle
+2654 3641 Circle
+2654 3641 Circle
+2655 3641 Circle
+2655 3641 Circle
+2655 3641 Circle
+2743 4909 Circle
+2743 4909 Circle
+2743 4909 Circle
+2743 4909 Circle
+2793 4673 Circle
+2793 4673 Circle
+2799 4504 Circle
+2800 4505 Circle
+2812 2432 Circle
+2814 2433 Circle
+2812 3622 Circle
+2814 3623 Circle
+2812 2106 Circle
+2814 2108 Circle
+3461 271 Circle
+3463 273 Circle
+3625 1295 Circle
+3626 1295 Circle
+3645 842 Circle
+3646 843 Circle
+3647 844 Circle
+3647 844 Circle
+4197 2258 Circle
+4901 2756 Circle
+4269 4504 Circle
+4271 4505 Circle
+4440 271 Circle
+4442 273 Circle
+4443 2106 Circle
+4445 2108 Circle
+4443 1865 Circle
+4445 1866 Circle
+4443 3622 Circle
+4445 3623 Circle
+4510 4835 Circle
+4511 4836 Circle
+4510 4413 Circle
+4511 4413 Circle
+4510 4819 Circle
+4511 4820 Circle
+4538 2802 Circle
+4538 2802 Circle
+4538 2802 Circle
+4538 2802 Circle
+4538 2802 Circle
+4538 2802 Circle
+4794 4835 Circle
+4795 4836 Circle
+4794 4413 Circle
+4795 4413 Circle
+4794 4819 Circle
+4795 4820 Circle
+5183 2961 Circle
+5464 3160 Circle
+5677 842 Circle
+5678 843 Circle
+5679 844 Circle
+5679 844 Circle
+5804 2680 Circle
+5805 2681 Circle
+5804 4835 Circle
+5805 4836 Circle
+5804 4819 Circle
+5805 4820 Circle
+5929 3637 Circle
+5930 3637 Circle
+5929 843 Circle
+5930 844 Circle
+5929 800 Circle
+5930 801 Circle
+6123 3637 Circle
+6124 3637 Circle
+6123 843 Circle
+6124 844 Circle
+6123 800 Circle
+6124 801 Circle
+6305 2680 Circle
+6306 2681 Circle
+6305 2479 Circle
+6306 2480 Circle
+6434 1855 Circle
+6436 1857 Circle
+6434 2309 Circle
+6436 2311 Circle
+6673 1851 Circle
+6673 1852 Circle
+6880 2680 Circle
+6881 2681 Circle
+6880 2479 Circle
+6881 2480 Circle
+6903 2680 Circle
+6904 2681 Circle
+6903 2479 Circle
+6904 2480 Circle
+6944 2017 Circle
+6945 2018 Circle
+6944 1414 Circle
+6945 1414 Circle
+7006 1816 Circle
+7007 1816 Circle
+7007 1816 Circle
+7007 1816 Circle
+% End plot #1
+% Begin plot #2
+0.500 UP
+2.000 UL
+LT2
+LC2 setrgbcolor
+2017 2585 M
+1 0 V
+4659 1303 M
+2018 2585 M
+4659 1303 M
+2018 2585 M
+4659 1303 M
+0 1 R
+0 -1 V
+4040 735 M
+1 -1 V
+950 4183 R
+851 -287 R
+2 -1 V
+976 604 M
+260 1603 R
+1 -1 V
+-1 -145 R
+1 -1 V
+2562 4917 M
+7018 1688 M
+2562 4917 M
+7018 1688 M
+3870 2229 M
+1 0 V
+5505 3464 M
+1729 2229 M
+5854 4325 M
+2454 1688 M
+108 -76 R
+1025 1264 M
+1 0 V
+1962 602 M
+1 0 V
+3871 1736 M
+1213 1688 M
+2562 735 M
+0 -1 V
+1025 1612 M
+1 0 V
+2454 602 M
+5857 4323 M
+1962 1688 M
+1 0 V
+599 -424 R
+3051 53 R
+4536 3591 M
+1213 1688 M
+2562 735 M
+0 -1 V
+976 1582 M
+0 -1 V
+2411 567 M
+151 168 R
+0 -1 V
+3847 2464 M
+400 -470 R
+1213 1688 M
+2562 735 M
+0 -1 V
+1025 604 M
+1 0 V
+2 -2 R
+1 0 V
+2037 2498 M
+0 -1 V
+4536 1317 M
+1962 1688 M
+1 0 V
+-1 0 R
+1 0 V
+599 -424 R
+1129 889 R
+5613 3591 M
+93 -1855 R
+1025 735 M
+1 -1 V
+1213 602 M
+-188 980 R
+1 -1 V
+2411 602 M
+1 0 V
+5087 1688 M
+-2633 0 R
+108 -76 R
+390 1055 R
+1729 1736 M
+901 -637 R
+1213 602 M
+1349 980 R
+0 -1 V
+-151 107 R
+1 0 V
+150 -106 R
+0 -1 V
+1371 1994 M
+591 987 R
+1 0 V
+4488 4585 M
+0 -1 V
+5211 1264 M
+6548 2464 M
+2411 1688 M
+1 0 V
+150 -106 R
+0 -1 V
+stroke 2562 1581 M
+1974 572 R
+969 -417 R
+1729 2464 M
+4488 1099 M
+4163 2229 M
+5505 3257 M
+1043 97 R
+2454 1688 M
+108 -76 R
+5087 602 M
+3680 2153 M
+1 0 V
+482 -417 R
+5613 3598 M
+2454 2981 M
+4536 1994 M
+675 -382 R
+1371 3591 M
+2320 888 R
+2893 2153 M
+1025 735 M
+1 0 V
+2821 582 R
+400 2274 R
+1729 3464 M
+1025 4917 M
+1 0 V
+7018 602 M
+1 0 V
+4026 2464 M
+6548 2153 M
+-2301 0 R
+1609 3480 M
+1367 2432 M
+1 -1 V
+4442 844 M
+1 0 V
+1729 1317 M
+308 -218 R
+0 1090 R
+0 -1 V
+1469 1582 M
+2411 916 M
+1269 401 R
+1 0 V
+5381 4661 M
+1 -1 V
+6655 3102 M
+5211 3250 M
+2122 2883 M
+0 -1 V
+5656 1015 M
+2411 1688 M
+1 0 V
+1729 3480 M
+4819 111 R
+1729 3354 M
+1164 126 R
+3847 2153 M
+5613 3480 M
+0 -868 R
+6548 1317 M
+5003 1084 M
+2037 3606 M
+0 979 R
+0 -1 V
+6548 3598 M
+-901 739 R
+1 0 V
+-1 0 R
+1 0 V
+-1 0 R
+6534 2088 M
+0 -1 V
+3669 2498 M
+0 -1 V
+22 -1180 R
+845 1536 R
+0 -1 V
+3669 4585 M
+0 -1 V
+4536 2612 M
+162 -114 R
+0 -1 V
+1371 1317 M
+2037 846 M
+1025 604 M
+1 0 V
+2 -2 R
+1 0 V
+5563 4585 M
+0 -1 V
+3847 2612 M
+1187 2294 M
+4247 716 M
+1371 2153 M
+2001 637 R
+5134 3816 M
+6548 3480 M
+1729 3257 M
+2969 349 R
+1187 846 M
+1371 716 M
+238 2638 R
+2638 126 R
+5955 4818 M
+923 -653 R
+1 0 V
+stroke 6879 4165 M
+4698 4585 M
+0 -1 V
+6548 2612 M
+3124 800 M
+1 -1 V
+544 1390 R
+0 -1 V
+0 -1342 R
+5563 3606 M
+3118 802 M
+4247 3598 M
+289 0 R
+5134 1015 M
+1187 3606 M
+4247 2853 M
+0 -1 V
+1729 2088 M
+0 -1 V
+308 -165 R
+856 -605 R
+4247 2612 M
+451 -318 R
+5656 1099 M
+1371 3480 M
+5837 2612 M
+4163 2088 M
+0 -1 V
+5706 3257 M
+2953 2667 M
+1 -1 V
+3870 1317 M
+1 0 V
+1692 977 R
+1371 3598 M
+4510 4818 M
+1 -1 V
+283 1 R
+1 -1 V
+6877 2681 M
+1 -1 V
+-1 -200 R
+1 -1 V
+-1 2341 R
+1 -1 V
+2 -1 R
+1 -1 V
+-576 1 R
+1 -1 V
+571 19 R
+1 -1 V
+-1 -422 R
+1 0 V
+25 405 R
+1 -1 V
+-1100 1 R
+1 -1 V
+-4739 1 R
+2 -1 V
+340 1 R
+1 -1 V
+785 1 R
+1 -1 V
+6877 873 M
+1 -1 V
+-1 -240 R
+1 -1 V
+-1 798 R
+1 -1 V
+4536 3480 M
+1033 4818 M
+1 -1 V
+395 1 R
+1 -1 V
+3940 1 R
+2 -1 V
+6877 3095 M
+1 -1 V
+6877 888 M
+1 -1 V
+-1 -279 R
+1 0 V
+1371 2612 M
+4698 846 M
+1306 4818 M
+1 -1 V
+59 1 R
+1 -1 V
+6877 801 M
+1 -1 V
+-1 2837 R
+1 0 V
+6877 844 M
+1 -1 V
+5929 4818 M
+1 -1 V
+193 1 R
+1 -1 V
+753 -669 R
+1 -1 V
+-1 138 R
+1 -1 V
+3372 846 M
+654 1766 R
+1020 0 R
+-2153 0 R
+4698 1922 M
+2893 3591 M
+977 -979 R
+1 0 V
+stroke 3871 2612 M
+5134 2122 M
+522 668 R
+-8 1547 R
+0 1 R
+3691 2612 M
+-798 986 R
+3871 2088 M
+0 -1 V
+5706 3464 M
+3669 2294 M
+5563 846 M
+-476 425 R
+2037 3816 M
+1371 3464 M
+2037 2294 M
+1335 0 R
+875 -977 R
+3680 2612 M
+1 0 V
+5563 2498 M
+0 -1 V
+1576 3360 M
+4040 2891 M
+1 0 V
+950 453 R
+1 -1 V
+1309 4191 M
+5991 802 M
+1 0 V
+4041 2891 M
+657 1684 R
+6534 2612 M
+4991 3344 M
+0 -1 V
+2613 2652 M
+4754 1724 M
+1 0 V
+3669 1922 M
+1894 0 R
+3712 2057 M
+1 0 V
+5748 3576 M
+1 -1 V
+785 -111 R
+4698 2189 M
+0 -1 V
+4247 3464 M
+844 4686 M
+478 -502 R
+0 -1 V
+5980 812 M
+1 -1 V
+6692 474 M
+3102 812 M
+2 -2 V
+1108 3505 M
+1 -1 V
+3638 1559 M
+5563 4575 M
+971 -977 R
+1707 1377 M
+415 -293 R
+3721 823 M
+1 -1 V
+3106 809 M
+2 -1 V
+3565 769 R
+878 3569 M
+1 -1 V
+3721 2203 M
+1 0 V
+5542 3569 M
+1 -1 V
+3715 2057 M
+1 0 V
+5748 3574 M
+1 -1 V
+1317 4186 M
+1 0 V
+5984 809 M
+0 -1 V
+1310 4190 M
+5989 803 M
+1 0 V
+3711 2062 M
+1 0 V
+5741 3577 M
+1 -1 V
+2404 3012 M
+5255 1577 M
+0 -1 V
+878 3571 M
+1 -2 V
+3021 2163 M
+2 -2 V
+3511 692 R
+0 -1 V
+878 823 M
+1 -1 V
+1337 499 M
+2 -1 V
+4525 0 R
+1 0 V
+878 2203 M
+1 -1 V
+stroke 879 2202 M
+3719 823 M
+2 -1 V
+1341 1968 M
+3 -2 V
+2376 1561 M
+6 -4 R
+0 -1 V
+0 2072 R
+3719 2203 M
+2 -1 V
+5541 3571 M
+2 -2 V
+1337 1975 M
+2 0 V
+2375 231 R
+2 -1 V
+5538 3574 M
+2 -1 V
+2 -2750 R
+1 -1 V
+631 3716 R
+308 -218 R
+3712 2206 M
+1 -1 V
+5538 3576 M
+2 -1 V
+3714 2060 M
+2 -2 V
+5745 3574 M
+2 -1 V
+862 3012 M
+5255 487 M
+2404 4541 M
+0 -2235 R
+0 -1 V
+4264 1576 M
+2223 0 R
+3712 2060 M
+1 -1 V
+5745 3576 M
+2 -1 V
+3711 2208 M
+1 0 V
+5534 3576 M
+1 0 V
+-835 -71 R
+0 -1 V
+862 3013 M
+5255 487 M
+2404 4673 M
+1 0 V
+-6 3 R
+5 -3 V
+-5 -1657 R
+5 -3 V
+5255 1576 M
+5 -3 V
+1413 3 R
+5 -3 V
+5869 753 M
+5 -4 V
+858 4545 M
+4 -4 V
+6487 486 M
+4 -3 V
+3638 1557 M
+0 -1 V
+1066 2277 M
+2 -1 V
+4222 632 M
+1 -1 V
+2399 4545 M
+5 -4 V
+6487 1576 M
+5 -3 V
+855 3018 M
+7 -5 V
+5255 486 M
+8 -5 V
+855 4678 M
+7 -5 V
+6673 487 M
+8 -6 V
+1350 3505 M
+0 -1 V
+2404 3013 M
+5255 1576 M
+855 4546 M
+2 -1 V
+6492 483 M
+2 -2 V
+855 4506 M
+2 -2 V
+6434 483 M
+2 -2 V
+1429 2341 M
+1 -1 V
+4313 888 M
+1 -1 V
+906 873 M
+1 -1 V
+1408 518 M
+1 0 V
+990 2499 R
+0 -1 V
+stroke 2399 3016 M
+0 1661 R
+5260 1573 M
+1 0 V
+1417 0 R
+1 0 V
+855 2311 M
+2 -2 V
+-2 -452 R
+2 -2 V
+2798 483 M
+2 -2 V
+1469 2 R
+2 -2 V
+1033 1414 M
+1 0 V
+-1 3451 R
+1 -1 V
+32 -2846 R
+2 -1 V
+-2 324 R
+2 -1 V
+-2 2525 R
+2 -1 V
+1408 2018 M
+1 -1 V
+-1 324 R
+1 -1 V
+-1 -63 R
+1 -1 V
+20 -862 R
+1 0 V
+-1 3451 R
+1 -1 V
+-1 -2846 R
+1 -1 V
+-1 260 R
+1 -1 V
+2174 888 M
+1 -1 V
+-1 -279 R
+1 0 V
+19 4257 R
+1 -1 V
+-1 -2523 R
+1 -1 V
+-1 -322 R
+1 -1 V
+-1 260 R
+1 -1 V
+132 2560 R
+1 -1 V
+-1 -422 R
+1 0 V
+-1 407 R
+1 -1 V
+4222 1429 M
+1 -1 V
+-1 -540 R
+1 -1 V
+-1 -14 R
+1 -1 V
+90 557 R
+1 -1 V
+-1 -555 R
+1 -1 V
+-1 -240 R
+1 -1 V
+1490 892 R
+1 -1 V
+500 1 R
+1 -1 V
+574 1 R
+1 -1 V
+22 1 R
+1 -1 V
+40 -914 R
+1 0 V
+-1 24 R
+1 -1 V
+-1 798 R
+1 -1 V
+-1 -540 R
+1 -1 V
+1033 2018 M
+1 -1 V
+-1 260 R
+1 -1 V
+32 -862 R
+2 0 V
+340 0 R
+1 0 V
+-1 3451 R
+1 -1 V
+2174 632 M
+1 -1 V
+-1 242 R
+1 -1 V
+152 1809 R
+1 -1 V
+-1 -200 R
+1 -1 V
+4222 608 M
+1 0 V
+-1 2487 R
+1 -1 V
+stroke 4223 3094 M
+4510 1523 M
+1 -1 V
+283 1 R
+1 -1 V
+575 755 R
+2 -1 V
+6944 873 M
+1 -1 V
+2174 1429 M
+1 -1 V
+19 -14 R
+1 0 V
+1033 2341 M
+1 -1 V
+4313 608 M
+1 0 V
+2005 4820 M
+1 -1 V
+4117 46 R
+1 -1 V
+6880 1295 M
+1 0 V
+63 2990 R
+1 -1 V
+1033 1151 M
+1 0 V
+1802 608 M
+1 0 V
+4313 4836 M
+1 -1 V
+6903 2341 M
+1 -1 V
+4510 2018 M
+1 -1 V
+3109 808 M
+1 -1 V
+569 4413 M
+1 0 V
+569 2681 M
+1 -1 V
+-1 -200 R
+1 -1 V
+876 608 M
+1 0 V
+-1 280 R
+1 -1 V
+29 1 R
+1 -1 V
+-1 2208 R
+1 -1 V
+906 632 M
+1 -1 V
+-1 -23 R
+1 0 V
+-1 821 R
+1 -1 V
+1033 497 M
+1 -1 V
+-1 22 R
+1 0 V
+32 0 R
+2 0 V
+-2 633 R
+2 0 V
+238 3714 R
+1 -1 V
+-1 -2846 R
+1 -1 V
+-1 324 R
+1 -1 V
+-1 -63 R
+1 -1 V
+59 65 R
+1 -1 V
+-1 2525 R
+1 -1 V
+-1 -3450 R
+1 0 V
+41 -263 R
+1 0 V
+20 -654 R
+1 -1 V
+-1 22 R
+1 0 V
+372 114 R
+1 -1 V
+-1 242 R
+1 -1 V
+202 1809 R
+1 -1 V
+-1 1733 R
+1 0 V
+-1 -1933 R
+1 -1 V
+2174 844 M
+1 -1 V
+-1 2794 R
+1 0 V
+-1 648 R
+1 -1 V
+2194 518 M
+1 0 V
+132 2577 R
+1 -1 V
+stroke 2328 3094 M
+3625 4820 M
+1 -1 V
+-1 -406 R
+1 0 V
+596 0 R
+1 0 V
+-1 -265 R
+1 -1 V
+4222 801 M
+1 -1 V
+90 44 R
+1 -1 V
+-1 2794 R
+1 0 V
+4313 801 M
+1 -1 V
+-1 1881 R
+1 -1 V
+-1 -200 R
+1 -1 V
+4510 280 M
+1 -1 V
+-1 1016 R
+1 0 V
+-1 1046 R
+1 -1 V
+283 1 R
+1 -1 V
+-1 -1045 R
+1 0 V
+4794 280 M
+1 -1 V
+575 239 R
+2 0 V
+-2 1005 R
+2 -1 V
+557 496 R
+1 -1 V
+-1 2848 R
+1 -1 V
+-1 -2587 R
+1 -1 V
+193 -862 R
+1 0 V
+181 -119 R
+1 0 V
+6305 280 M
+1 -1 V
+-1 1998 R
+1 -1 V
+638 1361 R
+1 0 V
+-1 511 R
+1 -1 V
+6944 844 M
+1 -1 V
+-1 -42 R
+1 -1 V
+876 632 M
+1 -1 V
+-1 242 R
+1 -1 V
+1066 497 M
+2 -1 V
+238 918 R
+1 0 V
+1408 497 M
+1 -1 V
+20 655 R
+1 0 V
+372 278 R
+1 -1 V
+-1 -540 R
+1 -1 V
+202 3949 R
+1 -1 V
+168 -687 R
+1 -1 V
+2174 801 M
+1 -1 V
+19 351 R
+1 0 V
+3625 2681 M
+1 -1 V
+-1 2156 R
+1 -1 V
+-1 -2355 R
+1 -1 V
+596 1806 R
+1 -1 V
+-1 -647 R
+1 0 V
+90 1183 R
+1 -1 V
+-1 -534 R
+1 -1 V
+-1 129 R
+1 0 V
+-1 -265 R
+1 -1 V
+5804 1295 M
+1 0 V
+-1 1046 R
+1 -1 V
+stroke 5805 2340 M
+124 1 R
+1 -1 V
+-1 -926 R
+1 0 V
+193 604 R
+1 -1 V
+-1 324 R
+1 -1 V
+-1 -63 R
+1 -1 V
+181 65 R
+1 -1 V
+574 1 R
+1 -1 V
+22 -1045 R
+1 0 V
+569 4836 M
+1 -1 V
+-1 -15 R
+1 -1 V
+876 1429 M
+1 -1 V
+489 590 R
+1 -1 V
+2194 497 M
+1 -1 V
+4222 4820 M
+1 -1 V
+-1 17 R
+1 -1 V
+-1 -2154 R
+1 -1 V
+-1 -200 R
+1 -1 V
+287 -202 R
+1 -1 V
+283 1 R
+1 -1 V
+6880 280 M
+1 -1 V
+-1 1998 R
+1 -1 V
+6903 280 M
+1 -1 V
+-1 1998 R
+1 -1 V
+-5538 1 R
+1 -1 V
+4222 844 M
+1 -1 V
+5804 280 M
+1 -1 V
+-1 1998 R
+1 -1 V
+5804 497 M
+1 -1 V
+1408 1295 M
+1 0 V
+2005 873 M
+1 -1 V
+1802 4413 M
+1 0 V
+6305 1151 M
+1 0 V
+1141 2432 M
+2 -2 V
+4440 685 M
+2 -2 V
+-2 3070 R
+2 -1 V
+858 1855 M
+4 -3 V
+-4 457 R
+4 -3 V
+2793 486 M
+5 -3 V
+1466 3 R
+4 -3 V
+327 3682 R
+2 -1 V
+5953 2541 M
+2 -1 V
+3110 4165 M
+2 -1 V
+1368 3753 M
+2 -1 V
+569 632 M
+1 -1 V
+-1 257 R
+1 -1 V
+-1 -14 R
+1 -1 V
+-1 557 R
+1 -1 V
+876 4820 M
+1 -1 V
+876 844 M
+1 -1 V
+-1 2794 R
+1 0 V
+-1 648 R
+1 -1 V
+-1 129 R
+1 0 V
+stroke 877 4413 M
+-1 423 R
+1 -1 V
+29 -687 R
+1 -1 V
+-1 138 R
+1 -1 V
+-1 536 R
+1 -1 V
+906 801 M
+1 -1 V
+1066 280 M
+2 -1 V
+238 872 R
+1 0 V
+-1 -633 R
+1 0 V
+59 1005 R
+1 -1 V
+-1 -371 R
+1 0 V
+-1 -654 R
+1 -1 V
+41 -216 R
+1 -1 V
+20 1016 R
+1 0 V
+1429 280 M
+1 -1 V
+372 3358 R
+1 0 V
+1802 844 M
+1 -1 V
+-1 -42 R
+1 -1 V
+-1 4036 R
+1 -1 V
+-1 -15 R
+1 -1 V
+-1 -534 R
+1 -1 V
+2005 888 M
+1 -1 V
+168 2208 R
+1 -1 V
+2194 280 M
+1 -1 V
+132 4006 R
+1 -1 V
+-1 -647 R
+1 0 V
+2327 844 M
+1 -1 V
+1297 30 R
+1 -1 V
+-1 2223 R
+1 -1 V
+-1 -1665 R
+1 -1 V
+-1 -820 R
+1 0 V
+5370 4865 M
+2 -1 V
+-2 -3450 R
+2 0 V
+432 -263 R
+1 0 V
+5929 518 M
+1 0 V
+193 1005 R
+1 -1 V
+6123 518 M
+1 0 V
+-1 -21 R
+1 -1 V
+-1 655 R
+1 0 V
+6305 497 M
+1 -1 V
+574 1 R
+1 -1 V
+-1 22 R
+1 0 V
+-1 633 R
+1 0 V
+22 -654 R
+1 -1 V
+-1 655 R
+1 0 V
+40 1944 R
+1 -1 V
+-6376 1 R
+1 -1 V
+569 608 M
+1 0 V
+876 2480 M
+1 -1 V
+-1 1669 R
+1 -1 V
+876 2681 M
+1 -1 V
+29 1733 R
+1 0 V
+-1 -776 R
+1 0 V
+stroke 907 3637 M
+-1 1199 R
+1 -1 V
+906 844 M
+1 -1 V
+-1 1637 R
+1 -1 V
+-1 202 R
+1 -1 V
+1033 280 M
+1 -1 V
+332 239 R
+1 0 V
+435 1962 R
+1 -1 V
+-1 202 R
+1 -1 V
+202 415 R
+1 -1 V
+-1 -1665 R
+1 -1 V
+188 -133 R
+1 0 V
+132 2853 R
+1 -1 V
+3625 888 M
+1 -1 V
+-1 -255 R
+1 -1 V
+4510 518 M
+1 0 V
+-1 -21 R
+1 -1 V
+-1 655 R
+1 0 V
+4794 518 M
+1 0 V
+-1 -21 R
+1 -1 V
+-1 655 R
+1 0 V
+5370 280 M
+2 -1 V
+-2 1739 R
+2 -1 V
+-2 -722 R
+2 0 V
+5804 518 M
+1 0 V
+124 1005 R
+1 -1 V
+5929 497 M
+1 -1 V
+375 22 R
+1 0 V
+597 0 R
+1 0 V
+876 801 M
+1 -1 V
+156 495 R
+1 0 V
+32 0 R
+2 0 V
+1306 497 M
+1 -1 V
+-1 1027 R
+1 -1 V
+495 2626 R
+1 -1 V
+2005 608 M
+1 0 V
+-1 24 R
+1 -1 V
+321 170 R
+1 -1 V
+3601 351 R
+1 0 V
+4313 3095 M
+1 -1 V
+5370 2341 M
+2 -1 V
+569 3637 M
+1 0 V
+6305 2018 M
+1 -1 V
+3121 4165 M
+2 -1 V
+2399 2309 M
+5 -3 V
+-5 -451 R
+5 -3 V
+389 -276 R
+6 -3 V
+1465 3 R
+5 -3 V
+3211 3930 M
+986 -697 V
+558 3753 M
+2 -1 V
+558 685 M
+2 -2 V
+9 3602 R
+1 -1 V
+-1 -136 R
+1 -1 V
+stroke 570 4147 M
+569 844 M
+1 -1 V
+-1 -42 R
+1 -1 V
+862 4541 M
+0 -2235 R
+0 -1 V
+0 -453 R
+1 -1 V
+11 0 R
+2 1244 R
+1 -1 V
+1033 1523 M
+1 -1 V
+32 1 R
+2 -1 V
+1141 273 M
+2 -2 V
+-2 574 R
+2 -1 V
+163 451 R
+1 0 V
+1306 280 M
+1 -1 V
+58 3344 R
+1 -1 V
+-1 -1189 R
+1 -1 V
+-1 -566 R
+1 -1 V
+-1 243 R
+1 -1 V
+0 -1827 R
+1 -1 V
+-1 1016 R
+1 0 V
+0 2327 R
+0 -1516 R
+0 -241 R
+1 -1180 R
+2 -2 V
+38 840 R
+1 -1 V
+20 1 R
+1 -1 V
+372 1573 R
+1 -1 V
+202 1191 R
+1 -1 V
+2005 801 M
+1 -1 V
+-1 44 R
+1 -1 V
+-1 3305 R
+1 -1 V
+-1 -510 R
+1 0 V
+168 -956 R
+1 -1 V
+-1 -200 R
+1 -1 V
+-1 1934 R
+1 0 V
+-1 423 R
+1 -1 V
+-1 -15 R
+1 -1 V
+19 -3296 R
+1 -1 V
+132 -93 R
+1 -1 V
+-1 -540 R
+1 -1 V
+-1 -255 R
+1 -1 V
+-1 -23 R
+1 0 V
+-1 265 R
+1 -1 V
+51 689 R
+3 -2 R
+22 293 R
+0 -1 V
+2793 487 M
+0 8 R
+0 1081 R
+19 -732 R
+1 0 V
+0 -1 R
+1 -1 V
+3461 685 M
+2 -2 V
+157 1071 R
+0 -1 V
+5 -909 R
+1 -1 V
+-1 -42 R
+1 -1 V
+-1 3348 R
+1 -1 V
+-1 138 R
+1 -1 V
+19 -2176 R
+2 -2 V
+stroke 3647 2106 M
+-2 327 R
+2 -1 V
+-2 -566 R
+2 -1 V
+4264 487 M
+179 356 R
+2 -1 V
+65 572 R
+1 0 V
+-1 3451 R
+1 -1 V
+4794 2018 M
+1 -1 V
+-1 2848 R
+1 -1 V
+-1 -3450 R
+1 0 V
+106 1541 R
+282 -199 V
+-66 -257 R
+5370 1151 M
+2 0 V
+-2 -654 R
+2 -1 V
+92 1762 R
+423 -298 V
+-210 473 R
+2 -1 V
+-2 1191 R
+2 -1 V
+-2 -1756 R
+2 -1 V
+125 -451 R
+1 0 V
+-1 3451 R
+1 -1 V
+5929 280 M
+1 -1 V
+-1 1016 R
+1 0 V
+23 3201 R
+2 -1 V
+6123 280 M
+1 -1 V
+-1 1016 R
+1 0 V
+181 119 R
+1 0 V
+-1 3451 R
+1 -1 V
+115 -699 R
+2 -1 V
+6487 487 M
+393 4378 R
+1 -1 V
+-1 -2846 R
+1 -1 V
+-1 -603 R
+1 0 V
+22 604 R
+1 -1 V
+-1 -603 R
+1 0 V
+-1 3451 R
+1 -1 V
+40 -451 R
+1 0 V
+-1 -1732 R
+1 -1 V
+-1 2140 R
+1 -1 V
+-1 -2339 R
+1 -1 V
+-1 2357 R
+1 -1 V
+2017 2585 Circle
+2017 2585 Circle
+2017 2585 Circle
+2018 2585 Circle
+4659 1303 Circle
+4659 1303 Circle
+4659 1303 Circle
+4659 1303 Circle
+2018 2585 Circle
+2018 2585 Circle
+4659 1303 Circle
+4659 1303 Circle
+2018 2585 Circle
+2018 2585 Circle
+2018 2585 Circle
+2018 2585 Circle
+4659 1303 Circle
+4659 1303 Circle
+4659 1304 Circle
+4659 1303 Circle
+4040 735 Circle
+4041 734 Circle
+4991 4917 Circle
+4991 4917 Circle
+5842 4630 Circle
+5844 4629 Circle
+976 604 Circle
+976 604 Circle
+1236 2207 Circle
+1237 2206 Circle
+1236 2061 Circle
+1237 2060 Circle
+2562 4917 Circle
+2562 4917 Circle
+7018 1688 Circle
+7018 1688 Circle
+2562 4917 Circle
+2562 4917 Circle
+7018 1688 Circle
+7018 1688 Circle
+3870 2229 Circle
+3871 2229 Circle
+5505 3464 Circle
+5505 3464 Circle
+1729 2229 Circle
+1729 2229 Circle
+5854 4325 Circle
+5854 4325 Circle
+2454 1688 Circle
+2454 1688 Circle
+2562 1612 Circle
+2562 1612 Circle
+1025 1264 Circle
+1026 1264 Circle
+1962 602 Circle
+1963 602 Circle
+3871 1736 Circle
+3871 1736 Circle
+1213 1688 Circle
+1213 1688 Circle
+2562 735 Circle
+2562 734 Circle
+1025 1612 Circle
+1026 1612 Circle
+2454 602 Circle
+2454 602 Circle
+5857 4323 Circle
+5857 4323 Circle
+1962 1688 Circle
+1963 1688 Circle
+2562 1264 Circle
+2562 1264 Circle
+5613 1317 Circle
+5613 1317 Circle
+4536 3591 Circle
+4536 3591 Circle
+1213 1688 Circle
+1213 1688 Circle
+2562 735 Circle
+2562 734 Circle
+976 1582 Circle
+976 1581 Circle
+2411 567 Circle
+2411 567 Circle
+2562 735 Circle
+2562 734 Circle
+3847 2464 Circle
+3847 2464 Circle
+4247 1994 Circle
+4247 1994 Circle
+1213 1688 Circle
+1213 1688 Circle
+2562 735 Circle
+2562 734 Circle
+1025 604 Circle
+1026 604 Circle
+1028 602 Circle
+1029 602 Circle
+2037 2498 Circle
+2037 2497 Circle
+4536 1317 Circle
+4536 1317 Circle
+1962 1688 Circle
+1963 1688 Circle
+1962 1688 Circle
+1963 1688 Circle
+2562 1264 Circle
+2562 1264 Circle
+2562 1264 Circle
+2562 1264 Circle
+3691 2153 Circle
+3691 2153 Circle
+5613 3591 Circle
+5613 3591 Circle
+5706 1736 Circle
+5706 1736 Circle
+1025 735 Circle
+1026 734 Circle
+1213 602 Circle
+1213 602 Circle
+1025 1582 Circle
+1026 1581 Circle
+2411 602 Circle
+2412 602 Circle
+5087 1688 Circle
+5087 1688 Circle
+2454 1688 Circle
+2454 1688 Circle
+2454 1688 Circle
+2454 1688 Circle
+2562 1612 Circle
+2562 1612 Circle
+2562 1612 Circle
+2562 1612 Circle
+2952 2667 Circle
+2952 2667 Circle
+1729 1736 Circle
+1729 1736 Circle
+2630 1099 Circle
+2630 1099 Circle
+1213 602 Circle
+1213 602 Circle
+2562 1582 Circle
+2562 1581 Circle
+2411 1688 Circle
+2412 1688 Circle
+2562 1582 Circle
+2562 1581 Circle
+1371 1994 Circle
+1371 1994 Circle
+1962 2981 Circle
+1963 2981 Circle
+4488 4585 Circle
+4488 4584 Circle
+5211 1264 Circle
+5211 1264 Circle
+6548 2464 Circle
+6548 2464 Circle
+2411 1688 Circle
+2412 1688 Circle
+2562 1582 Circle
+2562 1581 Circle
+4536 2153 Circle
+4536 2153 Circle
+5505 1736 Circle
+5505 1736 Circle
+1729 2464 Circle
+1729 2464 Circle
+4488 1099 Circle
+4488 1099 Circle
+4163 2229 Circle
+4163 2229 Circle
+5505 3257 Circle
+5505 3257 Circle
+6548 3354 Circle
+6548 3354 Circle
+2454 1688 Circle
+2454 1688 Circle
+2562 1612 Circle
+2562 1612 Circle
+5087 602 Circle
+5087 602 Circle
+3680 2153 Circle
+3681 2153 Circle
+4163 1736 Circle
+4163 1736 Circle
+5613 3598 Circle
+5613 3598 Circle
+2454 2981 Circle
+2454 2981 Circle
+4536 1994 Circle
+4536 1994 Circle
+5211 1612 Circle
+5211 1612 Circle
+1371 3591 Circle
+1371 3591 Circle
+3691 4479 Circle
+3691 4479 Circle
+2893 2153 Circle
+2893 2153 Circle
+1025 735 Circle
+1026 735 Circle
+3847 1317 Circle
+3847 1317 Circle
+4247 3591 Circle
+4247 3591 Circle
+1729 3464 Circle
+1729 3464 Circle
+1025 4917 Circle
+1026 4917 Circle
+7018 602 Circle
+7019 602 Circle
+4026 2464 Circle
+4026 2464 Circle
+6548 2153 Circle
+6548 2153 Circle
+4247 2153 Circle
+4247 2153 Circle
+1609 3480 Circle
+1609 3480 Circle
+1367 2432 Circle
+1368 2431 Circle
+4442 844 Circle
+4443 844 Circle
+1729 1317 Circle
+1729 1317 Circle
+2037 1099 Circle
+2037 1099 Circle
+2037 2189 Circle
+2037 2188 Circle
+1469 1582 Circle
+1469 1582 Circle
+2411 916 Circle
+2411 916 Circle
+3680 1317 Circle
+3681 1317 Circle
+5381 4661 Circle
+5382 4660 Circle
+6655 3102 Circle
+6655 3102 Circle
+5211 3250 Circle
+5211 3250 Circle
+2122 2883 Circle
+2122 2882 Circle
+5656 1015 Circle
+5656 1015 Circle
+2411 1688 Circle
+2412 1688 Circle
+1729 3480 Circle
+1729 3480 Circle
+6548 3591 Circle
+6548 3591 Circle
+1729 3354 Circle
+1729 3354 Circle
+2893 3480 Circle
+2893 3480 Circle
+3847 2153 Circle
+3847 2153 Circle
+5613 3480 Circle
+5613 3480 Circle
+5613 2612 Circle
+5613 2612 Circle
+6548 1317 Circle
+6548 1317 Circle
+5003 1084 Circle
+5003 1084 Circle
+2037 3606 Circle
+2037 3606 Circle
+2037 4585 Circle
+2037 4584 Circle
+6548 3598 Circle
+6548 3598 Circle
+5647 4337 Circle
+5648 4337 Circle
+5647 4337 Circle
+5648 4337 Circle
+5647 4337 Circle
+5647 4337 Circle
+5647 4337 Circle
+5647 4337 Circle
+6534 2088 Circle
+6534 2087 Circle
+3669 2498 Circle
+3669 2497 Circle
+3691 1317 Circle
+3691 1317 Circle
+4536 2853 Circle
+4536 2852 Circle
+3669 4585 Circle
+3669 4584 Circle
+4536 2612 Circle
+4536 2612 Circle
+4698 2498 Circle
+4698 2497 Circle
+1371 1317 Circle
+1371 1317 Circle
+2037 846 Circle
+2037 846 Circle
+1025 604 Circle
+1026 604 Circle
+1028 602 Circle
+1029 602 Circle
+5563 4585 Circle
+5563 4584 Circle
+3847 2612 Circle
+3847 2612 Circle
+1187 2294 Circle
+1187 2294 Circle
+4247 716 Circle
+4247 716 Circle
+1371 2153 Circle
+1371 2153 Circle
+3372 2790 Circle
+3372 2790 Circle
+5134 3816 Circle
+5134 3816 Circle
+6548 3480 Circle
+6548 3480 Circle
+1729 3257 Circle
+1729 3257 Circle
+4698 3606 Circle
+4698 3606 Circle
+1187 846 Circle
+1187 846 Circle
+1371 716 Circle
+1371 716 Circle
+1609 3354 Circle
+1609 3354 Circle
+4247 3480 Circle
+4247 3480 Circle
+5955 4818 Circle
+5955 4818 Circle
+6878 4165 Circle
+6879 4165 Circle
+4698 4585 Circle
+4698 4584 Circle
+6548 2612 Circle
+6548 2612 Circle
+3124 800 Circle
+3125 799 Circle
+3669 2189 Circle
+3669 2188 Circle
+3669 846 Circle
+3669 846 Circle
+5563 3606 Circle
+5563 3606 Circle
+3118 802 Circle
+3118 802 Circle
+4247 3598 Circle
+4247 3598 Circle
+4536 3598 Circle
+4536 3598 Circle
+5134 1015 Circle
+5134 1015 Circle
+1187 3606 Circle
+1187 3606 Circle
+4247 2853 Circle
+4247 2852 Circle
+1729 2088 Circle
+1729 2087 Circle
+2037 1922 Circle
+2037 1922 Circle
+2893 1317 Circle
+2893 1317 Circle
+4247 2612 Circle
+4247 2612 Circle
+4698 2294 Circle
+4698 2294 Circle
+5656 1099 Circle
+5656 1099 Circle
+1371 3480 Circle
+1371 3480 Circle
+5837 2612 Circle
+5837 2612 Circle
+4163 2088 Circle
+4163 2087 Circle
+5706 3257 Circle
+5706 3257 Circle
+2953 2667 Circle
+2954 2666 Circle
+3870 1317 Circle
+3871 1317 Circle
+5563 2294 Circle
+5563 2294 Circle
+1371 3598 Circle
+1371 3598 Circle
+4510 4818 Circle
+4511 4817 Circle
+4794 4818 Circle
+4795 4817 Circle
+6877 2681 Circle
+6878 2680 Circle
+6877 2480 Circle
+6878 2479 Circle
+6877 4820 Circle
+6878 4819 Circle
+6880 4818 Circle
+6881 4817 Circle
+6305 4818 Circle
+6306 4817 Circle
+6877 4836 Circle
+6878 4835 Circle
+6877 4413 Circle
+6878 4413 Circle
+6903 4818 Circle
+6904 4817 Circle
+5804 4818 Circle
+5805 4817 Circle
+1066 4818 Circle
+1068 4817 Circle
+1408 4818 Circle
+1409 4817 Circle
+2194 4818 Circle
+2195 4817 Circle
+6877 873 Circle
+6878 872 Circle
+6877 632 Circle
+6878 631 Circle
+6877 1429 Circle
+6878 1428 Circle
+4536 3480 Circle
+4536 3480 Circle
+1033 4818 Circle
+1034 4817 Circle
+1429 4818 Circle
+1430 4817 Circle
+5370 4818 Circle
+5372 4817 Circle
+6877 3095 Circle
+6878 3094 Circle
+6877 888 Circle
+6878 887 Circle
+6877 608 Circle
+6878 608 Circle
+1371 2612 Circle
+1371 2612 Circle
+4698 846 Circle
+4698 846 Circle
+1306 4818 Circle
+1307 4817 Circle
+1366 4818 Circle
+1367 4817 Circle
+6877 801 Circle
+6878 800 Circle
+6877 3637 Circle
+6878 3637 Circle
+6877 844 Circle
+6878 843 Circle
+5929 4818 Circle
+5930 4817 Circle
+6123 4818 Circle
+6124 4817 Circle
+6877 4148 Circle
+6878 4147 Circle
+6877 4285 Circle
+6878 4284 Circle
+3372 846 Circle
+3372 846 Circle
+4026 2612 Circle
+4026 2612 Circle
+5046 2612 Circle
+5046 2612 Circle
+2893 2612 Circle
+2893 2612 Circle
+4698 1922 Circle
+4698 1922 Circle
+2893 3591 Circle
+2893 3591 Circle
+3870 2612 Circle
+3871 2612 Circle
+5134 2122 Circle
+5134 2122 Circle
+5656 2790 Circle
+5656 2790 Circle
+5648 4337 Circle
+5648 4337 Circle
+5648 4337 Circle
+5648 4337 Circle
+5648 4338 Circle
+5648 4338 Circle
+3691 2612 Circle
+3691 2612 Circle
+2893 3598 Circle
+2893 3598 Circle
+3871 2088 Circle
+3871 2087 Circle
+5706 3464 Circle
+5706 3464 Circle
+3669 2294 Circle
+3669 2294 Circle
+5563 846 Circle
+5563 846 Circle
+5087 1271 Circle
+5087 1271 Circle
+2037 3816 Circle
+2037 3816 Circle
+1371 3464 Circle
+1371 3464 Circle
+2037 2294 Circle
+2037 2294 Circle
+3372 2294 Circle
+3372 2294 Circle
+4247 1317 Circle
+4247 1317 Circle
+3680 2612 Circle
+3681 2612 Circle
+5563 2498 Circle
+5563 2497 Circle
+1576 3360 Circle
+1576 3360 Circle
+4040 2891 Circle
+4041 2891 Circle
+4991 3344 Circle
+4992 3343 Circle
+1309 4191 Circle
+1309 4191 Circle
+5991 802 Circle
+5992 802 Circle
+4041 2891 Circle
+4041 2891 Circle
+4698 4575 Circle
+4698 4575 Circle
+6534 2612 Circle
+6534 2612 Circle
+4991 3344 Circle
+4991 3343 Circle
+2613 2652 Circle
+2613 2652 Circle
+4754 1724 Circle
+4755 1724 Circle
+3669 1922 Circle
+3669 1922 Circle
+5563 1922 Circle
+5563 1922 Circle
+3712 2057 Circle
+3713 2057 Circle
+5748 3576 Circle
+5749 3575 Circle
+6534 3464 Circle
+6534 3464 Circle
+4698 2189 Circle
+4698 2188 Circle
+4247 3464 Circle
+4247 3464 Circle
+844 4686 Circle
+844 4686 Circle
+1322 4184 Circle
+1322 4183 Circle
+5980 812 Circle
+5981 811 Circle
+6692 474 Circle
+6692 474 Circle
+3102 812 Circle
+3104 810 Circle
+1108 3505 Circle
+1109 3504 Circle
+3638 1559 Circle
+3638 1559 Circle
+5563 4575 Circle
+5563 4575 Circle
+6534 3598 Circle
+6534 3598 Circle
+1707 1377 Circle
+1707 1377 Circle
+2122 1084 Circle
+2122 1084 Circle
+3721 823 Circle
+3722 822 Circle
+3106 809 Circle
+3108 808 Circle
+6673 1577 Circle
+6673 1577 Circle
+878 3569 Circle
+879 3568 Circle
+3721 2203 Circle
+3722 2203 Circle
+5542 3569 Circle
+5543 3568 Circle
+3715 2057 Circle
+3716 2057 Circle
+5748 3574 Circle
+5749 3573 Circle
+1317 4186 Circle
+1318 4186 Circle
+5984 809 Circle
+5984 808 Circle
+1310 4190 Circle
+1310 4190 Circle
+5989 803 Circle
+5990 803 Circle
+3711 2062 Circle
+3712 2062 Circle
+5741 3577 Circle
+5742 3576 Circle
+2404 3012 Circle
+2404 3012 Circle
+5255 1577 Circle
+5255 1576 Circle
+878 3571 Circle
+879 3569 Circle
+3021 2163 Circle
+3023 2161 Circle
+6534 2853 Circle
+6534 2852 Circle
+878 823 Circle
+879 822 Circle
+1337 499 Circle
+1339 498 Circle
+5864 498 Circle
+5865 498 Circle
+878 2203 Circle
+879 2202 Circle
+3719 823 Circle
+3721 822 Circle
+1341 1968 Circle
+1344 1966 Circle
+2376 1561 Circle
+2376 1561 Circle
+2382 1557 Circle
+2382 1556 Circle
+2382 3628 Circle
+2382 3628 Circle
+3719 2203 Circle
+3721 2202 Circle
+5541 3571 Circle
+5543 3569 Circle
+1337 1975 Circle
+1339 1975 Circle
+3714 2206 Circle
+3716 2205 Circle
+5538 3574 Circle
+5540 3573 Circle
+5542 823 Circle
+5543 822 Circle
+6174 4538 Circle
+6174 4538 Circle
+6174 4538 Circle
+6174 4538 Circle
+6482 4320 Circle
+6482 4320 Circle
+6482 4320 Circle
+6482 4320 Circle
+3712 2206 Circle
+3713 2205 Circle
+5538 3576 Circle
+5540 3575 Circle
+3714 2060 Circle
+3716 2058 Circle
+5745 3574 Circle
+5747 3573 Circle
+862 3012 Circle
+862 3012 Circle
+5255 487 Circle
+5255 487 Circle
+2404 4541 Circle
+2404 4541 Circle
+2404 2306 Circle
+2404 2305 Circle
+4264 1576 Circle
+4264 1576 Circle
+6487 1576 Circle
+6487 1576 Circle
+3712 2060 Circle
+3713 2059 Circle
+5745 3576 Circle
+5747 3575 Circle
+3711 2208 Circle
+3712 2208 Circle
+5534 3576 Circle
+5535 3576 Circle
+4700 3505 Circle
+4700 3504 Circle
+862 3013 Circle
+862 3013 Circle
+5255 487 Circle
+5255 487 Circle
+2404 4673 Circle
+2405 4673 Circle
+2399 4676 Circle
+2404 4673 Circle
+2399 3016 Circle
+2404 3013 Circle
+5255 1576 Circle
+5260 1573 Circle
+6673 1576 Circle
+6678 1573 Circle
+5869 753 Circle
+5874 749 Circle
+858 4545 Circle
+862 4541 Circle
+6487 486 Circle
+6491 483 Circle
+3638 1557 Circle
+3638 1556 Circle
+1066 2277 Circle
+1068 2276 Circle
+4222 632 Circle
+4223 631 Circle
+2399 4545 Circle
+2404 4541 Circle
+6487 1576 Circle
+6492 1573 Circle
+855 3018 Circle
+862 3013 Circle
+5255 486 Circle
+5263 481 Circle
+855 4678 Circle
+862 4673 Circle
+6673 487 Circle
+6681 481 Circle
+1350 3505 Circle
+1350 3504 Circle
+2404 3013 Circle
+2404 3013 Circle
+5255 1576 Circle
+5255 1576 Circle
+855 4546 Circle
+857 4545 Circle
+6492 483 Circle
+6494 481 Circle
+855 4506 Circle
+857 4504 Circle
+6434 483 Circle
+6436 481 Circle
+1429 2341 Circle
+1430 2340 Circle
+4313 888 Circle
+4314 887 Circle
+906 873 Circle
+907 872 Circle
+1408 518 Circle
+1409 518 Circle
+2399 3017 Circle
+2399 3016 Circle
+2399 4677 Circle
+2399 4677 Circle
+5260 1573 Circle
+5261 1573 Circle
+6678 1573 Circle
+6679 1573 Circle
+855 2311 Circle
+857 2309 Circle
+855 1857 Circle
+857 1855 Circle
+2798 483 Circle
+2800 481 Circle
+4269 483 Circle
+4271 481 Circle
+1033 1414 Circle
+1034 1414 Circle
+1033 4865 Circle
+1034 4864 Circle
+1066 2018 Circle
+1068 2017 Circle
+1066 2341 Circle
+1068 2340 Circle
+1066 4865 Circle
+1068 4864 Circle
+1408 2018 Circle
+1409 2017 Circle
+1408 2341 Circle
+1409 2340 Circle
+1408 2277 Circle
+1409 2276 Circle
+1429 1414 Circle
+1430 1414 Circle
+1429 4865 Circle
+1430 4864 Circle
+1429 2018 Circle
+1430 2017 Circle
+1429 2277 Circle
+1430 2276 Circle
+2174 888 Circle
+2175 887 Circle
+2174 608 Circle
+2175 608 Circle
+2194 4865 Circle
+2195 4864 Circle
+2194 2341 Circle
+2195 2340 Circle
+2194 2018 Circle
+2195 2017 Circle
+2194 2277 Circle
+2195 2276 Circle
+2327 4836 Circle
+2328 4835 Circle
+2327 4413 Circle
+2328 4413 Circle
+2327 4820 Circle
+2328 4819 Circle
+4222 1429 Circle
+4223 1428 Circle
+4222 888 Circle
+4223 887 Circle
+4222 873 Circle
+4223 872 Circle
+4313 1429 Circle
+4314 1428 Circle
+4313 873 Circle
+4314 872 Circle
+4313 632 Circle
+4314 631 Circle
+5804 1523 Circle
+5805 1522 Circle
+6305 1523 Circle
+6306 1522 Circle
+6880 1523 Circle
+6881 1522 Circle
+6903 1523 Circle
+6904 1522 Circle
+6944 608 Circle
+6945 608 Circle
+6944 632 Circle
+6945 631 Circle
+6944 1429 Circle
+6945 1428 Circle
+6944 888 Circle
+6945 887 Circle
+1033 2018 Circle
+1034 2017 Circle
+1033 2277 Circle
+1034 2276 Circle
+1066 1414 Circle
+1068 1414 Circle
+1408 1414 Circle
+1409 1414 Circle
+1408 4865 Circle
+1409 4864 Circle
+2174 632 Circle
+2175 631 Circle
+2174 873 Circle
+2175 872 Circle
+2327 2681 Circle
+2328 2680 Circle
+2327 2480 Circle
+2328 2479 Circle
+4222 608 Circle
+4223 608 Circle
+4222 3095 Circle
+4223 3094 Circle
+4510 1523 Circle
+4511 1522 Circle
+4794 1523 Circle
+4795 1522 Circle
+5370 2277 Circle
+5372 2276 Circle
+6944 873 Circle
+6945 872 Circle
+2174 1429 Circle
+2175 1428 Circle
+2194 1414 Circle
+2195 1414 Circle
+1033 2341 Circle
+1034 2340 Circle
+4313 608 Circle
+4314 608 Circle
+2005 4820 Circle
+2006 4819 Circle
+6123 4865 Circle
+6124 4864 Circle
+6880 1295 Circle
+6881 1295 Circle
+6944 4285 Circle
+6945 4284 Circle
+1033 1151 Circle
+1034 1151 Circle
+1802 608 Circle
+1803 608 Circle
+4313 4836 Circle
+4314 4835 Circle
+6903 2341 Circle
+6904 2340 Circle
+4510 2018 Circle
+4511 2017 Circle
+3109 808 Circle
+3110 807 Circle
+569 4413 Circle
+570 4413 Circle
+569 2681 Circle
+570 2680 Circle
+569 2480 Circle
+570 2479 Circle
+876 608 Circle
+877 608 Circle
+876 888 Circle
+877 887 Circle
+906 888 Circle
+907 887 Circle
+906 3095 Circle
+907 3094 Circle
+906 632 Circle
+907 631 Circle
+906 608 Circle
+907 608 Circle
+906 1429 Circle
+907 1428 Circle
+1033 497 Circle
+1034 496 Circle
+1033 518 Circle
+1034 518 Circle
+1066 518 Circle
+1068 518 Circle
+1066 1151 Circle
+1068 1151 Circle
+1306 4865 Circle
+1307 4864 Circle
+1306 2018 Circle
+1307 2017 Circle
+1306 2341 Circle
+1307 2340 Circle
+1306 2277 Circle
+1307 2276 Circle
+1366 2341 Circle
+1367 2340 Circle
+1366 4865 Circle
+1367 4864 Circle
+1366 1414 Circle
+1367 1414 Circle
+1408 1151 Circle
+1409 1151 Circle
+1429 497 Circle
+1430 496 Circle
+1429 518 Circle
+1430 518 Circle
+1802 632 Circle
+1803 631 Circle
+1802 873 Circle
+1803 872 Circle
+2005 2681 Circle
+2006 2680 Circle
+2005 4413 Circle
+2006 4413 Circle
+2005 2480 Circle
+2006 2479 Circle
+2174 844 Circle
+2175 843 Circle
+2174 3637 Circle
+2175 3637 Circle
+2174 4285 Circle
+2175 4284 Circle
+2194 518 Circle
+2195 518 Circle
+2327 3095 Circle
+2328 3094 Circle
+3625 4820 Circle
+3626 4819 Circle
+3625 4413 Circle
+3626 4413 Circle
+4222 4413 Circle
+4223 4413 Circle
+4222 4148 Circle
+4223 4147 Circle
+4222 801 Circle
+4223 800 Circle
+4313 844 Circle
+4314 843 Circle
+4313 3637 Circle
+4314 3637 Circle
+4313 801 Circle
+4314 800 Circle
+4313 2681 Circle
+4314 2680 Circle
+4313 2480 Circle
+4314 2479 Circle
+4510 280 Circle
+4511 279 Circle
+4510 1295 Circle
+4511 1295 Circle
+4510 2341 Circle
+4511 2340 Circle
+4794 2341 Circle
+4795 2340 Circle
+4794 1295 Circle
+4795 1295 Circle
+4794 280 Circle
+4795 279 Circle
+5370 518 Circle
+5372 518 Circle
+5370 1523 Circle
+5372 1522 Circle
+5929 2018 Circle
+5930 2017 Circle
+5929 4865 Circle
+5930 4864 Circle
+5929 2277 Circle
+5930 2276 Circle
+6123 1414 Circle
+6124 1414 Circle
+6305 1295 Circle
+6306 1295 Circle
+6305 280 Circle
+6306 279 Circle
+6305 2277 Circle
+6306 2276 Circle
+6944 3637 Circle
+6945 3637 Circle
+6944 4148 Circle
+6945 4147 Circle
+6944 844 Circle
+6945 843 Circle
+6944 801 Circle
+6945 800 Circle
+876 632 Circle
+877 631 Circle
+876 873 Circle
+877 872 Circle
+1066 497 Circle
+1068 496 Circle
+1306 1414 Circle
+1307 1414 Circle
+1408 497 Circle
+1409 496 Circle
+1429 1151 Circle
+1430 1151 Circle
+1802 1429 Circle
+1803 1428 Circle
+1802 888 Circle
+1803 887 Circle
+2005 4836 Circle
+2006 4835 Circle
+2174 4148 Circle
+2175 4147 Circle
+2174 801 Circle
+2175 800 Circle
+2194 1151 Circle
+2195 1151 Circle
+3625 2681 Circle
+3626 2680 Circle
+3625 4836 Circle
+3626 4835 Circle
+3625 2480 Circle
+3626 2479 Circle
+4222 4285 Circle
+4223 4284 Circle
+4222 3637 Circle
+4223 3637 Circle
+4313 4820 Circle
+4314 4819 Circle
+4313 4285 Circle
+4314 4284 Circle
+4313 4413 Circle
+4314 4413 Circle
+4313 4148 Circle
+4314 4147 Circle
+5804 1295 Circle
+5805 1295 Circle
+5804 2341 Circle
+5805 2340 Circle
+5929 2341 Circle
+5930 2340 Circle
+5929 1414 Circle
+5930 1414 Circle
+6123 2018 Circle
+6124 2017 Circle
+6123 2341 Circle
+6124 2340 Circle
+6123 2277 Circle
+6124 2276 Circle
+6305 2341 Circle
+6306 2340 Circle
+6880 2341 Circle
+6881 2340 Circle
+6903 1295 Circle
+6904 1295 Circle
+569 4836 Circle
+570 4835 Circle
+569 4820 Circle
+570 4819 Circle
+876 1429 Circle
+877 1428 Circle
+1366 2018 Circle
+1367 2017 Circle
+2194 497 Circle
+2195 496 Circle
+4222 4820 Circle
+4223 4819 Circle
+4222 4836 Circle
+4223 4835 Circle
+4222 2681 Circle
+4223 2680 Circle
+4222 2480 Circle
+4223 2479 Circle
+4510 2277 Circle
+4511 2276 Circle
+4794 2277 Circle
+4795 2276 Circle
+6880 280 Circle
+6881 279 Circle
+6880 2277 Circle
+6881 2276 Circle
+6903 280 Circle
+6904 279 Circle
+6903 2277 Circle
+6904 2276 Circle
+1366 2277 Circle
+1367 2276 Circle
+4222 844 Circle
+4223 843 Circle
+5804 280 Circle
+5805 279 Circle
+5804 2277 Circle
+5805 2276 Circle
+5804 497 Circle
+5805 496 Circle
+1408 1295 Circle
+1409 1295 Circle
+2005 873 Circle
+2006 872 Circle
+1802 4413 Circle
+1803 4413 Circle
+6305 1151 Circle
+6306 1151 Circle
+1141 2432 Circle
+1143 2430 Circle
+4440 685 Circle
+4442 683 Circle
+4440 3753 Circle
+4442 3752 Circle
+858 1855 Circle
+862 1852 Circle
+858 2309 Circle
+862 2306 Circle
+2793 486 Circle
+2798 483 Circle
+4264 486 Circle
+4268 483 Circle
+4595 4165 Circle
+4597 4164 Circle
+5953 2541 Circle
+5955 2540 Circle
+3110 4165 Circle
+3112 4164 Circle
+1368 3753 Circle
+1370 3752 Circle
+569 632 Circle
+570 631 Circle
+569 888 Circle
+570 887 Circle
+569 873 Circle
+570 872 Circle
+569 1429 Circle
+570 1428 Circle
+876 4820 Circle
+877 4819 Circle
+876 844 Circle
+877 843 Circle
+876 3637 Circle
+877 3637 Circle
+876 4285 Circle
+877 4284 Circle
+876 4413 Circle
+877 4413 Circle
+876 4836 Circle
+877 4835 Circle
+906 4148 Circle
+907 4147 Circle
+906 4285 Circle
+907 4284 Circle
+906 4820 Circle
+907 4819 Circle
+906 801 Circle
+907 800 Circle
+1066 280 Circle
+1068 279 Circle
+1306 1151 Circle
+1307 1151 Circle
+1306 518 Circle
+1307 518 Circle
+1366 1523 Circle
+1367 1522 Circle
+1366 1151 Circle
+1367 1151 Circle
+1366 497 Circle
+1367 496 Circle
+1408 280 Circle
+1409 279 Circle
+1429 1295 Circle
+1430 1295 Circle
+1429 280 Circle
+1430 279 Circle
+1802 3637 Circle
+1803 3637 Circle
+1802 844 Circle
+1803 843 Circle
+1802 801 Circle
+1803 800 Circle
+1802 4836 Circle
+1803 4835 Circle
+1802 4820 Circle
+1803 4819 Circle
+1802 4285 Circle
+1803 4284 Circle
+2005 888 Circle
+2006 887 Circle
+2174 3095 Circle
+2175 3094 Circle
+2194 280 Circle
+2195 279 Circle
+2327 4285 Circle
+2328 4284 Circle
+2327 3637 Circle
+2328 3637 Circle
+2327 844 Circle
+2328 843 Circle
+3625 873 Circle
+3626 872 Circle
+3625 3095 Circle
+3626 3094 Circle
+3625 1429 Circle
+3626 1428 Circle
+3625 608 Circle
+3626 608 Circle
+5370 4865 Circle
+5372 4864 Circle
+5370 1414 Circle
+5372 1414 Circle
+5804 1151 Circle
+5805 1151 Circle
+5929 518 Circle
+5930 518 Circle
+6123 1523 Circle
+6124 1522 Circle
+6123 518 Circle
+6124 518 Circle
+6123 497 Circle
+6124 496 Circle
+6123 1151 Circle
+6124 1151 Circle
+6305 497 Circle
+6306 496 Circle
+6880 497 Circle
+6881 496 Circle
+6880 518 Circle
+6881 518 Circle
+6880 1151 Circle
+6881 1151 Circle
+6903 497 Circle
+6904 496 Circle
+6903 1151 Circle
+6904 1151 Circle
+6944 3095 Circle
+6945 3094 Circle
+569 3095 Circle
+570 3094 Circle
+569 608 Circle
+570 608 Circle
+876 2480 Circle
+877 2479 Circle
+876 4148 Circle
+877 4147 Circle
+876 2681 Circle
+877 2680 Circle
+906 4413 Circle
+907 4413 Circle
+906 3637 Circle
+907 3637 Circle
+906 4836 Circle
+907 4835 Circle
+906 844 Circle
+907 843 Circle
+906 2480 Circle
+907 2479 Circle
+906 2681 Circle
+907 2680 Circle
+1033 280 Circle
+1034 279 Circle
+1366 518 Circle
+1367 518 Circle
+1802 2480 Circle
+1803 2479 Circle
+1802 2681 Circle
+1803 2680 Circle
+2005 3095 Circle
+2006 3094 Circle
+2005 1429 Circle
+2006 1428 Circle
+2194 1295 Circle
+2195 1295 Circle
+2327 4148 Circle
+2328 4147 Circle
+3625 888 Circle
+3626 887 Circle
+3625 632 Circle
+3626 631 Circle
+4510 518 Circle
+4511 518 Circle
+4510 497 Circle
+4511 496 Circle
+4510 1151 Circle
+4511 1151 Circle
+4794 518 Circle
+4795 518 Circle
+4794 497 Circle
+4795 496 Circle
+4794 1151 Circle
+4795 1151 Circle
+5370 280 Circle
+5372 279 Circle
+5370 2018 Circle
+5372 2017 Circle
+5370 1295 Circle
+5372 1295 Circle
+5804 518 Circle
+5805 518 Circle
+5929 1523 Circle
+5930 1522 Circle
+5929 497 Circle
+5930 496 Circle
+6305 518 Circle
+6306 518 Circle
+6903 518 Circle
+6904 518 Circle
+876 801 Circle
+877 800 Circle
+1033 1295 Circle
+1034 1295 Circle
+1066 1295 Circle
+1068 1295 Circle
+1306 497 Circle
+1307 496 Circle
+1306 1523 Circle
+1307 1522 Circle
+1802 4148 Circle
+1803 4147 Circle
+2005 608 Circle
+2006 608 Circle
+2005 632 Circle
+2006 631 Circle
+2327 801 Circle
+2328 800 Circle
+5929 1151 Circle
+5930 1151 Circle
+4313 3095 Circle
+4314 3094 Circle
+5370 2341 Circle
+5372 2340 Circle
+569 3637 Circle
+570 3637 Circle
+6305 2018 Circle
+6306 2017 Circle
+3121 4165 Circle
+3123 4164 Circle
+2399 2309 Circle
+2404 2306 Circle
+2399 1855 Circle
+2404 1852 Circle
+2793 1576 Circle
+2799 1573 Circle
+4264 1576 Circle
+4269 1573 Circle
+3211 3930 Circle
+4197 3233 Circle
+558 3753 Circle
+560 3752 Circle
+558 685 Circle
+560 683 Circle
+569 4285 Circle
+570 4284 Circle
+569 4148 Circle
+570 4147 Circle
+569 844 Circle
+570 843 Circle
+569 801 Circle
+570 800 Circle
+862 4541 Circle
+862 4541 Circle
+862 2306 Circle
+862 2305 Circle
+862 1852 Circle
+863 1851 Circle
+874 1851 Circle
+874 1851 Circle
+876 3095 Circle
+877 3094 Circle
+1033 1523 Circle
+1034 1522 Circle
+1066 1523 Circle
+1068 1522 Circle
+1141 273 Circle
+1143 271 Circle
+1141 845 Circle
+1143 844 Circle
+1306 1295 Circle
+1307 1295 Circle
+1306 280 Circle
+1307 279 Circle
+1365 3623 Circle
+1366 3622 Circle
+1365 2433 Circle
+1366 2432 Circle
+1365 1866 Circle
+1366 1865 Circle
+1365 2108 Circle
+1366 2107 Circle
+1366 280 Circle
+1367 279 Circle
+1366 1295 Circle
+1367 1295 Circle
+1367 3622 Circle
+1367 3622 Circle
+1367 2106 Circle
+1367 2106 Circle
+1367 1865 Circle
+1367 1865 Circle
+1368 685 Circle
+1370 683 Circle
+1408 1523 Circle
+1409 1522 Circle
+1429 1523 Circle
+1430 1522 Circle
+1802 3095 Circle
+1803 3094 Circle
+2005 4285 Circle
+2006 4284 Circle
+2005 801 Circle
+2006 800 Circle
+2005 844 Circle
+2006 843 Circle
+2005 4148 Circle
+2006 4147 Circle
+2005 3637 Circle
+2006 3637 Circle
+2174 2681 Circle
+2175 2680 Circle
+2174 2480 Circle
+2175 2479 Circle
+2174 4413 Circle
+2175 4413 Circle
+2174 4836 Circle
+2175 4835 Circle
+2174 4820 Circle
+2175 4819 Circle
+2194 1523 Circle
+2195 1522 Circle
+2327 1429 Circle
+2328 1428 Circle
+2327 888 Circle
+2328 887 Circle
+2327 632 Circle
+2328 631 Circle
+2327 608 Circle
+2328 608 Circle
+2327 873 Circle
+2328 872 Circle
+2379 1561 Circle
+2379 1561 Circle
+2382 1559 Circle
+2382 1559 Circle
+2404 1852 Circle
+2404 1851 Circle
+2793 487 Circle
+2793 487 Circle
+2793 495 Circle
+2793 495 Circle
+2793 1576 Circle
+2793 1576 Circle
+2812 844 Circle
+2813 844 Circle
+2813 843 Circle
+2814 842 Circle
+3461 685 Circle
+3463 683 Circle
+3620 1754 Circle
+3620 1754 Circle
+3620 1754 Circle
+3620 1753 Circle
+3620 1753 Circle
+3620 1753 Circle
+3625 844 Circle
+3626 843 Circle
+3625 801 Circle
+3626 800 Circle
+3625 4148 Circle
+3626 4147 Circle
+3625 4285 Circle
+3626 4284 Circle
+3645 2108 Circle
+3647 2106 Circle
+3645 2433 Circle
+3647 2432 Circle
+3645 1866 Circle
+3647 1865 Circle
+4264 487 Circle
+4264 487 Circle
+4443 843 Circle
+4445 842 Circle
+4510 1414 Circle
+4511 1414 Circle
+4510 4865 Circle
+4511 4864 Circle
+4794 2018 Circle
+4795 2017 Circle
+4794 4865 Circle
+4795 4864 Circle
+4794 1414 Circle
+4795 1414 Circle
+4901 2955 Circle
+5183 2756 Circle
+5117 2499 Circle
+5117 2499 Circle
+5117 2499 Circle
+5117 2499 Circle
+5117 2499 Circle
+5117 2499 Circle
+5370 1151 Circle
+5372 1151 Circle
+5370 497 Circle
+5372 496 Circle
+5464 2258 Circle
+5887 1960 Circle
+5677 2433 Circle
+5679 2432 Circle
+5677 3623 Circle
+5679 3622 Circle
+5677 1866 Circle
+5679 1865 Circle
+5804 1414 Circle
+5805 1414 Circle
+5804 4865 Circle
+5805 4864 Circle
+5929 280 Circle
+5930 279 Circle
+5929 1295 Circle
+5930 1295 Circle
+5953 4496 Circle
+5955 4495 Circle
+6123 280 Circle
+6124 279 Circle
+6123 1295 Circle
+6124 1295 Circle
+6305 1414 Circle
+6306 1414 Circle
+6305 4865 Circle
+6306 4864 Circle
+6421 4165 Circle
+6423 4164 Circle
+6487 487 Circle
+6487 487 Circle
+6880 4865 Circle
+6881 4864 Circle
+6880 2018 Circle
+6881 2017 Circle
+6880 1414 Circle
+6881 1414 Circle
+6903 2018 Circle
+6904 2017 Circle
+6903 1414 Circle
+6904 1414 Circle
+6903 4865 Circle
+6904 4864 Circle
+6944 4413 Circle
+6945 4413 Circle
+6944 2681 Circle
+6945 2680 Circle
+6944 4820 Circle
+6945 4819 Circle
+6944 2480 Circle
+6945 2479 Circle
+6944 4836 Circle
+6945 4835 Circle
+% End plot #2
+1.000 UL
+LTb
+LCb setrgbcolor
+536 4943 N
+536 256 L
+6519 0 V
+0 4687 V
+-6519 0 V
+Z stroke
+1.000 UP
+1.000 UL
+LTb
+LCb setrgbcolor
+stroke
+grestore
+end
+showpage
+%%Trailer
+%%DocumentFonts: Courier
+%%Pages: 1

@@ -1,0 +1,72 @@
+[03:46:52] root: INFO: Starting Ragout v2.0b
+[03:46:52] root: INFO: Extracting target FASTA from HAL
+[03:46:53] root: INFO: Extracting ancestor FASTA from HAL
+[03:46:53] root: INFO: Converting HAL to MAF
+[03:46:53] root: DEBUG: hal2mafMP.py boolean14.hal test_new1000/hal-workdir/alignment.maf --numProc 1 --refGenome G4 --targetGenomes G5,G4,G3,G2 --inMemory
+[03:50:56] root: INFO: Extracting synteny blocks from MAF
+[03:50:56] root: INFO: Running maf2synteny module
+[03:50:56] root: DEBUG: Parsing MAF file
+[03:50:57] root: DEBUG: Started initial compression
+[03:50:57] root: DEBUG: Simplification with 30 500
+[03:50:57] root: DEBUG: Simplification with 100 5000
+[03:50:57] root: DEBUG: Simplification with 500 50000
+[03:50:57] root: DEBUG: Simplification with 5000 500000
+[03:50:57] root: INFO: Phylogeny is taken from the recipe
+[03:50:57] root: DEBUG: Branch lengths: [1, 1, 1, 1], mu = 1.0
+[03:50:57] root: INFO: Processing permutation files
+[03:50:57] root: DEBUG: Reading permutation file
+[03:50:57] root: DEBUG: "G5" synteny blocks coverage: 88.42%
+[03:50:57] root: DEBUG: "G4" synteny blocks coverage: 88.41%
+[03:50:57] root: DEBUG: "G3" synteny blocks coverage: 88.42%
+[03:50:57] root: DEBUG: Read 2 reference sequences
+[03:50:57] root: DEBUG: Read 5 target sequences
+[03:50:57] root: DEBUG: Read 6 ancestor sequences
+[03:50:57] root: DEBUG: 5 target sequences left after indel filtering
+[03:50:57] root: DEBUG: 5 target sequences left after repeat filtering
+[03:50:57] root: DEBUG: Built breakpoint graph with 42 nodes
+[03:50:57] root: DEBUG: Reading permutation file
+[03:50:57] root: DEBUG: "G5" synteny blocks coverage: 88.42%
+[03:50:57] root: DEBUG: "G4" synteny blocks coverage: 88.41%
+[03:50:57] root: DEBUG: "G3" synteny blocks coverage: 88.42%
+[03:50:57] root: DEBUG: Read 2 reference sequences
+[03:50:57] root: DEBUG: Read 5 target sequences
+[03:50:57] root: DEBUG: Read 6 ancestor sequences
+[03:50:57] root: DEBUG: 5 target sequences left after indel filtering
+[03:50:57] root: DEBUG: 5 target sequences left after repeat filtering
+[03:50:57] root: DEBUG: Built breakpoint graph with 42 nodes
+[03:50:57] root: INFO: Reading contigs file
+[03:50:57] root: INFO: Reading contigs file
+[03:50:57] root: DEBUG: Detecting chimeric adjacencies
+[03:50:57] root: INFO: Stage "70000"
+[03:50:57] root: DEBUG: Chimera Detector: 1 cuts made in 1 sequences
+[03:50:57] root: DEBUG: Built breakpoint graph with 42 nodes
+[03:50:57] root: INFO: Inferring missing adjacencies
+[03:50:57] root: DEBUG: Found 13 connected components
+[03:50:57] root: DEBUG: Inferred 6 adjacencies
+[03:50:57] root: DEBUG: 0 orphaned nodes
+[03:50:57] root: DEBUG: 0 guessed edges
+[03:50:57] root: DEBUG: 15 trimmed edges
+[03:50:57] root: INFO: Building scaffolds
+[03:50:57] root: DEBUG: 6 contigs were joined into 1 scaffolds
+[03:50:57] root: INFO: Stage "refine"
+[03:50:57] root: DEBUG: Chimera Detector: 1 cuts made in 1 sequences
+[03:50:57] root: DEBUG: Built breakpoint graph with 42 nodes
+[03:50:57] root: INFO: Inferring missing adjacencies
+[03:50:57] root: DEBUG: Found 13 connected components
+[03:50:57] root: DEBUG: Inferred 6 adjacencies
+[03:50:57] root: DEBUG: 0 orphaned nodes
+[03:50:57] root: DEBUG: 0 guessed edges
+[03:50:57] root: DEBUG: 15 trimmed edges
+[03:50:57] root: INFO: Building scaffolds
+[03:50:57] root: DEBUG: 6 contigs were joined into 1 scaffolds
+[03:50:57] root: DEBUG: Chimera Detector: 1 cuts made in 1 sequences
+[03:50:57] root: INFO: Merging two iterations
+[03:50:57] root: DEBUG: Fail: not found: 0
+[03:50:57] root: DEBUG: Fail: different scaffolds: 0
+[03:50:57] root: DEBUG: Fail: different orientatilns: 0
+[03:50:57] root: DEBUG: Fail: inconsistent: 0
+[03:50:57] root: DEBUG: Total success: 5
+[03:50:57] root: DEBUG: Total fail: 0
+[03:50:57] root: DEBUG: Total inserted: 0
+[03:50:57] root: DEBUG: Result: 6 contigs in 1 scaffolds
+[03:50:57] root: DEBUG: Merging consequtive contigs: 6 left

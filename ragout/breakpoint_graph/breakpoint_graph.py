@@ -72,7 +72,7 @@ class BreakpointGraph(object):
                                        chr_name=perm.chr_name,
                                        infinity=True)
 
-            if perm.genome_name in self.target and not perm.draft and self.ancestral:
+            if self.target in perm.genome_name and not 'unlocalized' in perm.genome_name and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,

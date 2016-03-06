@@ -1,0 +1,11 @@
+##agp-version  2.0
+#ASSEMBLY NAME: G2
+#DESCRIPTION: Pseudochromosome assembly
+#PROGRAM: Ragout v2.0b
+chr	1	2204671	1	W	G2refChr0	1	2204671	+
+chr	2204672	2204682	2	N	11	scaffold	yes	G5:EG5
+chr	2204683	3086550	3	W	G2refChr3	1	881868	-
+chr	3086551	3086561	4	N	11	scaffold	yes	G5:EG5
+chr	3086562	3527493	5	W	G2refChr2	1	440932	+
+chr	3527494	3527504	6	N	11	scaffold	yes	G3:CG3,G4:ragout-scaffold-0
+chr	3527505	4629845	7	W	G2refChr1	1	1102341	+
