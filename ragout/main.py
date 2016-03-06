@@ -34,6 +34,7 @@ from ragout.shared.datatypes import (Permutation, Block, Contig, Scaffold, Link)
 from ragout.breakpoint_graph.breakpoint_graph import BreakpointGraph
 from ragout.breakpoint_graph.inferer import AdjacencyInferer
 from ragout.breakpoint_graph.chimera_detector import ChimeraDetector
+from ragout.breakpoint_graph.chimera_detector_ancestor import ChimeraDetector4Ancestor
 from ragout.phylogeny.phylogeny import *
 from ragout.__version__ import __version__
 
@@ -88,7 +89,7 @@ def check_extern_modules(backend):
         raise BackendException("overlap binary is missing, "
                                "did you run 'make'?")
 
-def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref, ancestor_sequences, out_dir):
+def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref, ancestor_sequences, out_dir, stages):
     ####debug ancestor reconstruction
     target_perms = []
     for scf in scaffolds:
@@ -98,15 +99,17 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
 
     perm_container.target_perms = target_perms[:]
     #move_target(perm_container)
+    raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
+    raw_bp_graphs = {stages[0]: raw_bp_graph}
 
-    ancestor_breakpoint_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
+    chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
+    broken_perms = chim_detect.break_contigs(perm_container, stages)
+
+    ancestor_breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
     adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
     #cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
-    scaffolds = scfldr.build_scaffolds(adjacencies, perm_container, ancestral=True)
-    for scaffold in scaffolds:
-        for contig in scaffold.contigs:
-            print [block.signed_id() for block in contig.perm.blocks]
+    scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
     scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
 
     out_gen = OutputGenerator(ancestor_sequences, scaffolds)
