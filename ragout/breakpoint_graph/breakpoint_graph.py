@@ -253,18 +253,24 @@ class BreakpointGraph(object):
                 return True
         return False
 
-    def get_distance(self, node_1, node_2, phylogeny):
+    def get_distance(self, node_1, node_2, phylogeny, ancestral=False):
         """
         Tries to guess the distance between synteny blocks
-        in a target genome
+        in a target genome or ancestor genome
         """
+        if not ancestral:
+            genome = self.target
+        else:
+            genome = self.ancestor
         DEFAULT_DISTANCE = 0
         if not self.bp_graph.has_edge(node_1, node_2):
             return DEFAULT_DISTANCE
         distances = {e["genome_id"] : e["end"] - e["start"]
                      for e in self.bp_graph[node_1][node_2].values()}
 
-        genomes_order = phylogeny.leaves_by_distance(self.target)
+        genomes_order = phylogeny.nodes_by_distance(genome, onlyLeaves = not ancestral )
+        if len(distances.keys()) == 1 and genome == distances.keys()[0]:
+            return distances[genome]
         for g in genomes_order:
             if g in distances:
                 return distances[g]

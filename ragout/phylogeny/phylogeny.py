@@ -73,7 +73,7 @@ class Phylogeny:
             else:
                 #prevent underflow
                 length = max(branch, 0.0000001)
-                #adding one to counter possibly small exp value 
+                #adding one to counter possibly small exp value
                 return 1.0 + math.exp(-self.mu * length)
 
         #recursive
@@ -119,7 +119,7 @@ class Phylogeny:
 
         return get_labels(self.tree)
 
-    def leaves_by_distance(self, genome):
+    def nodes_by_distance(self, genome, onlyLeaves=True):
         """
         Returns leaves names sorted by the distance from
         the given genome.
@@ -137,9 +137,13 @@ class Phylogeny:
 
         rec_helper(self.tree)
         distances = nx.single_source_dijkstra_path_length(graph, start[0])
-        leaves = [g for g in distances.keys()
+        if onlyLeaves:
+            nodes = [g for g in distances.keys()
                   if g.terminal and g.identifier != genome]
-        return list(map(str, sorted(leaves, key=distances.get)))
+        else:
+            nodes = [g for g in distances.keys()
+                  if g.identifier != genome]
+        return list(map(str, sorted(nodes, key=distances.get)))
 
 
 def _median(values):
@@ -179,7 +183,7 @@ def estimate_labeled_tree(phylogeny, leaf_states, internal_states):
         else:
             #prevent underflow
             length = max(branch, 0.0000001)
-            #adding one to counter possibly small exp value 
+            #adding one to counter possibly small exp value
             return 1.0 + math.exp(-phylogeny.mu * length)
 
     #recursive

@@ -36,7 +36,7 @@ def build_scaffolds(adjacencies, perm_container, debug_output=True,
         contigs, contig_index = _make_contigs(perm_container)
     else:
         contigs, contig_index = _make_contigs(perm_container, ancestral=ancestral)
-        
+
     scaffolds = _extend_scaffolds(adjacencies, contigs, contig_index,
                                   correct_distances)
     num_contigs = sum(map(lambda s: len(s.contigs), scaffolds))
@@ -142,11 +142,8 @@ def _extend_scaffolds(adjacencies, contigs, contig_index, correct_distances):
             adj_distance = adjacencies[scf.right].distance
             adj_supporting_genomes = adjacencies[scf.right].supporting_genomes
 
-            try:
-                contig = contig_index[abs(adj_block)]
-            except KeyError:
-                print adj_supporting_genomes, adj_block, scf.right
-                break
+            ###KeyError may be throw when ref.indels = False
+            contig = contig_index[abs(adj_block)]
             if contig in visited:
                 break
 
