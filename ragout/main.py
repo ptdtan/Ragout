@@ -89,14 +89,17 @@ def check_extern_modules(backend):
         raise BackendException("overlap binary is missing, "
                                "did you run 'make'?")
 
-def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, naming_ref, ancestor_sequences, out_dir, stages):
+def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny,
+                       naming_ref, ancestor_sequences, out_dir, stages,
+                       targetDone=False):
     ####debug ancestor reconstruction
-    target_perms = []
-    for scf in scaffolds:
-        perm = Permutation.with_scaffold(scf, target, scf.name)
-        target_perms.append(perm)
+    if not targetDone:
+        target_perms = []
+        for scf in scaffolds:
+            perm = Permutation.with_scaffold(scf, target, scf.name)
+            target_perms.append(perm)
 
-    perm_container.target_perms = target_perms[:]
+        perm_container.target_perms = target_perms[:]
     #move_target(perm_container)
     raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     raw_bp_graphs = {stages[0]: raw_bp_graph}
@@ -250,7 +253,7 @@ def run_ragout(args):
                     naming_ref,
                     ancestor_sequences,
                     args.out_dir,
-                    [last_stage])
+                    [last_stage], targetDone=args.targetDone)
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     if not args.no_refine:
@@ -295,6 +298,9 @@ def main():
     parser.add_argument("--repeats", action="store_true", default=False,
                         dest="resolve_repeats",
                         help="resolve repetitive input sequences")
+    parser.add_argument("--targetDone", action="store_true", default=False,
+                        dest="targetDone",
+                        help="target genome has been done scaffolding")
     parser.add_argument("--debug", action="store_true",
                         dest="debug", default=False,
                         help="enable debug output")
