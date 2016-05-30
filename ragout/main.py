@@ -110,12 +110,13 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny,
 
     ####ancestor breakpoint graph
     ancestor_breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
+    adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
 
     ###scaffolding ancestor genomes
     scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
     scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
-    adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
+
 
     ###output generating of ancestor scaffolds
     logger.info("Done scaffolding for ''{0}''".format(ancestor))
