@@ -92,7 +92,7 @@ def check_extern_modules(backend):
 def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny,
                        naming_ref, ancestor_sequences, out_dir, stages,
                        targetDone=False):
-    ####debug ancestor reconstruction
+    ####get target permutaions from scaffolds
     if not targetDone:
         target_perms = []
         for scf in scaffolds:
@@ -100,23 +100,27 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny,
             target_perms.append(perm)
 
         perm_container.target_perms = target_perms[:]
-    #move_target(perm_container)
+
     raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     raw_bp_graphs = {stages[0]: raw_bp_graph}
 
     chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
     broken_perms = chim_detect.break_contigs(perm_container, stages)
     #broken_perms = deepcopy(perm_container)
+
+    ####ancestor breakpoint graph
     ancestor_breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
-    adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
-    #cur_perms = scfldr._extend_perms(ancestor, adjacencies, using_blocks)
+
+    ###scaffolding ancestor genomes
     scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
     scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
+    adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
 
+    ###output generating of ancestor scaffolds
+    logger.info("Done scaffolding for ''{0}''".format(ancestor))
     out_gen = OutputGenerator(ancestor_sequences, scaffolds)
     out_gen.make_output(out_dir, ancestor)
-    #rearrang blocks in adjacencies into permutation, permutation into scaffold
 
 def make_run_stages(block_sizes, resolve_repeats):
     """
@@ -213,60 +217,58 @@ def run_ragout(args):
         chim_detect = ChimeraDetector(raw_bp_graphs, run_stages, target_sequences)
 
     #####
-    scaffolds = None
-    prev_stages = []
-    for stage in run_stages:
-        logger.info("Stage \"{0}\"".format(stage.name))
-        debugger.set_debug_dir(os.path.join(debug_root, stage.name))
-        prev_stages.append(stage)
+    if not args.targetDone:
+        scaffolds = None
+        prev_stages = []
+        for stage in run_stages:
+            logger.info("Stage \"{0}\"".format(stage.name))
+            debugger.set_debug_dir(os.path.join(debug_root, stage.name))
+            prev_stages.append(stage)
 
-        if not args.solid_scaffolds:
-            broken_perms = chim_detect.break_contigs(stage_perms[stage], [stage])
-        else:
-            broken_perms = stage_perms[stage]
-        breakpoint_graph = BreakpointGraph(broken_perms)
-
-        adj_inferer = AdjacencyInferer(breakpoint_graph, phylogeny)
-        adjacencies = adj_inferer.infer_adjacencies()
-        cur_scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms)
-
-        if scaffolds is not None:
             if not args.solid_scaffolds:
-                merging_perms = chim_detect.break_contigs(stage_perms[stage],
-                                                          prev_stages)
+                broken_perms = chim_detect.break_contigs(stage_perms[stage], [stage])
             else:
-                merging_perms = stage_perms[stage]
-            scaffolds = merge.merge_scaffolds(scaffolds, cur_scaffolds,
-                                              merging_perms, stage.rearrange)
-        else:
-            scaffolds = cur_scaffolds
-    debugger.set_debug_dir(debug_root)
-    ####
+                broken_perms = stage_perms[stage]
+            breakpoint_graph = BreakpointGraph(broken_perms)
 
-    last_stage = run_stages[-1]
+            adj_inferer = AdjacencyInferer(breakpoint_graph, phylogeny)
+            adjacencies = adj_inferer.infer_adjacencies()
+            cur_scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms)
 
-    ancestor_construct(scaffolds,
-                    recipe['ancestor'],
-                    recipe['target'],
-                    stage_perms[last_stage],
-                    phylogeny,
-                    naming_ref,
-                    ancestor_sequences,
-                    args.out_dir,
-                    [last_stage], targetDone=args.targetDone)
-    scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
+            if scaffolds is not None:
+                if not args.solid_scaffolds:
+                    merging_perms = chim_detect.break_contigs(stage_perms[stage],
+                                                              prev_stages)
+                else:
+                    merging_perms = stage_perms[stage]
+                scaffolds = merge.merge_scaffolds(scaffolds, cur_scaffolds,
+                                                  merging_perms, stage.rearrange)
+            else:
+                scaffolds = cur_scaffolds
+        debugger.set_debug_dir(debug_root)
+        ####
+        scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
-    if not args.no_refine:
-        out_overlap = os.path.join(args.out_dir, "contigs_overlap.dot")
-        overlap.make_overlap_graph(backend.get_target_fasta(), out_overlap)
-        scaffolds = asref.refine_scaffolds(out_overlap, scaffolds,
-                                           target_sequences)
-        if args.debug:
-            shutil.copy(out_overlap, debugger.debug_dir)
-        os.remove(out_overlap)
+        if not args.no_refine:
+            out_overlap = os.path.join(args.out_dir, "contigs_overlap.dot")
+            overlap.make_overlap_graph(backend.get_target_fasta(), out_overlap)
+            scaffolds = asref.refine_scaffolds(out_overlap, scaffolds,
+                                               target_sequences)
+            if args.debug:
+                shutil.copy(out_overlap, debugger.debug_dir)
+            os.remove(out_overlap)
 
-    out_gen = OutputGenerator(target_sequences, scaffolds)
-    out_gen.make_output(args.out_dir, recipe["target"])
+        out_gen = OutputGenerator(target_sequences, scaffolds)
+        out_gen.make_output(args.out_dir, recipe["target"])
+
+    ###Ancestor reconstruction
+    if args.ancestor_reconstruct:
+        last_stage = run_stages[-1]
+        ancestor_construct(scaffolds, recipe['ancestor'], recipe['target'],
+                           stage_perms[last_stage], phylogeny, naming_ref,
+                           ancestor_sequences, args.out_dir,
+                           [last_stage], targetDone=args.targetDone)
+    ###
     logger.info("Done!")
 
 
@@ -301,6 +303,9 @@ def main():
     parser.add_argument("--targetDone", action="store_true", default=False,
                         dest="targetDone",
                         help="target genome has been done scaffolding")
+    parser.add_argument("--ancestor", action="store_true", default=False,
+                        dest="ancestor_reconstruct"
+                        help="enable ancestor reconstruction")
     parser.add_argument("--debug", action="store_true",
                         dest="debug", default=False,
                         help="enable debug output")
