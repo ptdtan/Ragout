@@ -304,7 +304,7 @@ def main():
                         dest="targetDone",
                         help="target genome has been done scaffolding")
     parser.add_argument("--ancestor", action="store_true", default=False,
-                        dest="ancestor_reconstruct"
+                        dest="ancestor_reconstruct",
                         help="enable ancestor reconstruction")
     parser.add_argument("--debug", action="store_true",
                         dest="debug", default=False,
