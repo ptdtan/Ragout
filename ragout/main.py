@@ -153,7 +153,7 @@ def get_phylogeny_and_naming_ref(recipe, permutation_file):
         phylogeny = Phylogeny.from_permutations(perm_cont)
         logger.info(phylogeny.tree_string)
 
-    leaves_sorted = phylogeny.leaves_by_distance(recipe["target"])
+    leaves_sorted = phylogeny.nodes_by_distance(recipe["target"], onlyLeaves=True)
     if "naming_ref" in recipe:
         naming_ref = recipe["naming_ref"]
     else:
