@@ -142,10 +142,10 @@ class PermutationContainer:
         """
         Filters repetitive blocks
         """
-        if not ancestral:
-            self.target_perms = _filter_permutations(self.target_perms, repeats,
+        #if not ancestral:
+        self.target_perms = _filter_permutations(self.target_perms, repeats,
                                                  inverse=True)
-            self.ref_perms = _filter_permutations(self.ref_perms, repeats,
+        self.ref_perms = _filter_permutations(self.ref_perms, repeats,
                                               inverse=True)
         if ancestral:
             self.ancestor_perms = _filter_permutations(self.ancestor_perms, repeats,

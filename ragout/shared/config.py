@@ -33,7 +33,7 @@ vals =  {
             "blocks" :
             {
                 "small" : [5000, 500, 100],
-                "large" : [10000, 500, 100]
+                "large" : [10000, 5000, 1000]
             },
 
             "big_genome_threshold" : 500 * 1024 * 1024,

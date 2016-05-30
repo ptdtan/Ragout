@@ -101,9 +101,9 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     raw_bp_graphs = {stages[0]: raw_bp_graph}
 
-    chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
-    broken_perms = chim_detect.break_contigs(perm_container, stages)
-
+    #chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
+    #broken_perms = chim_detect.break_contigs(perm_container, stages)
+    broken_perms = deepcopy(perm_container)
     ancestor_breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
     adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
@@ -125,7 +125,7 @@ def make_run_stages(block_sizes, resolve_repeats):
                                ref_indels=False, repeats=False,
                                rearrange=True))
     stages.append(RunStage(name="refine", block_size=block_sizes[-1],
-                           ref_indels=True, repeats=resolve_repeats,
+                           ref_indels=False, repeats=resolve_repeats,
                            rearrange=False))
     return stages
 

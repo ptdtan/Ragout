@@ -142,7 +142,11 @@ def _extend_scaffolds(adjacencies, contigs, contig_index, correct_distances):
             adj_distance = adjacencies[scf.right].distance
             adj_supporting_genomes = adjacencies[scf.right].supporting_genomes
 
-            contig = contig_index[abs(adj_block)]
+            try:
+                contig = contig_index[abs(adj_block)]
+            except KeyError:
+                print adj_supporting_genomes, adj_block, scf.right
+                break
             if contig in visited:
                 break
 
@@ -153,7 +157,11 @@ def _extend_scaffolds(adjacencies, contigs, contig_index, correct_distances):
                     scf.contigs.append(contig.reverse_copy())
 
                 flank = scf.contigs[-2].right_gap() + scf.contigs[-1].left_gap()
-                gap = adj_distance - flank if correct_distances else adj_distance
+                try:
+                    gap = adj_distance - flank if correct_distances else adj_distance
+                except Exception as e:
+                    print scf.right
+                    print adj_distance, flank
                 scf.contigs[-2].link = Link(gap, adj_supporting_genomes)
 
                 scf.right = scf.contigs[-1].right_end()
@@ -179,7 +187,10 @@ def _extend_scaffolds(adjacencies, contigs, contig_index, correct_distances):
                     scf.contigs.insert(0, contig.reverse_copy())
 
                 flank = scf.contigs[0].right_gap() + scf.contigs[1].left_gap()
-                gap = adj_distance - flank if correct_distances else adj_distance
+                try:
+                    gap = adj_distance - flank if correct_distances else adj_distance
+                except Exception as e:
+                    print adj_distance, flank
                 scf.contigs[0].link = Link(gap, adj_supporting_genomes)
 
                 scf.left = scf.contigs[0].left_end()
@@ -293,6 +304,8 @@ def _make_contigs(perm_container, ancestral=False):
                 index[block.block_id] = contigs[-1]
     else:
         for perm in perm_container.ancestor_perms:
+            #print idx
+            #print perm.name(), [block.block_id for block in perm.blocks]
             assert len(perm.blocks)
             contigs.append(Contig.with_perm(perm))
             for block in perm.blocks:

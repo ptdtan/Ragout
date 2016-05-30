@@ -204,7 +204,10 @@ class BreakpointGraph(object):
 
         good_path = False
         for path in self._alternating_paths(node_1, node_2):
-            assert len(path) % 2 == 0
+            #assert len(path) % 2 == 0
+            if len(path) % 2 != 0:
+				#print len(path)
+				return None
             if len(path) == 2:
                 continue
 
