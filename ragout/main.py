@@ -101,9 +101,9 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny, n
     raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     raw_bp_graphs = {stages[0]: raw_bp_graph}
 
-    #chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
-    #broken_perms = chim_detect.break_contigs(perm_container, stages)
-    broken_perms = deepcopy(perm_container)
+    chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
+    broken_perms = chim_detect.break_contigs(perm_container, stages)
+    #broken_perms = deepcopy(perm_container)
     ancestor_breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
     adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
     adjacencies = adj_inferer.infer_adjacencies()
@@ -242,11 +242,11 @@ def run_ragout(args):
 
     last_stage = run_stages[-1]
 
-    ancestor_construct(scaffolds, 
-                    recipe['ancestor'], 
-                    recipe['target'], 
-                    stage_perms[last_stage], 
-                    phylogeny, 
+    ancestor_construct(scaffolds,
+                    recipe['ancestor'],
+                    recipe['target'],
+                    stage_perms[last_stage],
+                    phylogeny,
                     naming_ref,
                     ancestor_sequences,
                     args.out_dir,
