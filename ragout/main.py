@@ -217,8 +217,8 @@ def run_ragout(args):
         chim_detect = ChimeraDetector(raw_bp_graphs, run_stages, target_sequences)
 
     #####
+    scaffolds = None
     if not args.targetDone:
-        scaffolds = None
         prev_stages = []
         for stage in run_stages:
             logger.info("Stage \"{0}\"".format(stage.name))
