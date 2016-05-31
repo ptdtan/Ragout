@@ -110,7 +110,7 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
     ###apply for all stages
     for stage in run_stages:
         logger.info("Stage \"{0}\"".format(stage.name))
-        debugger.set_debug_dir(os.path.join(debug_root, stage.name))
+        #debugger.set_debug_dir(os.path.join(debug_root, stage.name))
         prev_stages.append(stage)
 
         if not solid_scaffolds:
