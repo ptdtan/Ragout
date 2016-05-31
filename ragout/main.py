@@ -89,19 +89,51 @@ def check_extern_modules(backend):
         raise BackendException("overlap binary is missing, "
                                "did you run 'make'?")
 
-def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny,
-                       naming_ref, ancestor_sequences, out_dir, stages,
-                       targetDone=False):
+def ancestor_construct(scaffolds, ancestor, target, phylogeny,
+                       naming_ref, ancestor_sequences, out_dir, stage_perms=None,
+                       run_stages=None, targetDone=False, solid_scaffolds=False):
     ####get target permutaions from scaffolds
-    if not targetDone:
+    """if not targetDone:
         target_perms = []
         for scf in scaffolds:
             perm = Permutation.with_scaffold(scf, target, scf.name)
             target_perms.append(perm)
 
-        perm_container.target_perms = target_perms[:]
+        perm_container.target_perms = target_perms[:]"""
 
-    raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
+    ###Enable ChimeraDetector4Ancestor
+    if not solid_scaffolds:
+        chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
+
+    prev_stages = []
+    scaffolds = None
+    ###apply for all stages
+    for stage in run_stages:
+        logger.info("Stage \"{0}\"".format(stage.name))
+        debugger.set_debug_dir(os.path.join(debug_root, stage.name))
+        prev_stages.append(stage)
+
+        if not solid_scaffolds:
+            broken_perms = chim_detect.break_contigs(stage_perms[stage], [stage])
+        else:
+            broken_perms = stage_perms[stage]
+        breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
+        adj_inferer = AdjacencyInferer(breakpoint_graph, phylogeny, ancestral= True)
+        adjacencies = adj_inferer.infer_adjacencies()
+        cur_scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
+
+        if scaffolds is not None:
+            if not solid_scaffolds:
+                merging_perms = chim_detect.break_contigs(stage_perms[stage],
+                                                          prev_stages)
+            else:
+                merging_perms = stage_perms[stage]
+            scaffolds = merge.merge_scaffolds(scaffolds, cur_scaffolds,
+                                              merging_perms, stage.rearrange)
+        else:
+            scaffolds = cur_scaffolds
+
+    """raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
     raw_bp_graphs = {stages[0]: raw_bp_graph}
 
     chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
@@ -114,9 +146,8 @@ def ancestor_construct(scaffolds, ancestor, target, perm_container, phylogeny,
     adjacencies = adj_inferer.infer_adjacencies()
 
     ###scaffolding ancestor genomes
-    scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
+    scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)"""
     scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
-
 
     ###output generating of ancestor scaffolds
     logger.info("Done scaffolding for ''{0}''".format(ancestor))
@@ -264,11 +295,12 @@ def run_ragout(args):
 
     ###Ancestor reconstruction
     if args.ancestor_reconstruct:
-        last_stage = run_stages[-1]
+        #last_stage = run_stages[-1]
         ancestor_construct(scaffolds, recipe['ancestor'], recipe['target'],
-                           stage_perms[last_stage], phylogeny, naming_ref,
-                           ancestor_sequences, args.out_dir,
-                           [last_stage], targetDone=args.targetDone)
+                            phylogeny, naming_ref,
+                           ancestor_sequences, args.out_dir, stage_perms=stage_perms,
+                           run_stages=run_stages, targetDone=args.targetDone,
+                           solid_scaffolds=args.solid_scaffolds)
     ###
     logger.info("Done!")
 
