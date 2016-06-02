@@ -27,7 +27,7 @@ logger = logging.getLogger()
 debugger = DebugConfig.get_instance()
 
 
-def merge_scaffolds(big_scaffolds, small_scaffolds, perm_container, rearrange):
+def merge_scaffolds(big_scaffolds, small_scaffolds, perm_container, rearrange, ancestral = False):
     """
     Merges scaffold sets from different iterations. If rearrangements are allowed,
     tries to keep some small-scale rearrangements from the weaker scaffold set.
@@ -35,13 +35,13 @@ def merge_scaffolds(big_scaffolds, small_scaffolds, perm_container, rearrange):
     logger.info("Merging two iterations")
 
     #synchronizing scaffolds to the same permutations
-    big_updated = _update_scaffolds(big_scaffolds, perm_container)
-    small_updated = _update_scaffolds(small_scaffolds, perm_container)
+    big_updated = _update_scaffolds(big_scaffolds, perm_container, ancestral=ancestral)
+    small_updated = _update_scaffolds(small_scaffolds, perm_container, ancestral=ancestral)
 
     if rearrange:
         projector = RearrangementProjector(big_updated, small_updated, True)
         new_adj = projector.project()
-        big_rearranged = build_scaffolds(new_adj, perm_container, False, False)
+        big_rearranged = build_scaffolds(new_adj, perm_container, False, False, ancestral=ancestral)
     else:
         big_rearranged = big_updated
 
@@ -97,13 +97,17 @@ def _merge_consecutive_contigs(scaffolds):
     return new_scaffolds
 
 
-def _update_scaffolds(scaffolds, perm_container):
+def _update_scaffolds(scaffolds, perm_container, ancestral=False):
     """
     Updates scaffolds wrt to given permutations
     """
     perm_index = defaultdict(list)
-    for perm in perm_container.target_perms:
-        perm_index[(perm.chr_name, perm.repeat_id)].append(perm)
+    if not ancestral:
+        for perm in perm_container.target_perms:
+            perm_index[(perm.chr_name, perm.repeat_id)].append(perm)
+    else:
+        for perm in perm_container.ancestor_perms:
+            perm_index[(perm.chr_name, perm.repeat_id)].append(perm)
 
     new_scaffolds = []
     for scf in scaffolds:
