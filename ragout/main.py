@@ -151,6 +151,8 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     ###output generating of ancestor scaffolds
+    for scf in scaffolds:
+        print len(scf.contigs)
     logger.info("Done scaffolding for ''{0}''".format(ancestor))
     out_gen = OutputGenerator(ancestor_sequences, scaffolds)
     out_gen.make_output(out_dir, ancestor)
