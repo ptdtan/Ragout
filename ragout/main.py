@@ -103,7 +103,10 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
 
     ###Enable ChimeraDetector4Ancestor
     if not solid_scaffolds:
-        chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
+        raw_bp_graphs = {}
+        for stage in run_stages:
+            raw_bp_graphs[stage] = BreakpointGraph(stage_perms[stage], ancestor=ancestor, ancestral=True)
+        chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, run_stages, ancestor_sequences)
 
     prev_stages = []
     scaffolds = None
