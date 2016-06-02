@@ -102,7 +102,8 @@ class Phylogeny:
                     root_scores[root_state] += min_score
 
             return root_scores
-
+        if self.tree in internal_scores.keys():
+            return min(internal_scores[self.tree])
         return min(rec_helper(self.tree).values())
 
     def terminals_dfs_order(self):
