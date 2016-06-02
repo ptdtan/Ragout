@@ -281,6 +281,8 @@ class RearrangementProjector:
     def _build_adj_graph(self):
         adj_graph = nx.Graph()
         for scf in self.old_scaffolds:
+            if not scf.contigs:
+                continue
             for cnt_1, cnt_2 in zip(scf.contigs[:-1], scf.contigs[1:]):
                 adj_graph.add_edge(cnt_1.right_end(), cnt_2.left_end())
             for cnt in scf.contigs:
