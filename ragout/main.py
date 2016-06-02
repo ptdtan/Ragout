@@ -133,7 +133,7 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
             else:
                 merging_perms = stage_perms[stage]
             scaffolds = merge.merge_scaffolds(scaffolds, cur_scaffolds,
-                                              merging_perms, stage.rearrange)
+                                              merging_perms, stage.rearrange, ancestral=True)
         else:
             scaffolds = cur_scaffolds
 
