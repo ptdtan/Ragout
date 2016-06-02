@@ -108,6 +108,7 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
     prev_stages = []
     scaffolds = None
     ###apply for all stages
+    last_stage = run_stages[-1]
     for stage in run_stages:
         logger.info("Stage \"{0}\"".format(stage.name))
         #debugger.set_debug_dir(os.path.join(debug_root, stage.name))
@@ -147,7 +148,7 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
 
     ###scaffolding ancestor genomes
     scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)"""
-    scfldr.assign_scaffold_names(scaffolds, perm_container, naming_ref)
+    scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     ###output generating of ancestor scaffolds
     logger.info("Done scaffolding for ''{0}''".format(ancestor))
@@ -250,6 +251,7 @@ def run_ragout(args):
 
     #####
     scaffolds = None
+    last_stage = run_stages[-1]
     if not args.targetDone:
         prev_stages = []
         for stage in run_stages:
