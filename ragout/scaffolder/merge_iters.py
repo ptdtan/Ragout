@@ -247,9 +247,12 @@ class RearrangementProjector:
                                   scf_set="old", link=cnt_1.link,
                                   scf_name=scf.name, infinity=False)
             #chromosome ends
-            bp_graph.add_edge(scf.contigs[0].left_end(),
+            try:
+                bp_graph.add_edge(scf.contigs[0].left_end(),
                               scf.contigs[-1].right_end(), scf_set="old",
                               infinity=True)
+            except Exception as e:
+                print e, scf.contigs
 
         for scf in self.new_scaffolds:
             prev_cont = None
