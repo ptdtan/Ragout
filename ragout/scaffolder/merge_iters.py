@@ -240,6 +240,8 @@ class RearrangementProjector:
         ###creating 2-colored breakpoint graph
         bp_graph = nx.MultiGraph()
         for scf in self.old_scaffolds:
+            if not scf.contigs:
+                continue
             for cnt_1, cnt_2 in zip(scf.contigs[:-1], scf.contigs[1:]):
                 bp_graph.add_edge(cnt_1.right_end(), cnt_2.left_end(),
                                   scf_set="old", link=cnt_1.link,
