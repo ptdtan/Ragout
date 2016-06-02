@@ -1,0 +1,7 @@
+.tree = ((Yersinia_pestis_Antiqua:0.256992,(Yersinia_pestis_CO92:0.150187,Yersinia_pestis_Z176003:0.150187)Anc3:0.106804)Anc1:0.045805,(Yersinia_pestis_Nepal516:0.225281,Yersinia_pestis_KIM_10:0.225281)Anc2:0.077516)Anc0;
+.references = Yersinia_pestis_Nepal516,Yersinia_pestis_Antiqua, Yersinia_pestis_KIM_10, Yersinia_pestis_Z176003
+.target = Yersinia_pestis_CO92
+.blocks = small
+.naming_ref = ancient 
+.hal = /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/ancient.hal
+.ancestor = Anc0

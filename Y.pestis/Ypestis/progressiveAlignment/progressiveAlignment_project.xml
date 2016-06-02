@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<multi_cactus inputSequences="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Antiqua.Chr_chr /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_CO92.Chr_chr /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Z176003.Chr_chr /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Nepal516.Chr_chr /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_KIM_10.Chr_chr" outputSequenceDir="Ypestis/sequenceData">
+	<tree>((Yersinia_pestis_Antiqua:0.256992,(Yersinia_pestis_CO92:0.150187,Yersinia_pestis_Z176003:0.150187)Anc3:0.106804)Anc1:0.045805,(Yersinia_pestis_Nepal516:0.225281,Yersinia_pestis_KIM_10:0.225281)Anc2:0.077516)Anc0;</tree>
+	<cactus experiment_path="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0_experiment.xml" name="Anc0"/>
+	<cactus experiment_path="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1_experiment.xml" name="Anc1"/>
+	<cactus experiment_path="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2_experiment.xml" name="Anc2"/>
+	<cactus experiment_path="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3_experiment.xml" name="Anc3"/>
+</multi_cactus>

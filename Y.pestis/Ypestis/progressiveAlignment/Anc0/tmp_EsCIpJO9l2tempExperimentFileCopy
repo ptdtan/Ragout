@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<cactus_workflow_experiment config="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0_config.xml" outputSequenceDir="Ypestis/sequenceData" sequences="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1.fa /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2.fa" species_tree="(Anc1:0.045805,Anc2:0.077516)Anc0;">
+	<cactus_disk>
+		<st_kv_database_conf type="kyoto_tycoon">
+			<kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB" database_name="Anc0.kch" host="127.0.0.1" in_memory="1" port="1978" snapshot="0"/>
+		</st_kv_database_conf>
+		<secondary_conf type="kyoto_tycoon">
+			<kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728" database_name="Anc0.kch" host="127.0.0.1" in_memory="1" port="2078" snapshot="0"/>
+		</secondary_conf>
+	</cactus_disk>
+	<reference path="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0.fa"/>
+	<hal fastaPath="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0_hal.fa" halPath="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0_hal.c2h"/>
+</cactus_workflow_experiment>

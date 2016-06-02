@@ -1,0 +1,646 @@
+
+2016-06-02 05:55:48.964176: Beginning Progressive Cactus Alignment
+
+Got message from job at time: 1464872149.74 : Before running any preprocessing on the assembly: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Nepal516.Chr_chr got following stats (assembly may be listed as temp file if input sequences from a directory): Input-sample: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Nepal516.Chr_chr Total-sequences: 1 Total-length: 4534590 Proportion-repeat-masked: 0.000000 ProportionNs: 0.000000 Total-Ns: 0 N50: 4534590 Median-sequence-length: 4534590 Max-sequence-length: 4534590 Min-sequence-length: 4534590
+Got message from job at time: 1464872149.76 : Before running any preprocessing on the assembly: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Z176003.Chr_chr got following stats (assembly may be listed as temp file if input sequences from a directory): Input-sample: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Z176003.Chr_chr Total-sequences: 1 Total-length: 4553586 Proportion-repeat-masked: 0.000000 ProportionNs: 0.000000 Total-Ns: 0 N50: 4553586 Median-sequence-length: 4553586 Max-sequence-length: 4553586 Min-sequence-length: 4553586
+Got message from job at time: 1464872149.77 : Before running any preprocessing on the assembly: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_KIM_10.Chr_chr got following stats (assembly may be listed as temp file if input sequences from a directory): Input-sample: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_KIM_10.Chr_chr Total-sequences: 1 Total-length: 4600755 Proportion-repeat-masked: 0.000000 ProportionNs: 0.000000 Total-Ns: 0 N50: 4600755 Median-sequence-length: 4600755 Max-sequence-length: 4600755 Min-sequence-length: 4600755
+Got message from job at time: 1464872149.78 : Before running any preprocessing on the assembly: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Antiqua.Chr_chr got following stats (assembly may be listed as temp file if input sequences from a directory): Input-sample: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_Antiqua.Chr_chr Total-sequences: 1 Total-length: 4702289 Proportion-repeat-masked: 0.000000 ProportionNs: 0.000000 Total-Ns: 0 N50: 4702289 Median-sequence-length: 4702289 Max-sequence-length: 4702289 Min-sequence-length: 4702289
+Got message from job at time: 1464872149.79 : Before running any preprocessing on the assembly: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_CO92.Chr_chr got following stats (assembly may be listed as temp file if input sequences from a directory): Input-sample: /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/extant_genomes/Yersinia_pestis_CO92.Chr_chr Total-sequences: 1 Total-length: 4653728 Proportion-repeat-masked: 0.000000 ProportionNs: 0.000000 Total-Ns: 0 N50: 4653728 Median-sequence-length: 4653728 Max-sequence-length: 4653728 Min-sequence-length: 4653728
+Got message from job at time: 1464872167.13 : After preprocessing assembly we got the following stats: Input-sample: Ypestis/sequenceData/Yersinia_pestis_Antiqua.Chr_chr_0 Total-sequences: 1 Total-length: 4702289 Proportion-repeat-masked: 0.037715 ProportionNs: 0.000000 Total-Ns: 0 N50: 4702289 Median-sequence-length: 4702289 Max-sequence-length: 4702289 Min-sequence-length: 4702289
+Got message from job at time: 1464872167.37 : After preprocessing assembly we got the following stats: Input-sample: Ypestis/sequenceData/Yersinia_pestis_Nepal516.Chr_chr_3 Total-sequences: 1 Total-length: 4534590 Proportion-repeat-masked: 0.010183 ProportionNs: 0.000000 Total-Ns: 0 N50: 4534590 Median-sequence-length: 4534590 Max-sequence-length: 4534590 Min-sequence-length: 4534590
+Got message from job at time: 1464872167.6 : After preprocessing assembly we got the following stats: Input-sample: Ypestis/sequenceData/Yersinia_pestis_KIM_10.Chr_chr_4 Total-sequences: 1 Total-length: 4600755 Proportion-repeat-masked: 0.008281 ProportionNs: 0.000000 Total-Ns: 0 N50: 4600755 Median-sequence-length: 4600755 Max-sequence-length: 4600755 Min-sequence-length: 4600755
+Got message from job at time: 1464872167.9 : After preprocessing assembly we got the following stats: Input-sample: Ypestis/sequenceData/Yersinia_pestis_Z176003.Chr_chr_2 Total-sequences: 1 Total-length: 4553586 Proportion-repeat-masked: 0.011639 ProportionNs: 0.000000 Total-Ns: 0 N50: 4553586 Median-sequence-length: 4553586 Max-sequence-length: 4553586 Min-sequence-length: 4553586
+Got message from job at time: 1464872168.24 : After preprocessing assembly we got the following stats: Input-sample: Ypestis/sequenceData/Yersinia_pestis_CO92.Chr_chr_1 Total-sequences: 1 Total-length: 4653728 Proportion-repeat-masked: 0.025234 ProportionNs: 0.000000 Total-Ns: 0 N50: 4653728 Median-sequence-length: 4653728 Max-sequence-length: 4653728 Min-sequence-length: 4653728
+Got message from job at time: 1464872169.41 : Running blast using the trimming strategy
+Got message from job at time: 1464872169.41 : Ingroup sequences: ['/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/renamedInputs/Yersinia_pestis_CO92.Chr_chr_1', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/renamedInputs/Yersinia_pestis_Z176003.Chr_chr_2']
+Got message from job at time: 1464872169.41 : Outgroup sequences: ['/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/renamedInputs/Yersinia_pestis_Antiqua.Chr_chr_0', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/renamedInputs/Yersinia_pestis_Nepal516.Chr_chr_3', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/renamedInputs/Yersinia_pestis_KIM_10.Chr_chr_4']
+Got message from job at time: 1464872169.41 : Blasting ingroups vs outgroups to file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/tmp_fO1qrBiqTKunconvertedAlignments
+Got message from job at time: 1464872169.42 : Running blast using the trimming strategy
+Got message from job at time: 1464872169.42 : Ingroup sequences: ['/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/renamedInputs/Yersinia_pestis_Nepal516.Chr_chr_3', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/renamedInputs/Yersinia_pestis_KIM_10.Chr_chr_4']
+Got message from job at time: 1464872169.42 : Outgroup sequences: ['/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/renamedInputs/Yersinia_pestis_CO92.Chr_chr_1', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/renamedInputs/Yersinia_pestis_Z176003.Chr_chr_2', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/renamedInputs/Yersinia_pestis_Antiqua.Chr_chr_0']
+Got message from job at time: 1464872169.42 : Blasting ingroups vs outgroups to file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/tmp_N95UlPnUd5unconvertedAlignments
+Got message from job at time: 1464872413.68 : Coverage on Yersinia_pestis_CO92.Chr_chr_1 from outgroup #1, Yersinia_pestis_Antiqua.Chr_chr_0: 98.8117913209% (current ingroup length 4653728, untrimmed length 4653728). Outgroup trimmed to 4702289 bp from 4702289
+Got message from job at time: 1464872413.68 : Coverage on Yersinia_pestis_Z176003.Chr_chr_2 from outgroup #1, Yersinia_pestis_Antiqua.Chr_chr_0: 98.2920713477% (current ingroup length 4553586, untrimmed length 4553586). Outgroup trimmed to 4702289 bp from 4702289
+Got message from job at time: 1464872413.68 : Cumulative coverage of 1 outgroups on ingroup Yersinia_pestis_CO92.Chr_chr_1: 98.8117913209
+Got message from job at time: 1464872413.68 : Cumulative coverage of 1 outgroups on ingroup Yersinia_pestis_Z176003.Chr_chr_2: 98.2920713477
+Got message from job at time: 1464872424.05 : Coverage on Yersinia_pestis_Nepal516.Chr_chr_3 from outgroup #1, Yersinia_pestis_CO92.Chr_chr_1: 99.4719037443% (current ingroup length 4534590, untrimmed length 4534590). Outgroup trimmed to 4648914 bp from 4653728
+Got message from job at time: 1464872424.05 : Coverage on Yersinia_pestis_KIM_10.Chr_chr_4 from outgroup #1, Yersinia_pestis_CO92.Chr_chr_1: 99.8786720875% (current ingroup length 4600755, untrimmed length 4600755). Outgroup trimmed to 4648914 bp from 4653728
+Got message from job at time: 1464872424.05 : Cumulative coverage of 1 outgroups on ingroup Yersinia_pestis_Nepal516.Chr_chr_3: 99.4719037443
+Got message from job at time: 1464872424.05 : Cumulative coverage of 1 outgroups on ingroup Yersinia_pestis_KIM_10.Chr_chr_4: 99.8786720875
+Got message from job at time: 1464872444.67 : Coverage on Yersinia_pestis_CO92.Chr_chr_1 from outgroup #2, Yersinia_pestis_Nepal516.Chr_chr_3: 81.0296569942% (current ingroup length 203291, untrimmed length 4653728). Outgroup trimmed to 2073250 bp from 4534590
+Got message from job at time: 1464872444.67 : Coverage on Yersinia_pestis_Z176003.Chr_chr_2 from outgroup #2, Yersinia_pestis_Nepal516.Chr_chr_3: 74.1210556959% (current ingroup length 218131, untrimmed length 4553586). Outgroup trimmed to 2073250 bp from 4534590
+Got message from job at time: 1464872444.67 : Cumulative coverage of 2 outgroups on ingroup Yersinia_pestis_CO92.Chr_chr_1: 99.2475065152
+Got message from job at time: 1464872444.67 : Cumulative coverage of 2 outgroups on ingroup Yersinia_pestis_Z176003.Chr_chr_2: 98.7359852213
+Got message from job at time: 1464872455.39 : Coverage on Yersinia_pestis_Nepal516.Chr_chr_3 from outgroup #2, Yersinia_pestis_Z176003.Chr_chr_2: 95.0540605408% (current ingroup length 170827, untrimmed length 4534590). Outgroup trimmed to 2126485 bp from 4553586
+Got message from job at time: 1464872455.39 : Coverage on Yersinia_pestis_KIM_10.Chr_chr_4 from outgroup #2, Yersinia_pestis_Z176003.Chr_chr_2: 93.5550183808% (current ingroup length 149341, untrimmed length 4600755). Outgroup trimmed to 2126485 bp from 4553586
+Got message from job at time: 1464872455.39 : Cumulative coverage of 2 outgroups on ingroup Yersinia_pestis_Nepal516.Chr_chr_3: 99.8400075861
+Got message from job at time: 1464872455.39 : Cumulative coverage of 2 outgroups on ingroup Yersinia_pestis_KIM_10.Chr_chr_4: 99.8955606199
+Got message from job at time: 1464872483.39 : Coverage on Yersinia_pestis_CO92.Chr_chr_1 from outgroup #3, Yersinia_pestis_KIM_10.Chr_chr_4: 83.3730930856% (current ingroup length 209173, untrimmed length 4653728). Outgroup trimmed to 2302113 bp from 4600755
+Got message from job at time: 1464872483.39 : Coverage on Yersinia_pestis_Z176003.Chr_chr_2 from outgroup #3, Yersinia_pestis_KIM_10.Chr_chr_4: 74.2324639646% (current ingroup length 224224, untrimmed length 4553586). Outgroup trimmed to 2302113 bp from 4600755
+Got message from job at time: 1464872483.39 : Cumulative coverage of 3 outgroups on ingroup Yersinia_pestis_CO92.Chr_chr_1: 99.2476999085
+Got message from job at time: 1464872483.39 : Cumulative coverage of 3 outgroups on ingroup Yersinia_pestis_Z176003.Chr_chr_2: 98.736468357
+Got message from job at time: 1464872494.72 : Coverage on Yersinia_pestis_Nepal516.Chr_chr_3 from outgroup #3, Yersinia_pestis_Antiqua.Chr_chr_0: 97.7937785778% (current ingroup length 179991, untrimmed length 4534590). Outgroup trimmed to 2238496 bp from 4702289
+Got message from job at time: 1464872494.72 : Coverage on Yersinia_pestis_KIM_10.Chr_chr_4 from outgroup #3, Yersinia_pestis_Antiqua.Chr_chr_0: 99.0093841777% (current ingroup length 174336, untrimmed length 4600755). Outgroup trimmed to 2238496 bp from 4702289
+Got message from job at time: 1464872494.72 : Cumulative coverage of 3 outgroups on ingroup Yersinia_pestis_Nepal516.Chr_chr_3: 99.8731969153
+Got message from job at time: 1464872494.72 : Cumulative coverage of 3 outgroups on ingroup Yersinia_pestis_KIM_10.Chr_chr_4: 99.9284682623
+Got message from job at time: 1464872582.81 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB" database_name="Anc3.kch" in_memory="1" port="1981" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/tmp_StqSB4rUwb_kill.txt
+Got message from job at time: 1464872585.66 : Converted headers of cigar file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/tmp_fO1qrBiqTKunconvertedAlignments to internal names, new file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/t1/gTD1/tmp_7bVebSpyVK/tmp_siAwBvLjtV
+Got message from job at time: 1464872585.66 : Starting caf phase target with index 0 at 1464872585.56 seconds (recursing = 1)
+Got message from job at time: 1464872589.4 : Attaching the sequence to the cactus root 932104385377330738, header Yersinia_pestis_Antiqua.Chr|0 with length 4702289 and 4404705 total bases aligned and 0 bases aligned to other chromosome threads
+Got message from job at time: 1464872589.41 : Starting bar phase target with index 0 at 1464872588.65 seconds (recursing = 1)
+Got message from job at time: 1464872627.0 : Starting avg phase target with index 0 at 1464872626.94 seconds (recursing = 0)
+Got message from job at time: 1464872627.0 : Starting reference phase target with index 0 at 1464872626.95 seconds (recursing = 1)
+Got message from job at time: 1464872633.09 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB" database_name="Anc2.kch" in_memory="1" port="1980" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/tmp_1YEDkKkbmZ_kill.txt
+Got message from job at time: 1464872636.18 : Converted headers of cigar file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/tmp_N95UlPnUd5unconvertedAlignments to internal names, new file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/t1/gTD1/tmp_ZtoXLZV8y0/tmp_9p2zxLkuNl
+Got message from job at time: 1464872636.18 : Starting caf phase target with index 0 at 1464872636.15 seconds (recursing = 1)
+Got message from job at time: 1464872637.08 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134" database_name="Anc3.kch" in_memory="1" port="2081" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/t1/gTD1/tmp_7bVebSpyVK/tmp_mZSP9wVH3E_kill.txt
+Got message from job at time: 1464872640.22 : Attaching the sequence to the cactus root 2099944063749834178, header Yersinia_pestis_KIM_10.Chr with length 4600755 and 4463899 total bases aligned and 0 bases aligned to other chromosome threads
+Got message from job at time: 1464872640.22 : Starting bar phase target with index 0 at 1464872639.43 seconds (recursing = 1)
+Got message from job at time: 1464872647.14 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134" database_name="Anc3.kch" in_memory="1" port="2081" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/t1/gTD1/tmp_7bVebSpyVK/tmp_mZSP9wVH3E_kill.txt
+Got message from job at time: 1464872648.37 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134" database_name="Anc3.kch" host="127.0.0.1" in_memory="1" port="2081" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/t1/gTD1/tmp_7bVebSpyVK/tmp_mZSP9wVH3E_kill.txt
+Got message from job at time: 1464872648.37 : Report for 127.0.0.1:2081:
+cnt_get: 3013
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 2280
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 3013
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=733 size=271533099 path=:
+db_total_count: 733
+db_total_size: 271533099
+serv_conn_count: 1
+serv_current_time: 1464872641.943000
+serv_proc_id: 21227
+serv_running_term: 14.905123
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83631276032
+sys_mem_free: 377318346752
+sys_mem_peak: 1116610560
+sys_mem_rss: 14508032
+sys_mem_size: 1112485888
+sys_mem_total: 541204652032
+sys_ru_stime: 0.023996
+sys_ru_utime: 0.026995
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:03 ktout.log
+
+
+Got message from job at time: 1464872653.07 : Starting reference phase target with index 0 at 1464872648.4 seconds (recursing = 1)
+Got message from job at time: 1464872653.07 : Starting Reference Extract Phase
+Got message from job at time: 1464872653.07 : Starting check phase target with index 0 at 1464872653.01 seconds (recursing = 0)
+Got message from job at time: 1464872663.14 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134" database_name="Anc3.kch" in_memory="1" port="2081" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/t1/gTD1/tmp_7bVebSpyVK/tmp_VSjRHTYEHW_kill.txt
+Got message from job at time: 1464872674.21 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134" database_name="Anc3.kch" in_memory="1" port="2081" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/t1/gTD1/tmp_7bVebSpyVK/tmp_VSjRHTYEHW_kill.txt
+Got message from job at time: 1464872675.64 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134" database_name="Anc3.kch" host="127.0.0.1" in_memory="1" port="2081" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/t1/gTD1/tmp_7bVebSpyVK/tmp_VSjRHTYEHW_kill.txt
+Got message from job at time: 1464872675.64 : Report for 127.0.0.1:2081:
+cnt_get: 9323
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 7879
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 9323
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=1444 size=268600959 path=:
+db_total_count: 1444
+db_total_size: 268600959
+serv_conn_count: 1
+serv_current_time: 1464872667.127569
+serv_proc_id: 21561
+serv_running_term: 14.018436
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83659022336
+sys_mem_free: 377091981312
+sys_mem_peak: 1111568384
+sys_mem_rss: 24375296
+sys_mem_size: 1110818816
+sys_mem_total: 541204652032
+sys_ru_stime: 0.025996
+sys_ru_utime: 0.035994
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB_tempSecondaryDatabaseDir_0.986735456134:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:04 ktout.log
+
+
+Got message from job at time: 1464872677.71 : Starting avg phase target with index 0 at 1464872677.66 seconds (recursing = 0)
+Got message from job at time: 1464872677.71 : Starting reference phase target with index 0 at 1464872677.67 seconds (recursing = 1)
+Got message from job at time: 1464872684.03 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB" database_name="Anc3.kch" in_memory="1" port="1981" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/tmp_StqSB4rUwb_kill.txt
+Got message from job at time: 1464872685.3 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB" database_name="Anc3.kch" host="127.0.0.1" in_memory="1" port="1981" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD2/tmp_MoSX6KUip0/tmp_StqSB4rUwb_kill.txt
+Got message from job at time: 1464872685.3 : Report for 127.0.0.1:1981:
+cnt_get: 95049
+cnt_get_misses: 5414
+cnt_misc: 0
+cnt_remove: 0
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 26042
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=5412 size=270147319 path=:
+db_total_count: 5412
+db_total_size: 270147319
+serv_conn_count: 1
+serv_current_time: 1464872675.732236
+serv_proc_id: 20731
+serv_running_term: 102.967168
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83640860672
+sys_mem_free: 377192071168
+sys_mem_peak: 1180319744
+sys_mem_rss: 29282304
+sys_mem_size: 1179738112
+sys_mem_total: 541204652032
+sys_ru_stime: 2.326646
+sys_ru_utime: 3.824418
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3/Anc3_DB:
+total 22M
+-rw-r--r-- 1 kspham users 22M Th06  2 06:04 cactusSequences
+-rw-r--r-- 1 kspham users 457 Th06  2 06:02 ktout.log
+
+
+Got message from job at time: 1464872687.78 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612" database_name="Anc2.kch" in_memory="1" port="2080" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/t1/gTD1/tmp_ZtoXLZV8y0/tmp_ZuaSNAqyDd_kill.txt
+Got message from job at time: 1464872698.85 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612" database_name="Anc2.kch" in_memory="1" port="2080" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/t1/gTD1/tmp_ZtoXLZV8y0/tmp_ZuaSNAqyDd_kill.txt
+Got message from job at time: 1464872699.74 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612" database_name="Anc2.kch" host="127.0.0.1" in_memory="1" port="2080" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/t1/gTD1/tmp_ZtoXLZV8y0/tmp_ZuaSNAqyDd_kill.txt
+Got message from job at time: 1464872699.74 : Report for 127.0.0.1:2080:
+cnt_get: 2931
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 2204
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 2931
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=727 size=271584445 path=:
+db_total_count: 727
+db_total_size: 271584445
+serv_conn_count: 1
+serv_current_time: 1464872693.352232
+serv_proc_id: 21846
+serv_running_term: 15.608305
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83599798272
+sys_mem_free: 377384853504
+sys_mem_peak: 1117360128
+sys_mem_rss: 16920576
+sys_mem_size: 1113882624
+sys_mem_total: 541204652032
+sys_ru_stime: 0.026995
+sys_ru_utime: 0.045993
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:04 ktout.log
+
+
+Got message from job at time: 1464872704.76 : Starting reference phase target with index 0 at 1464872699.77 seconds (recursing = 1)
+Got message from job at time: 1464872704.77 : Starting Reference Extract Phase
+Got message from job at time: 1464872704.77 : Starting check phase target with index 0 at 1464872704.7 seconds (recursing = 0)
+Got message from job at time: 1464872714.84 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612" database_name="Anc2.kch" in_memory="1" port="2080" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/t1/gTD1/tmp_ZtoXLZV8y0/tmp_ZyFL4U24Zw_kill.txt
+Got message from job at time: 1464872725.91 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612" database_name="Anc2.kch" in_memory="1" port="2080" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/t1/gTD1/tmp_ZtoXLZV8y0/tmp_ZyFL4U24Zw_kill.txt
+Got message from job at time: 1464872727.49 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612" database_name="Anc2.kch" host="127.0.0.1" in_memory="1" port="2080" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/t1/gTD1/tmp_ZtoXLZV8y0/tmp_ZyFL4U24Zw_kill.txt
+Got message from job at time: 1464872727.49 : Report for 127.0.0.1:2080:
+cnt_get: 8872
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 7433
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 8872
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=1439 size=268588098 path=:
+db_total_count: 1439
+db_total_size: 268588098
+serv_conn_count: 1
+serv_current_time: 1464872718.972795
+serv_proc_id: 22114
+serv_running_term: 14.168824
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83627438080
+sys_mem_free: 377352896512
+sys_mem_peak: 1111482368
+sys_mem_rss: 23764992
+sys_mem_size: 1111482368
+sys_mem_total: 541204652032
+sys_ru_stime: 0.020996
+sys_ru_utime: 0.039993
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB_tempSecondaryDatabaseDir_0.699357469612:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:05 ktout.log
+
+
+Got message from job at time: 1464872734.13 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB" database_name="Anc2.kch" in_memory="1" port="1980" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/tmp_1YEDkKkbmZ_kill.txt
+Got message from job at time: 1464872735.02 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB" database_name="Anc2.kch" host="127.0.0.1" in_memory="1" port="1980" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t0/gTD2/tmp_g4udrOJhqY/tmp_1YEDkKkbmZ_kill.txt
+Got message from job at time: 1464872735.02 : Report for 127.0.0.1:1980:
+cnt_get: 96768
+cnt_get_misses: 6050
+cnt_misc: 0
+cnt_remove: 0
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 26895
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=6048 size=270092037 path=:
+db_total_count: 6048
+db_total_size: 270092037
+serv_conn_count: 1
+serv_current_time: 1464872727.585507
+serv_proc_id: 21100
+serv_running_term: 104.554638
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83608473600
+sys_mem_free: 377396199424
+sys_mem_peak: 1113255936
+sys_mem_rss: 30699520
+sys_mem_size: 1112608768
+sys_mem_total: 541204652032
+sys_ru_stime: 2.459626
+sys_ru_utime: 4.833265
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2/Anc2_DB:
+total 22M
+-rw-r--r-- 1 kspham users 22M Th06  2 06:04 cactusSequences
+-rw-r--r-- 1 kspham users 457 Th06  2 06:03 ktout.log
+
+
+Got message from job at time: 1464872735.75 : Running blast using the trimming strategy
+Got message from job at time: 1464872735.75 : Ingroup sequences: ['/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/renamedInputs/Anc3.fa', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/renamedInputs/Yersinia_pestis_Antiqua.Chr_chr_0']
+Got message from job at time: 1464872735.75 : Outgroup sequences: ['/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/renamedInputs/Anc2.fa', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/renamedInputs/Yersinia_pestis_Nepal516.Chr_chr_3', '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/renamedInputs/Yersinia_pestis_KIM_10.Chr_chr_4']
+Got message from job at time: 1464872735.75 : Blasting ingroups vs outgroups to file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/tmp_Vl8jAj9372unconvertedAlignments
+Got message from job at time: 1464872902.3 : Coverage on Anc3.fa from outgroup #1, Anc2.fa: 99.3013978612% (current ingroup length 4566834, untrimmed length 4566834). Outgroup trimmed to 4584717 bp from 4584717
+Got message from job at time: 1464872902.3 : Coverage on Yersinia_pestis_Antiqua.Chr_chr_0 from outgroup #1, Anc2.fa: 97.6868499575% (current ingroup length 4702289, untrimmed length 4702289). Outgroup trimmed to 4584717 bp from 4584717
+Got message from job at time: 1464872902.3 : Cumulative coverage of 1 outgroups on ingroup Anc3.fa: 99.3013978612
+Got message from job at time: 1464872902.3 : Cumulative coverage of 1 outgroups on ingroup Yersinia_pestis_Antiqua.Chr_chr_0: 97.6868499575
+Got message from job at time: 1464872956.9 : Coverage on Anc3.fa from outgroup #2, Yersinia_pestis_Nepal516.Chr_chr_3: 87.1355558856% (current ingroup length 161616, untrimmed length 4566834). Outgroup trimmed to 1992964 bp from 4534590
+Got message from job at time: 1464872956.9 : Coverage on Yersinia_pestis_Antiqua.Chr_chr_0 from outgroup #2, Yersinia_pestis_Nepal516.Chr_chr_3: 59.5024173282% (current ingroup length 235177, untrimmed length 4702289). Outgroup trimmed to 1992964 bp from 4534590
+Got message from job at time: 1464872956.9 : Cumulative coverage of 2 outgroups on ingroup Anc3.fa: 99.5898471457
+Got message from job at time: 1464872956.9 : Cumulative coverage of 2 outgroups on ingroup Yersinia_pestis_Antiqua.Chr_chr_0: 98.0177738969
+Got message from job at time: 1464872961.5 : Coverage on Anc3.fa from outgroup #3, Yersinia_pestis_KIM_10.Chr_chr_4: 89.0188505217% (current ingroup length 173470, untrimmed length 4566834). Outgroup trimmed to 2109063 bp from 4600755
+Got message from job at time: 1464872961.5 : Coverage on Yersinia_pestis_Antiqua.Chr_chr_0 from outgroup #3, Yersinia_pestis_KIM_10.Chr_chr_4: 61.4426605975% (current ingroup length 243855, untrimmed length 4702289). Outgroup trimmed to 2109063 bp from 4600755
+Got message from job at time: 1464872961.5 : Cumulative coverage of 3 outgroups on ingroup Anc3.fa: 99.5899785278
+Got message from job at time: 1464872961.5 : Cumulative coverage of 3 outgroups on ingroup Yersinia_pestis_Antiqua.Chr_chr_0: 98.024196301
+Got message from job at time: 1464873005.72 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB" database_name="Anc1.kch" in_memory="1" port="1979" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/tmp_cyJJtlgNDF_kill.txt
+Got message from job at time: 1464873008.53 : Converted headers of cigar file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/tmp_Vl8jAj9372unconvertedAlignments to internal names, new file /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_0tiCeGTTSA/tmp_MDOAq41EDc
+Got message from job at time: 1464873008.53 : Starting caf phase target with index 0 at 1464873008.5 seconds (recursing = 1)
+Got message from job at time: 1464873011.91 : Attaching the sequence to the cactus root 4922856605180983138, header Yersinia_pestis_Antiqua.Chr with length 4702289 and 4560253 total bases aligned and 0 bases aligned to other chromosome threads
+Got message from job at time: 1464873011.91 : Starting bar phase target with index 0 at 1464873011.13 seconds (recursing = 1)
+Got message from job at time: 1464873034.81 : Starting avg phase target with index 0 at 1464873034.76 seconds (recursing = 0)
+Got message from job at time: 1464873034.81 : Starting reference phase target with index 0 at 1464873034.77 seconds (recursing = 1)
+Got message from job at time: 1464873044.88 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375" database_name="Anc1.kch" in_memory="1" port="2079" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_0tiCeGTTSA/tmp_TVS71bp9Ei_kill.txt
+Got message from job at time: 1464873055.95 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375" database_name="Anc1.kch" in_memory="1" port="2079" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_0tiCeGTTSA/tmp_TVS71bp9Ei_kill.txt
+Got message from job at time: 1464873056.91 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375" database_name="Anc1.kch" host="127.0.0.1" in_memory="1" port="2079" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_0tiCeGTTSA/tmp_TVS71bp9Ei_kill.txt
+Got message from job at time: 1464873056.91 : Report for 127.0.0.1:2079:
+cnt_get: 2988
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 2273
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 2988
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=715 size=271587684 path=:
+db_total_count: 715
+db_total_size: 271587684
+serv_conn_count: 1
+serv_current_time: 1464873050.509875
+serv_proc_id: 23252
+serv_running_term: 15.664375
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83643912192
+sys_mem_free: 377298866176
+sys_mem_peak: 1186566144
+sys_mem_rss: 13910016
+sys_mem_size: 1181605888
+sys_mem_total: 541204652032
+sys_ru_stime: 0.028995
+sys_ru_utime: 0.045993
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:10 ktout.log
+
+
+Got message from job at time: 1464873061.89 : Starting reference phase target with index 0 at 1464873056.95 seconds (recursing = 1)
+Got message from job at time: 1464873061.89 : Starting Reference Extract Phase
+Got message from job at time: 1464873061.89 : Starting check phase target with index 0 at 1464873061.83 seconds (recursing = 0)
+Got message from job at time: 1464873071.96 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375" database_name="Anc1.kch" in_memory="1" port="2079" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_0tiCeGTTSA/tmp_sS6JSm7aqV_kill.txt
+Got message from job at time: 1464873083.03 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375" database_name="Anc1.kch" in_memory="1" port="2079" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_0tiCeGTTSA/tmp_sS6JSm7aqV_kill.txt
+Got message from job at time: 1464873084.63 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375" database_name="Anc1.kch" host="127.0.0.1" in_memory="1" port="2079" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_0tiCeGTTSA/tmp_sS6JSm7aqV_kill.txt
+Got message from job at time: 1464873084.63 : Report for 127.0.0.1:2079:
+cnt_get: 9177
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 7764
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 9177
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=1413 size=268595777 path=:
+db_total_count: 1413
+db_total_size: 268595777
+serv_conn_count: 1
+serv_current_time: 1464873076.078645
+serv_proc_id: 23497
+serv_running_term: 14.156364
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83671388160
+sys_mem_free: 377256566784
+sys_mem_peak: 1111810048
+sys_mem_rss: 23977984
+sys_mem_size: 1110626304
+sys_mem_total: 541204652032
+sys_ru_stime: 0.018997
+sys_ru_utime: 0.037994
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB_tempSecondaryDatabaseDir_0.145892817375:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:11 ktout.log
+
+
+Got message from job at time: 1464873086.79 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB" database_name="Anc1.kch" in_memory="1" port="1979" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/tmp_cyJJtlgNDF_kill.txt
+Got message from job at time: 1464873087.99 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB" database_name="Anc1.kch" host="127.0.0.1" in_memory="1" port="1979" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD3/tmp_ZoWLsKhUj6/tmp_cyJJtlgNDF_kill.txt
+Got message from job at time: 1464873087.99 : Report for 127.0.0.1:1979:
+cnt_get: 96143
+cnt_get_misses: 5652
+cnt_misc: 0
+cnt_remove: 0
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 26326
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=5650 size=270082341 path=:
+db_total_count: 5650
+db_total_size: 270082341
+serv_conn_count: 1
+serv_current_time: 1464873084.720656
+serv_proc_id: 22961
+serv_running_term: 89.037405
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83655532544
+sys_mem_free: 377296220160
+sys_mem_peak: 1180106752
+sys_mem_rss: 29831168
+sys_mem_size: 1179185152
+sys_mem_total: 541204652032
+sys_ru_stime: 2.505619
+sys_ru_utime: 4.713283
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB:
+total 22M
+-rw-r--r-- 1 kspham users 22M Th06  2 06:10 cactusSequences
+-rw-r--r-- 1 kspham users 457 Th06  2 06:09 ktout.log
+
+
+Got message from job at time: 1464873098.28 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB" database_name="Anc0.kch" in_memory="1" port="1978" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD2/tmp_EW4M9izVfC/tmp_iTtdoqTw9B_kill.txt
+Got message from job at time: 1464873279.17 : Starting caf phase target with index 0 at 1464873098.89 seconds (recursing = 1)
+Got message from job at time: 1464873279.17 : Attaching the sequence to the cactus root 5634847558770582597, header Anc2refChr6 with length 1761774 and 1638607 total bases aligned and 0 bases aligned to other chromosome threads
+Got message from job at time: 1464873279.34 : Starting bar phase target with index 0 at 1464873279.2 seconds (recursing = 1)
+Got message from job at time: 1464873359.19 : Starting avg phase target with index 0 at 1464873359.13 seconds (recursing = 0)
+Got message from job at time: 1464873359.19 : Starting reference phase target with index 0 at 1464873359.14 seconds (recursing = 1)
+Got message from job at time: 1464873369.27 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728" database_name="Anc0.kch" in_memory="1" port="2078" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_s5pWVOHlCp/tmp_NCUzjCJXUU_kill.txt
+Got message from job at time: 1464873380.32 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728" database_name="Anc0.kch" in_memory="1" port="2078" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_s5pWVOHlCp/tmp_NCUzjCJXUU_kill.txt
+Got message from job at time: 1464873381.17 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728" database_name="Anc0.kch" host="127.0.0.1" in_memory="1" port="2078" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_s5pWVOHlCp/tmp_NCUzjCJXUU_kill.txt
+Got message from job at time: 1464873381.17 : Report for 127.0.0.1:2078:
+cnt_get: 9524
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 8933
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 9524
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=591 size=271397394 path=:
+db_total_count: 591
+db_total_size: 271397394
+serv_conn_count: 1
+serv_current_time: 1464873375.816338
+serv_proc_id: 25309
+serv_running_term: 16.594841
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83625996288
+sys_mem_free: 377266307072
+sys_mem_peak: 1116954624
+sys_mem_rss: 29007872
+sys_mem_size: 1113645056
+sys_mem_total: 541204652032
+sys_ru_stime: 0.033994
+sys_ru_utime: 0.055991
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:16 ktout.log
+
+
+Got message from job at time: 1464873385.96 : Starting reference phase target with index 0 at 1464873381.2 seconds (recursing = 1)
+Got message from job at time: 1464873385.96 : Starting Reference Extract Phase
+Got message from job at time: 1464873385.96 : Starting check phase target with index 0 at 1464873385.9 seconds (recursing = 0)
+Got message from job at time: 1464873396.04 : Blocking on ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728" database_name="Anc0.kch" in_memory="1" port="2078" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_s5pWVOHlCp/tmp_DhD2la1pFE_kill.txt
+Got message from job at time: 1464873407.1 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728" database_name="Anc0.kch" in_memory="1" port="2078" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_s5pWVOHlCp/tmp_DhD2la1pFE_kill.txt
+Got message from job at time: 1464873408.5 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728" database_name="Anc0.kch" host="127.0.0.1" in_memory="1" port="2078" snapshot="0" />
+   with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/t1/gTD1/tmp_s5pWVOHlCp/tmp_DhD2la1pFE_kill.txt
+Got message from job at time: 1464873408.5 : Report for 127.0.0.1:2078:
+cnt_get: 39436
+cnt_get_misses: 0
+cnt_misc: 0
+cnt_remove: 38799
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 39436
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=637 size=269166741 path=:
+db_total_count: 637
+db_total_size: 269166741
+serv_conn_count: 1
+serv_current_time: 1464873401.021557
+serv_proc_id: 25535
+serv_running_term: 15.025965
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83704127488
+sys_mem_free: 377113935872
+sys_mem_peak: 1113645056
+sys_mem_rss: 99258368
+sys_mem_size: 1113518080
+sys_mem_total: 541204652032
+sys_ru_stime: 0.071989
+sys_ru_utime: 0.170974
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB_tempSecondaryDatabaseDir_0.705646303728:
+total 4,0K
+-rw-r--r-- 1 kspham users 457 Th06  2 06:16 ktout.log
+
+
+Got message from job at time: 1464873409.36 : Launching ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB" database_name="Anc0.kch" in_memory="1" port="1978" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD2/tmp_EW4M9izVfC/tmp_iTtdoqTw9B_kill.txt
+Got message from job at time: 1464873410.84 : Killing ktserver <kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB" database_name="Anc0.kch" host="127.0.0.1" in_memory="1" port="1978" snapshot="0" />
+		 with killPath /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/jobTree/jobs/gTD2/tmp_EW4M9izVfC/tmp_iTtdoqTw9B_kill.txt
+Got message from job at time: 1464873410.84 : Report for 127.0.0.1:1978:
+cnt_get: 105851
+cnt_get_misses: 9249
+cnt_misc: 0
+cnt_remove: 0
+cnt_remove_misses: 0
+cnt_script: 0
+cnt_set: 35316
+cnt_set_misses: 0
+conf_kc_features: (atomic)(zlib)
+conf_kc_version: 1.2.76 (16.13)
+conf_kt_features: (epoll)
+conf_kt_version: 0.9.56 (2.19)
+conf_os_name: Linux
+db_0: count=9247 size=273764757 path=:
+db_total_count: 9247
+db_total_size: 273764757
+serv_conn_count: 1
+serv_current_time: 1464873408.584704
+serv_proc_id: 23697
+serv_running_term: 320.342586
+serv_task_count: 0
+serv_thread_count: 64
+sys_mem_cached: 83704324096
+sys_mem_free: 377213517824
+sys_mem_peak: 1192337408
+sys_mem_rss: 53051392
+sys_mem_size: 1190502400
+sys_mem_total: 541204652032
+sys_ru_stime: 1.457778
+sys_ru_utime: 2.422631
+
+Contents of /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0/Anc0_DB:
+total 13M
+-rw-r--r-- 1 kspham users 13M Th06  2 06:16 cactusSequences
+-rw-r--r-- 1 kspham users 457 Th06  2 06:11 ktout.log
+
+
+
+2016-06-02 06:16:50.959554: Finished Progressive Cactus Alignment
+
+
+2016-06-02 06:16:51.151598: Beginning HAL Export
+
+
+real	0m2.593s
+user	0m2.461s
+sys	0m0.063s
+
+real	0m1.483s
+user	0m1.372s
+sys	0m0.063s
+
+real	0m1.575s
+user	0m1.473s
+sys	0m0.059s
+
+real	0m1.463s
+user	0m1.361s
+sys	0m0.059s
+rm -f ancient.hal
+time halAppendCactusSubtree '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0_hal.c2h' '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc0/Anc0_hal.fa' '(Anc1:0.045805,Anc2:0.077516)Anc0;' 'ancient.hal'
+time halAppendCactusSubtree '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1_hal.c2h' '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1_hal.fa' '(Yersinia_pestis_Antiqua:0.256992,Anc3:0.106804,Anc2:0.123321,Yersinia_pestis_Nepal516:0.348602,Yersinia_pestis_KIM_10:0.348602)Anc1;' 'ancient.hal' --outgroups Anc2,Yersinia_pestis_Nepal516,Yersinia_pestis_KIM_10
+time halAppendCactusSubtree '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2_hal.c2h' '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2_hal.fa' '(Yersinia_pestis_Nepal516:0.225281,Yersinia_pestis_KIM_10:0.225281,Yersinia_pestis_CO92:0.380312,Yersinia_pestis_Z176003:0.380312,Yersinia_pestis_Antiqua:0.380313)Anc2;' 'ancient.hal' --outgroups Yersinia_pestis_CO92,Yersinia_pestis_Z176003,Yersinia_pestis_Antiqua
+time halAppendCactusSubtree '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3_hal.c2h' '/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3_hal.fa' '(Yersinia_pestis_CO92:0.150187,Yersinia_pestis_Z176003:0.150187,Yersinia_pestis_Antiqua:0.363796,Yersinia_pestis_Nepal516:0.455406,Yersinia_pestis_KIM_10:0.455406)Anc3;' 'ancient.hal' --outgroups Yersinia_pestis_Antiqua,Yersinia_pestis_Nepal516,Yersinia_pestis_KIM_10
+total time: 7.14  total halAppendCactusSubtree time: 7.13
+
+2016-06-02 06:16:58.626867: Finished HAL Export 

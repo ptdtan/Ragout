@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<cactus_workflow_experiment config="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1_config.xml" outgroup_events="Anc2 Yersinia_pestis_Nepal516 Yersinia_pestis_KIM_10" outputSequenceDir="Ypestis/sequenceData" sequences="Ypestis/sequenceData/Yersinia_pestis_Antiqua.Chr_chr_0 /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc3/Anc3.fa /u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc2/Anc2.fa Ypestis/sequenceData/Yersinia_pestis_Nepal516.Chr_chr_3 Ypestis/sequenceData/Yersinia_pestis_KIM_10.Chr_chr_4" species_tree="(Yersinia_pestis_Antiqua:0.256992,Anc3:0.106804,Anc2:0.123321,Yersinia_pestis_Nepal516:0.348602,Yersinia_pestis_KIM_10:0.348602)Anc1;">
+	<cactus_disk>
+		<st_kv_database_conf type="kyoto_tycoon">
+			<kyoto_tycoon database_dir="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1/Anc1_DB" database_name="Anc1.kch" in_memory="1" port="1979" snapshot="0"/>
+		</st_kv_database_conf>
+	</cactus_disk>
+	<reference path="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1.fa"/>
+	<hal fastaPath="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1_hal.fa" halPath="/u/projects4/pashadag/pham/ptdtan/Ragout/Y.pestis/Ypestis/progressiveAlignment/Anc1/Anc1_hal.c2h"/>
+</cactus_workflow_experiment>

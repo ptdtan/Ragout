@@ -1,0 +1,6 @@
+((Yersinia_pestis_Antiqua:0.256992,(Yersinia_pestis_CO92:0.150187,Yersinia_pestis_Z176003:0.150187)Anc3:0.106804)Anc1:0.045805,(Yersinia_pestis_Nepal516:0.225281,Yersinia_pestis_KIM_10:0.225281)Anc2:0.077516)Anc0;
+Yersinia_pestis_Nepal516	extant_genomes/Yersinia_pestis_Nepal516.Chr_chr
+Yersinia_pestis_Antiqua	extant_genomes/Yersinia_pestis_Antiqua.Chr_chr	
+Yersinia_pestis_KIM_10	extant_genomes/Yersinia_pestis_KIM_10.Chr_chr
+Yersinia_pestis_Z176003	extant_genomes/Yersinia_pestis_Z176003.Chr_chr
+Yersinia_pestis_CO92	extant_genomes/Yersinia_pestis_CO92.Chr_chr
