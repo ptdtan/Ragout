@@ -168,7 +168,7 @@ def make_run_stages(block_sizes, resolve_repeats):
                                ref_indels=False, repeats=False,
                                rearrange=True))
     stages.append(RunStage(name="refine", block_size=block_sizes[-1],
-                           ref_indels=True, repeats=resolve_repeats,
+                           ref_indels=False, repeats=resolve_repeats,
                            rearrange=False))
     return stages
 
