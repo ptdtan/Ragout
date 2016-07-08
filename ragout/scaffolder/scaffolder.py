@@ -91,7 +91,7 @@ def assign_scaffold_names(scaffolds, perm_container, ref_genome):
         assigned_names[scf] = name_str
         need_rev_compl[scf] = sign_agreement < total / 2
         if need_rev_compl[scf] :
-            logger.debug("WARNING: Scaffold might have the reverse strand compare to the reference strand: %s",ref_g )
+            logger.debug("WARNING: Scaffold %s might have the reverse strand compare to the reference strand: %s",name_str, ref_g )
 
     #in case of same names
     same_names = defaultdict(list)
