@@ -14,14 +14,16 @@ from copy import copy
 from collections import namedtuple
 
 import networkx as nx
-
-from ragout.shared.debug import DebugConfig
+from networkx.drawing import nx_pydot as dot
+#from ragout.shared.debug import DebugConfig
 from ragout.phylogeny.phylogeny import *
 
 logger = logging.getLogger()
 debugger = DebugConfig.get_instance()
 
 GenChrPair = namedtuple("GenChrPair", ["genome", "chr"])
+
+HARDCODE_GENOMES_COLORS = {"G3":"green", "G4":"blue", "G5":"yellow", "G2":"red"}
 
 class BreakpointGraph(object):
     """
@@ -36,6 +38,7 @@ class BreakpointGraph(object):
         self.ancestor = ancestor
         if perm_container is not None:
             self.build_from(perm_container)
+        dot.write_dot(self.bp_graph)
 
     def build_from(self, perm_container):
         """
@@ -63,26 +66,30 @@ class BreakpointGraph(object):
                                        chr_name=perm.chr_name,
                                        start=prev_block.end,
                                        end=next_block.start,
-                                       infinity=False)
+                                       infinity=False,
+                                       color = HARDCODE_GENOMES_COLORS.get(perm.genome_name, None))
 
             if perm.genome_name in self.references and not perm.draft:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
-                                       infinity=True)
+                                       infinity=True,
+                                       color = HARDCODE_GENOMES_COLORS.get(perm.genome_name, None))
             if perm.genome_name in self.target and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
-                                       infinity=True)
+                                       infinity=True,
+                                       color = HARDCODE_GENOMES_COLORS.get(perm.genome_name, None))
             if self.target in perm.genome_name and not 'unlocalized' in perm.genome_name and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
-                                       infinity=True)
+                                       infinity=True,
+                                       color = HARDCODE_GENOMES_COLORS.get(perm.genome_name, None))
         if self.ancestral:
             for perm in perm_container.ancestor_perms:
                 assert perm.blocks
@@ -96,11 +103,11 @@ class BreakpointGraph(object):
                                        chr_name=perm.chr_name,
                                        start=prev_block.end,
                                        end=next_block.start,
-                                       infinity=False)
+                                       infinity=False,
+                                       color = HARDCODE_GENOMES_COLORS.get(perm.genome_name, None))
 
         logger.debug("Built breakpoint graph with {0} nodes"
                                         .format(len(self.bp_graph)))
-
     def connected_components(self):
         subgraphs = nx.connected_component_subgraphs(self.bp_graph)
         bp_graphs = []
