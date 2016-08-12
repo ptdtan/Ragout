@@ -15,7 +15,7 @@ from collections import namedtuple
 
 import networkx as nx
 from networkx.drawing import nx_pydot as dot
-#from ragout.shared.debug import DebugConfig
+from ragout.shared.debug import DebugConfig
 from ragout.phylogeny.phylogeny import *
 
 logger = logging.getLogger()
@@ -38,7 +38,7 @@ class BreakpointGraph(object):
         self.ancestor = ancestor
         if perm_container is not None:
             self.build_from(perm_container)
-        dot.write_dot(self.bp_graph)
+        dot.write_dot(self.bp_graph, "graph.dot")
 
     def build_from(self, perm_container):
         """
