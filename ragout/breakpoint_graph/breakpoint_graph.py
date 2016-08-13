@@ -38,7 +38,7 @@ class BreakpointGraph(object):
         self.ancestor = ancestor
         if perm_container is not None:
             self.build_from(perm_container)
-        dot.write_dot(self.bp_graph, "graph.dot")
+        self.writedot()
 
     def build_from(self, perm_container):
         """
@@ -108,6 +108,25 @@ class BreakpointGraph(object):
 
         logger.debug("Built breakpoint graph with {0} nodes"
                                         .format(len(self.bp_graph)))
+
+    def writedot(self):
+        l = len(self.bp_graph.nodes())
+        fout = open(str(l)+".dot", "w")
+        fout.write("graph G{\n")
+        def _convert(n):
+            if n>0:
+                return "%s%d'" %("h",abs(n))
+            else:
+                return "%s%d" %("t",abs(n))
+        for n in self.bp_graph.nodes():
+            fout.write("%s;\n" %(_convert(n)))
+        a = set()
+        for u,v in self.bp_graph.edges():
+            if "".join(map(str,[u,v])) not in a:
+                a.add("".join(map(str,[u,v])))
+                for k,value in self.bp_graph[u][v].items():
+                    fout.write("%s -- %s [color=%s, key=%d];\n" %(_convert(u),_convert(v),value["color"], k))
+
     def connected_components(self):
         subgraphs = nx.connected_component_subgraphs(self.bp_graph)
         bp_graphs = []
@@ -352,3 +371,4 @@ def _output_graph(graph, out_file):
                 fout.write(" [" + ", ".join(extra) + "]")
             fout.write(";\n")
         fout.write("}")
+
