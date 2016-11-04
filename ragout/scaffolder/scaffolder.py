@@ -92,7 +92,7 @@ def assign_scaffold_names(scaffolds, perm_container, ref_genome):
         need_rev_compl[scf] = sign_agreement < total / 2
         if need_rev_compl[scf] :
             logger.info("WARNING: Scaffold %s might have the reverse strand compare to the reference strand: %s",
-                         name_str, ref_genomeprimates.rcp )
+                         name_str, ref_genome )
             logger.info("total: %d, agreement: %d", total, sign_agreement)
 
     #in case of same names

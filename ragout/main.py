@@ -106,14 +106,6 @@ def check_extern_modules(backend):
 def ancestor_construct(scaffolds, ancestor, target, phylogeny,
                        naming_ref, ancestor_sequences, out_dir, stage_perms=None,
                        run_stages=None, targetDone=False, solid_scaffolds=False):
-    ####get target permutaions from scaffolds
-    """if not targetDone:
-        target_perms = []
-        for scf in scaffolds:
-            perm = Permutation.with_scaffold(scf, target, scf.name)
-            target_perms.append(perm)
-
-        perm_container.target_perms = target_perms[:]"""
 
     ###Enable ChimeraDetector4Ancestor
     if not solid_scaffolds:
@@ -137,7 +129,7 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
             broken_perms = stage_perms[stage]
         breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor, name=stage.name)
         adj_inferer = AdjacencyInferer(breakpoint_graph, phylogeny, ancestral= True)
-        adjacencies = adj_inferer.infer_adjacencies()
+        adjacencies = adj_inferer.infer_adjacencies(debug=True, filename="%s.adj"%stage.name)
         cur_scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
         oDebugger(cur_scaffolds)
         if scaffolds is not None:
@@ -151,20 +143,6 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
         else:
             scaffolds = cur_scaffolds
 
-    """raw_bp_graph = BreakpointGraph(perm_container, ancestral=True, ancestor=ancestor)
-    raw_bp_graphs = {stages[0]: raw_bp_graph}
-
-    chim_detect = ChimeraDetector4Ancestor(raw_bp_graphs, stages, ancestor_sequences)
-    broken_perms = chim_detect.break_contigs(perm_container, stages)
-    #broken_perms = deepcopy(perm_container)
-
-    ####ancestor breakpoint graph
-    ancestor_breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
-    adj_inferer = AdjacencyInferer(ancestor_breakpoint_graph, phylogeny, ancestral=True)
-    adjacencies = adj_inferer.infer_adjacencies()
-
-    ###scaffolding ancestor genomes
-    scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)"""
     scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
 
     ###output generating of ancestor scaffolds
