@@ -72,7 +72,7 @@ class AdjacencyInferer(object):
         if debug:
             fDebugger = open(filename, "w")
             for block, adj in adjacencies.items():
-                fDebugger.write("%s -- %s -- %s\n" %(block, str(adj.block), ",".join(adj.supporting_genomes)))
+                fDebugger.write("%s -- %s -- %s\n" %(block, str(adj.block), ",".join([p.genome for p in adj.supporting_genomes])))
         return adjacencies
 
     def _process_component(self, subgraph):
