@@ -60,9 +60,9 @@ def oDebugger(scaffolds):
     :return:
     """
     for i, scf in enumerate(scaffolds):
-        logger.debug("Scaffold %d" %i)
         for j, cnt in enumerate(scf.contigs):
             blocksStr = " ".join(map(str, [block.block_id*block.sign for block in cnt.perm.blocks]))
+            		1logger.debug("Scaffold %d" %i)
             logger.debug("Contig %d %s" % (j, blocksStr))
             logger.debug("Evidence by: %s" %(",".join([p.genome for p in cnt.link.supporting_genomes])))
 
@@ -135,7 +135,7 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
             broken_perms = chim_detect.break_contigs(stage_perms[stage], [stage])
         else:
             broken_perms = stage_perms[stage]
-        breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor, name=stage.name)
+        breakpoint_graph = BreakpointGraph(broken_perms, ancestral=True, ancestor=ancestor)
         adj_inferer = AdjacencyInferer(breakpoint_graph, phylogeny, ancestral= True)
         adjacencies = adj_inferer.infer_adjacencies()
         cur_scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
