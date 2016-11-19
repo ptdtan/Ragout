@@ -19,14 +19,14 @@ logger = logging.getLogger()
 class RecipeException(Exception):
     pass
 
-def _make_dummy_recipe(references, target, ancestor, tree, blocks, hal, naming_ref):
+def _make_dummy_recipe(references, target, ancestor, tree, blocks, maf, naming_ref):
     lines = []
     lines.append("".join([".references = ", ",".join(references[1:])]))
     lines.append("".join([".tree = ", tree]))
     lines.append("".join([".target = ", target]))
     lines.append("".join([".ancestor = ", ancestor]))
     lines.append("".join([".blocks = ",blocks]))
-    lines.append("".join([".hal = ", hal]))
+    lines.append("".join([".maf = ", maf]))
     lines.append("".join([".naming_ref = ", naming_ref]))
     return parse_ragout_recipe(dummy_lines=lines)
 
