@@ -33,15 +33,12 @@ class OutputGenerator:
         out_chr = os.path.join(out_dir, out_prefix + "_scaffolds.fasta")
         out_unplaced = os.path.join(out_dir, out_prefix + "_unplaced.fasta")
 
-        if write_fasta:
-            self._make_unplaced_fasta()
-            write_fasta_dict(self.unplaced_fasta, out_unplaced)
-
+        self._make_unplaced_fasta()
+        self._make_scaffolds_fasta()
         self._fix_gaps()
         if write_fasta:
-            self._make_scaffolds_fasta()
             write_fasta_dict(self.scaffolds_fasta, out_chr)
-
+            write_fasta_dict(self.unplaced_fasta, out_unplaced)
         self._output_agp(out_agp, out_prefix)
         self._print_statistics()
         output_links(self.scaffolds, out_links)
