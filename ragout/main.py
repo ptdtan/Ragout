@@ -107,6 +107,7 @@ def ancestor_construct(scaffolds, ancestor, target, phylogeny,
                        naming_ref, ancestor_sequences, out_dir, stage_perms=None,
                        run_stages=None, targetDone=False, solid_scaffolds=False):
 
+    run_stages = run_stages[:-1]
     ###Enable ChimeraDetector4Ancestor
     if not solid_scaffolds:
         raw_bp_graphs = {}

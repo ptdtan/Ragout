@@ -24,17 +24,19 @@ def _make_dummy_recipe(references, target, ancestor, tree, blocks, hal, naming_r
     lines.append("".join([".references = ", ",".join(references[1:])]))
     lines.append("".join([".tree = ", tree]))
     lines.append("".join([".target = ", target]))
-    lines.append("".join([".ancestor", ancestor]))
+    lines.append("".join([".ancestor = ", ancestor]))
     lines.append("".join([".blocks = ",blocks]))
     lines.append("".join([".hal = ", hal]))
     lines.append("".join(["naming_ref = ", naming_ref]))
     return parse_ragout_recipe(dummy_lines=lines)
 
 def parse_ragout_recipe(filename=None, dummy_lines=None):
-    if not os.path.exists(filename):
-        raise RecipeException("Can't open recipe file")
+    if filename!=None:
+        if not os.path.exists(filename):
+            raise RecipeException("Can't open recipe file")
 
-    prefix = os.path.dirname(filename)
+    if filename!=None:
+        prefix = os.path.dirname(filename)
 
     recipe_dict = {"genomes" : {}}
     known_params = ["tree", "target", "blocks", "maf", "hal", "fasta",
@@ -90,7 +92,10 @@ def parse_ragout_recipe(filename=None, dummy_lines=None):
             value = list(map(lambda s: s.strip(), value.split(",")))
         if param_name in fix_path:
             value = os.path.expanduser(value)
-            value = os.path.join(prefix, value)
+            try:
+                value = os.path.join(prefix, value)
+            except Exception as err:
+                pass
         ###
 
         if obj == "":

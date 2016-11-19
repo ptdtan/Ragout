@@ -24,6 +24,7 @@ debugger = DebugConfig.get_instance()
 GenChrPair = namedtuple("GenChrPair", ["genome", "chr"])
 
 COLORS = ["blue", "green", "yellow", "black", "pink"]
+COLORSDICT = dict()
 
 class BreakpointGraph(object):
     """
@@ -57,6 +58,9 @@ class BreakpointGraph(object):
         for perm in chain(perm_container.ref_perms,
                           perm_container.target_perms):
             assert perm.blocks
+            if perm.genome_name not in COLORSDICT:
+                COLORSDICT[perm.genome_name] = COLORS[c]
+                c+=1
             for prev_block, next_block in perm.iter_pairs():
                 self.bp_graph.add_node(-prev_block.signed_id())
                 self.bp_graph.add_node(next_block.signed_id())
@@ -68,7 +72,7 @@ class BreakpointGraph(object):
                                        start=prev_block.end,
                                        end=next_block.start,
                                        infinity=False,
-                                       color = COLORS[c])
+                                       color = COLORSDICT[perm.genome_name])
 
             if perm.genome_name in self.references and not perm.draft:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
@@ -76,14 +80,14 @@ class BreakpointGraph(object):
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
                                        infinity=True,
-                                       color = COLORS[c])
+                                       color = COLORSDICT[perm.genome_name])
             if perm.genome_name in self.target and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
                                        infinity=True,
-                                       color = COLORS[c])
+                                       color = COLORSDICT[perm.genome_name])
             if self.target in perm.genome_name and not 'unlocalized' in perm.genome_name and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
@@ -91,7 +95,6 @@ class BreakpointGraph(object):
                                        chr_name=perm.chr_name,
                                        infinity=True,
                                        color = COLORS[c])
-            c+=1
         if self.ancestral:
             for perm in perm_container.ancestor_perms:
                 assert perm.blocks
