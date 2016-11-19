@@ -88,13 +88,13 @@ class RagoutInstance(object):
         self.synteny_blocks = config.vals["blocks"][self.scale]
         self.dummy_recipe = _make_dummy_recipe(self.references, self.target, self.ancestor, self.phyloStr, self.scale, self.maf, self.naming_ref)
         self.perm_files = self._make_permutaion_files()
-        self.run_stages = self.make_run_stages(self.synteny_blocks, is_resolve_repeats)
+        self.run_stages = self.make_run_stages()
         self.phylo_perm_file = self.perm_files[self.synteny_blocks[-1]]
         self.stage_perms = self._make_stage_perms()
     def _construct_ancestor(self):
 
         ###Enable ChimeraDetector4Ancestor
-        if not self.solid_scaffolds:
+        if not self.is_solid_scaffolds:
             raw_bp_graphs = {}
             for stage in self.run_stages:
                 raw_bp_graphs[stage] = BreakpointGraph(self.stage_perms[stage],                          ancestor=self.ancestor, ancestral=True)
@@ -203,7 +203,7 @@ class RagoutInstance(object):
                 raise BackendException("Something bad happened!")
         return files
 
-    def make_stage_perms(self):
+    def _make_stage_perms(self):
         self.stage_perms = {}
         for stage in self.run_stages:
             self.debugger.set_debug_dir(os.path.join(self.debug_root, stage.name))
