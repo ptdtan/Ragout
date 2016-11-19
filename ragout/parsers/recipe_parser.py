@@ -37,6 +37,8 @@ def parse_ragout_recipe(filename=None, dummy_lines=None):
 
     if filename!=None:
         prefix = os.path.dirname(filename)
+    else:
+        prefix = ""
 
     recipe_dict = {"genomes" : {}}
     known_params = ["tree", "target", "blocks", "maf", "hal", "fasta",
