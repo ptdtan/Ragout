@@ -14,7 +14,7 @@ from copy import copy
 from collections import namedtuple
 
 import networkx as nx
-
+from networkx.drawing import nx_pydot as dot
 from ragout.shared.debug import DebugConfig
 from ragout.phylogeny.phylogeny import *
 
@@ -23,11 +23,13 @@ debugger = DebugConfig.get_instance()
 
 GenChrPair = namedtuple("GenChrPair", ["genome", "chr"])
 
+COLORS = ["blue", "green", "yellow", "black", "pink"]
+
 class BreakpointGraph(object):
     """
     Breakpoint graph implementation
     """
-    def __init__(self, perm_container=None, ancestral=False, ancestor=None):
+    def __init__(self, perm_container=None, ancestral=False, ancestor=None, name="breakpoint_graph"):
         self.bp_graph = nx.MultiGraph()
         self.target = None
         self.references = []
@@ -36,6 +38,7 @@ class BreakpointGraph(object):
         self.ancestor = ancestor
         if perm_container is not None:
             self.build_from(perm_container)
+        self.writedot(name)
 
     def build_from(self, perm_container):
         """
@@ -50,6 +53,7 @@ class BreakpointGraph(object):
             self.contig_ends.append((perm.blocks[0].signed_id(),
                                      -perm.blocks[-1].signed_id()))
 
+        c=0
         for perm in chain(perm_container.ref_perms,
                           perm_container.target_perms):
             assert perm.blocks
@@ -63,26 +67,31 @@ class BreakpointGraph(object):
                                        chr_name=perm.chr_name,
                                        start=prev_block.end,
                                        end=next_block.start,
-                                       infinity=False)
+                                       infinity=False,
+                                       color = COLORS[c])
 
             if perm.genome_name in self.references and not perm.draft:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
-                                       infinity=True)
+                                       infinity=True,
+                                       color = COLORS[c])
             if perm.genome_name in self.target and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
-                                       infinity=True)
+                                       infinity=True,
+                                       color = COLORS[c])
             if self.target in perm.genome_name and not 'unlocalized' in perm.genome_name and not perm.draft and self.ancestral:
                 self.bp_graph.add_edge(-perm.blocks[-1].signed_id(),
                                        perm.blocks[0].signed_id(),
                                        genome_id=perm.genome_name,
                                        chr_name=perm.chr_name,
-                                       infinity=True)
+                                       infinity=True,
+                                       color = COLORS[c])
+            c+=1
         if self.ancestral:
             for perm in perm_container.ancestor_perms:
                 assert perm.blocks
@@ -96,10 +105,30 @@ class BreakpointGraph(object):
                                        chr_name=perm.chr_name,
                                        start=prev_block.end,
                                        end=next_block.start,
-                                       infinity=False)
+                                       infinity=False,
+                                       color = "red")
 
         logger.debug("Built breakpoint graph with {0} nodes"
                                         .format(len(self.bp_graph)))
+
+    def writedot(self, name):
+        l = len(self.bp_graph.nodes())
+        fout = open(name+".dot", "w")
+        fout.write("graph G{\n")
+        def _convert(n):
+            if n>0:
+                return '"%dh"' %abs(n)
+            else:
+                return '"%dt"' %abs(n)
+        for n in self.bp_graph.nodes():
+            fout.write("%s;\n" %(_convert(n)))
+        a = set()
+        for u,v in self.bp_graph.edges():
+            if "".join(map(str,[u,v])) not in a:
+                a.add("".join(map(str,[u,v])))
+                for k,value in self.bp_graph[u][v].items():
+                    fout.write("%s -- %s [color=%s, key=%d];\n" %(_convert(u),_convert(v),value["color"], k))
+        fout.write("}\n")
 
     def connected_components(self):
         subgraphs = nx.connected_component_subgraphs(self.bp_graph)
@@ -345,3 +374,4 @@ def _output_graph(graph, out_file):
                 fout.write(" [" + ", ".join(extra) + "]")
             fout.write(";\n")
         fout.write("}")
+

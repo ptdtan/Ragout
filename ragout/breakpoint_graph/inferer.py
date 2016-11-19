@@ -28,7 +28,7 @@ class AdjacencyInferer(object):
         self.phylogeny = phylogeny
         self.ancestral = ancestral
 
-    def infer_adjacencies(self):
+    def infer_adjacencies(self, debug=False, filename="adjacencies.txt"):
         """
         Infers missing adjacencies by recovering perfect matching
         """
@@ -69,7 +69,10 @@ class AdjacencyInferer(object):
 
         self.main_graph.debug_output()
         self._debug_output(chosen_edges)
-
+        if debug:
+            fDebugger = open(filename, "w")
+            for block, adj in adjacencies.items():
+                fDebugger.write("%s -- %s -- %s\n" %(block, str(adj.block), ",".join([p.genome for p in adj.supporting_genomes])))
         return adjacencies
 
     def _process_component(self, subgraph):

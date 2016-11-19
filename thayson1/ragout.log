@@ -1,0 +1,27 @@
+[23:44:33] root: INFO: Starting Ragout v2.0b
+[23:44:33] root: INFO: Extracting target FASTA from HAL
+[23:44:33] root: INFO: Extracting ancestor FASTA from HAL
+[23:44:33] root: INFO: Converting HAL to MAF
+[23:44:33] root: DEBUG: hal2mafMP.py toy/boolean.hal thayson1/hal-workdir/alignment.maf --numProc 32 --refGenome G4 --targetGenomes G5,G4,G3,G2 --inMemory
+[23:44:48] root: INFO: Extracting synteny blocks from MAF
+[23:44:48] root: INFO: Running maf2synteny module
+[23:44:48] root: DEBUG: Parsing MAF file
+[23:44:49] root: DEBUG: Started initial compression
+[23:44:50] root: DEBUG: Simplification with 30 500
+[23:44:50] root: DEBUG: Simplification with 100 5000
+[23:44:50] root: DEBUG: Simplification with 500 50000
+[23:44:50] root: DEBUG: Simplification with 5000 500000
+[23:44:50] root: DEBUG: Simplification with 10000 500000
+[23:44:50] root: INFO: Phylogeny is taken from the recipe
+[23:44:50] root: DEBUG: Branch lengths: [1, 1, 1, 1], mu = 1.0
+[23:44:50] root: INFO: Processing permutation files
+[23:44:50] root: DEBUG: Reading permutation file
+[23:44:50] root: DEBUG: "G5" synteny blocks coverage: 73.64%
+[23:44:50] root: DEBUG: "G4" synteny blocks coverage: 86.75%
+[23:44:50] root: DEBUG: "G3" synteny blocks coverage: 73.64%
+[23:44:50] root: DEBUG: Read 2 reference sequences
+[23:44:50] root: DEBUG: Read 60 target sequences
+[23:44:50] root: DEBUG: Read 7 ancestor sequences
+[23:44:50] root: DEBUG: 60 target sequences left after indel filtering
+[23:44:50] root: DEBUG: 60 target sequences left after repeat filtering
+[23:44:50] root: DEBUG: Built breakpoint graph with 132 nodes
