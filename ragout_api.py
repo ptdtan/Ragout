@@ -49,12 +49,12 @@ class RagoutInstance(object):
     """
     Raogut instance for handling reconstruction methods
     """
-    def __init__(maf, referenes, ancestor, ancestor_seqs,
+    def __init__(self,maf, references, ancestor, ancestor_seqs,
                  phyloStr=None,
                  outDir="ragout-out",
                  scale="small",
                  tmpDir=None,
-                 outLog=None,
+                 outLog="ragout-log.txt",
                  is_debug=False,
                  is_resolve_repeats=False,
                  is_solid_scaffolds=False):
@@ -64,12 +64,12 @@ class RagoutInstance(object):
         self.target = references[0]
         self.phyloStr = phyloStr
         self.scale = scale
-        self.debug = debug
+        self.debug = is_debug
         self.outDir = outDir
         if not tmpDir:
-            self.tmp = os.path.join(outDir, "tmp")
+            self.tmpDir = os.path.join(outDir, "tmp")
         else:
-            self.tmp = tmpDir
+            self.tmpDir = tmpDir
         self.phyloStr = phyloStr
         self.logger = enable_logging(outLog, is_debug)
         self.debugger = DebugConfig.get_instance()
@@ -84,10 +84,11 @@ class RagoutInstance(object):
         self._set_exe_paths()
         self._check_extern_modules()
         self.phylogeny, self.naming_ref = self._get_phylogeny_and_naming_ref()
+        print self.naming_ref
         self.synteny_blocks = config.vals["blocks"][self.scale]
         self.dummy_recipe = _make_dummy_recipe(self.references, self.target, self.ancestor, self.phyloStr, self.scale, self.maf, self.naming_ref)
         self.perm_files = self._make_permutaion_files()
-        self.run_stages = make_run_stages(self.synteny_blocks, is_resolve_repeats)
+        self.run_stages = self.make_run_stages(self.synteny_blocks, is_resolve_repeats)
         self.phylo_perm_file = self.perm_files[self.synteny_blocks[-1]]
         self.stage_perms = self._make_stage_perms()
     def _construct_ancestor(self):
@@ -175,7 +176,7 @@ class RagoutInstance(object):
         """
         if self.phyloStr:
             logger.info("Phylogeny is taken from parameters")
-            phylogeny = Phylogeny.from_newick(self.phylogeny)
+            phylogeny = Phylogeny.from_newick(self.phyloStr)
         else:
             raise Exception("Phylogeny tree must be supplied!")
             logger.info(phylogeny.tree_string)
@@ -191,7 +192,7 @@ class RagoutInstance(object):
         files = {}
 
         self.logger.info("Extracting synteny blocks from MAF")
-        if not m2s.make_synteny(self.maf, workdir, self.blocks):
+        if not m2s.make_synteny(self.maf, workdir, self.synteny_blocks):
             raise BackendException("Something went wrong with maf2synteny")
 
         for block_size in self.synteny_blocks:

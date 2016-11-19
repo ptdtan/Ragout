@@ -27,7 +27,7 @@ def _make_dummy_recipe(references, target, ancestor, tree, blocks, hal, naming_r
     lines.append("".join([".ancestor = ", ancestor]))
     lines.append("".join([".blocks = ",blocks]))
     lines.append("".join([".hal = ", hal]))
-    lines.append("".join(["naming_ref = ", naming_ref]))
+    lines.append("".join([".naming_ref = ", naming_ref]))
     return parse_ragout_recipe(dummy_lines=lines)
 
 def parse_ragout_recipe(filename=None, dummy_lines=None):
