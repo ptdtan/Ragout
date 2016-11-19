@@ -40,6 +40,7 @@ from ragout.breakpoint_graph.chimera_detector_ancestor import ChimeraDetector4An
 from ragout.phylogeny.phylogeny import *
 from ragout.__version__ import __version__
 
+import synteny_backend.maf
 
 
 RunStage = namedtuple("RunStage", ["name", "block_size", "ref_indels",
@@ -52,9 +53,10 @@ class RagoutInstance(object):
     def __init__(self,maf, references, ancestor, ancestor_fasta,
                  phyloStr=None,
                  outDir="ragout-out",
-                 scale="small",
-                 tmpDir=None,
+                 scale="large",
+                 tmpDir="tmp",
                  outLog="ragout-log.txt",
+                 backend="maf",
                  is_debug=False,
                  is_resolve_repeats=False,
                  is_solid_scaffolds=False):
@@ -67,6 +69,7 @@ class RagoutInstance(object):
         self.scale = scale
         self.debug = is_debug
         self.outDir = outDir
+        self.backend = SyntenyBackend.backends[backend]
         if not tmpDir:
             self.tmpDir = os.path.join(outDir, "tmp")
         else:
@@ -83,9 +86,8 @@ class RagoutInstance(object):
             os.mkdir(self.tmpDir)
         self.debug_root = self._set_debugging()
         self._set_exe_paths()
-        self._check_extern_modules()
+        self._check_extern_modules(backend)
         self.phylogeny, self.naming_ref = self._get_phylogeny_and_naming_ref()
-        print self.naming_ref
         self.synteny_blocks = config.vals["blocks"][self.scale]
         self.dummy_recipe = _make_dummy_recipe(self.references, self.target, self.ancestor, self.phyloStr, self.scale, self.maf, self.naming_ref)
         self.perm_files = self._make_permutaion_files()
@@ -157,10 +159,11 @@ class RagoutInstance(object):
         os.environ["PATH"] = lib_absolute + os.pathsep + os.environ["PATH"]
         pass
 
-    def _check_extern_modules(self):
+    def _check_extern_modules(self, backend):
         """
         Checks if all necessary native modules are available
         """
+
         if not m2s.check_binary():
             raise BackendException("maf2synteny binary is missing, "
                                    "did you run 'make'?")
@@ -188,21 +191,8 @@ class RagoutInstance(object):
         return phylogeny, naming_ref
 
     def _make_permutaion_files(self):
-        workdir = os.path.join(self.outDir, "workdir")
-        os.mkdir(workdir)
-        files = {}
-
-        self.logger.info("Extracting synteny blocks from MAF")
-        if not m2s.make_synteny(self.maf, workdir, self.synteny_blocks):
-            raise BackendException("Something went wrong with maf2synteny")
-
-        for block_size in self.synteny_blocks:
-            block_dir = os.path.join(workdir, str(block_size))
-            coords_file = os.path.join(block_dir, "blocks_coords.txt")
-            files[block_size] = os.path.abspath(coords_file)
-            if not os.path.exists(coords_file):
-                raise BackendException("Something bad happened!")
-        return files
+        return self.backend.make_permutations(self.dummy_recipe, self.synteny_blocks, self.outDir,
+                                               self.overwrite, self.threads)
 
     def _make_stage_perms(self):
         self.stage_perms = {}
