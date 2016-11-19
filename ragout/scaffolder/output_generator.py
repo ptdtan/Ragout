@@ -24,7 +24,7 @@ class OutputGenerator:
         self.used_fragments_len = None
         self.introduced_gap_len = None
 
-    def make_output(self, out_dir, out_prefix):
+    def make_output(self, out_dir, out_prefix, write_fasta=True):
         """
         Makes full output to the given directory
         """
@@ -33,12 +33,14 @@ class OutputGenerator:
         out_chr = os.path.join(out_dir, out_prefix + "_scaffolds.fasta")
         out_unplaced = os.path.join(out_dir, out_prefix + "_unplaced.fasta")
 
-        self._make_unplaced_fasta()
-        write_fasta_dict(self.unplaced_fasta, out_unplaced)
+        if write_fasta:
+            self._make_unplaced_fasta()
+            write_fasta_dict(self.unplaced_fasta, out_unplaced)
 
         self._fix_gaps()
-        self._make_scaffolds_fasta()
-        write_fasta_dict(self.scaffolds_fasta, out_chr)
+        if write_fasta:
+            self._make_scaffolds_fasta()
+            write_fasta_dict(self.scaffolds_fasta, out_chr)
 
         self._output_agp(out_agp, out_prefix)
         self._print_statistics()

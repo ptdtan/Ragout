@@ -19,8 +19,18 @@ logger = logging.getLogger()
 class RecipeException(Exception):
     pass
 
+def _make_dummy_recipe(references, target, ancestor, tree, blocks, hal, naming_ref):
+    lines = []
+    lines.append("".join([".references = ", ",".join(references[1:])]))
+    lines.append("".join([".tree = ", tree]))
+    lines.append("".join([".target = ", target]))
+    lines.append("".join([".ancestor", ancestor]))
+    lines.append("".join([".blocks = ",blocks]))
+    lines.append("".join([".hal = ", hal]))
+    lines.append("".join(["naming_ref = ", naming_ref]))
+    return parse_ragout_recipe(dummy_lines=lines)
 
-def parse_ragout_recipe(filename):
+def parse_ragout_recipe(filename=None, dummy_lines=None):
     if not os.path.exists(filename):
         raise RecipeException("Can't open recipe file")
 
@@ -39,53 +49,56 @@ def parse_ragout_recipe(filename):
                 "draft" : False}
 
     param_matcher = re.compile("([^\s]+)\s*=\s*([^\s].*)$")
-    with open(filename, "r") as f:
-        for lineno, line in enumerate(f):
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
+    if dummy_lines:
+        lines = dummy_lines
+    else:
+        lines = open(filename, "r").read().strip().split("\n")
+    for lineno, line in enumerate(lines):
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
 
-            m = param_matcher.match(line)
-            if not m or not "." in m.group(1):
-                raise RecipeException("Error parsing recipe on line {1}"
-                                      .format(filename, lineno + 1))
+        m = param_matcher.match(line)
+        if not m or not "." in m.group(1):
+            raise RecipeException("Error parsing recipe on line {1}"
+                                  .format(filename, lineno + 1))
 
-            (obj, param_name), value = m.group(1).split("."), m.group(2)
-            if param_name in deprecated:
-                logger.warning("Recipe parameter '{0}' is deprecated"
-                                                        .format(param_name))
-                continue
-            if param_name not in known_params:
-                raise RecipeException("Unknown recipe parameter '{0}' on line {1}"
-                                      .format(param_name, lineno, filename))
+        (obj, param_name), value = m.group(1).split("."), m.group(2)
+        if param_name in deprecated:
+            logger.warning("Recipe parameter '{0}' is deprecated"
+                                                    .format(param_name))
+            continue
+        if param_name not in known_params:
+            raise RecipeException("Unknown recipe parameter '{0}' on line {1}"
+                                  .format(param_name, lineno, filename))
 
-            #checking values, casting
-            if param_name in cast_bool:
-                if value.lower() in ["true", "1"]:
-                    value = True
-                elif value.lower() in ["false", "0"]:
-                    value = False
-                else:
-                    raise RecipeException("Error parsing recipe on line "
-                                          "{0}: wrong value '{1}' for bool param"
-                                          .format(lineno, value))
-            if param_name == "blocks":
-                if value not in config.vals["blocks"]:
-                    raise RecipeException("Unknown synteny block size set: {0}"
-                                          .format(value))
-            if param_name == "references":
-                value = list(map(lambda s: s.strip(), value.split(",")))
-            if param_name in fix_path:
-                value = os.path.expanduser(value)
-                value = os.path.join(prefix, value)
-            ###
-
-            if obj == "":
-                recipe_dict[param_name] = value
-            elif obj == "*":
-                defaults[param_name] = value
+        #checking values, casting
+        if param_name in cast_bool:
+            if value.lower() in ["true", "1"]:
+                value = True
+            elif value.lower() in ["false", "0"]:
+                value = False
             else:
-                recipe_dict["genomes"].setdefault(obj, {})[param_name] = value
+                raise RecipeException("Error parsing recipe on line "
+                                      "{0}: wrong value '{1}' for bool param"
+                                      .format(lineno, value))
+        if param_name == "blocks":
+            if value not in config.vals["blocks"]:
+                raise RecipeException("Unknown synteny block size set: {0}"
+                                      .format(value))
+        if param_name == "references":
+            value = list(map(lambda s: s.strip(), value.split(",")))
+        if param_name in fix_path:
+            value = os.path.expanduser(value)
+            value = os.path.join(prefix, value)
+        ###
+
+        if obj == "":
+            recipe_dict[param_name] = value
+        elif obj == "*":
+            defaults[param_name] = value
+        else:
+            recipe_dict["genomes"].setdefault(obj, {})[param_name] = value
 
     for param in required_params:
         if param not in recipe_dict:
