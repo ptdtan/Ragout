@@ -49,7 +49,7 @@ class RagoutInstance(object):
     """
     Raogut instance for handling reconstruction methods
     """
-    def __init__(self,maf, references, ancestor, ancestor_seqs,
+    def __init__(self,maf, references, ancestor, ancestor_fasta,
                  phyloStr=None,
                  outDir="ragout-out",
                  scale="small",
@@ -60,6 +60,7 @@ class RagoutInstance(object):
                  is_solid_scaffolds=False):
         self.maf = maf
         self.ancestor = ancestor
+        self.ancestor_seqs = read_fasta_dict(ancestor_fasta)
         self.references = references
         self.target = references[0]
         self.phyloStr = phyloStr
@@ -90,7 +91,7 @@ class RagoutInstance(object):
         self.perm_files = self._make_permutaion_files()
         self.run_stages = self.make_run_stages()
         self.phylo_perm_file = self.perm_files[self.synteny_blocks[-1]]
-        self.stage_perms = self._make_stage_perms()
+        self._make_stage_perms()
     def _construct_ancestor(self):
 
         ###Enable ChimeraDetector4Ancestor
@@ -109,7 +110,7 @@ class RagoutInstance(object):
             #debugger.set_debug_dir(os.path.join(debug_root, stage.name))
             prev_stages.append(stage)
 
-            if not self.solid_scaffolds:
+            if not self.is_solid_scaffolds:
                 broken_perms = chim_detect.break_contigs(self.stage_perms[stage], [stage])
             else:
                 broken_perms = self.stage_perms[stage]
@@ -119,7 +120,7 @@ class RagoutInstance(object):
             cur_scaffolds = scfldr.build_scaffolds(adjacencies, broken_perms, ancestral=True)
 
             if scaffolds is not None:
-                if not solid_scaffolds:
+                if not self.is_solid_scaffolds:
                     merging_perms = chim_detect.break_contigs(self.stage_perms[stage],
                                                               prev_stages)
                 else:
@@ -128,12 +129,12 @@ class RagoutInstance(object):
                                                   merging_perms, stage.rearrange, ancestral=True)
             else:
                 scaffolds = cur_scaffolds
-        scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], naming_ref)
+        scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], self.naming_ref)
 
         ###output generating of ancestor scaffolds
-        logger.info("Done scaffolding for ''{0}''".format(ancestor))
-        out_gen = OutputGenerator(ancestor_sequences, scaffolds)
-        out_gen.make_output(self.outDir, ancestor, write_fasta=False)
+        logger.info("Done scaffolding for ''{0}''".format(self.ancestor))
+        out_gen = OutputGenerator(self.ancestor_seqs, self.scaffolds)
+        out_gen.make_output(self.outDir, self.ancestor, write_fasta=False)
 
     def _set_debugging(self):
         if not os.path.isdir(self.outDir):
