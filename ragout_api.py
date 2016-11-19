@@ -40,7 +40,7 @@ from ragout.breakpoint_graph.chimera_detector_ancestor import ChimeraDetector4An
 from ragout.phylogeny.phylogeny import *
 from ragout.__version__ import __version__
 
-import synteny_backend.maf
+import ragout.synteny_backend.maf
 
 
 RunStage = namedtuple("RunStage", ["name", "block_size", "ref_indels",
@@ -51,12 +51,14 @@ class RagoutInstance(object):
     Raogut instance for handling reconstruction methods
     """
     def __init__(self,maf, references, ancestor, ancestor_fasta,
+                 threads=4,
                  phyloStr=None,
                  outDir="ragout-out",
                  scale="large",
                  tmpDir="tmp",
                  outLog="ragout-log.txt",
                  backend="maf",
+                 is_overwrite = False,
                  is_debug=False,
                  is_resolve_repeats=False,
                  is_solid_scaffolds=False):
@@ -70,10 +72,13 @@ class RagoutInstance(object):
         self.debug = is_debug
         self.outDir = outDir
         self.backend = SyntenyBackend.backends[backend]
+        self.overwrite = is_overwrite
+        self.threads = threads
         if not tmpDir:
             self.tmpDir = os.path.join(outDir, "tmp")
         else:
             self.tmpDir = tmpDir
+
         self.phyloStr = phyloStr
         self.logger = enable_logging(outLog, is_debug)
         self.debugger = DebugConfig.get_instance()
@@ -131,11 +136,11 @@ class RagoutInstance(object):
                                                   merging_perms, stage.rearrange, ancestral=True)
             else:
                 scaffolds = cur_scaffolds
-        scfldr.assign_scaffold_names(scaffolds, stage_perms[last_stage], self.naming_ref)
+        scfldr.assign_scaffold_names(scaffolds, self.stage_perms[last_stage], self.naming_ref)
 
         ###output generating of ancestor scaffolds
         logger.info("Done scaffolding for ''{0}''".format(self.ancestor))
-        out_gen = OutputGenerator(self.ancestor_seqs, self.scaffolds)
+        out_gen = OutputGenerator(self.ancestor_seqs, scaffolds)
         out_gen.make_output(self.outDir, self.ancestor, write_fasta=False)
 
     def _set_debugging(self):

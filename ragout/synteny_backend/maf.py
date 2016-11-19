@@ -20,7 +20,7 @@ class MafBackend(SyntenyBackend):
     def __init__(self):
         SyntenyBackend.__init__(self)
 
-    def run_backend(self, recipe, output_dir, overwrite):
+    def run_backend(self, recipe, output_dir, overwrite, ancestral=True):
         logger.warning("Maf support is deprecated and will be removed "
                        "in future releases. Use hal istead.")
         workdir = os.path.join(output_dir, MAF_WORKDIR)
