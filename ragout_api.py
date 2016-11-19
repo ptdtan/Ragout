@@ -191,7 +191,7 @@ class RagoutInstance(object):
         files = {}
 
         self.logger.info("Extracting synteny blocks from MAF")
-        if not m2s.make_synteny(out_maf, workdir, self.blocks):
+        if not m2s.make_synteny(self.maf, workdir, self.blocks):
             raise BackendException("Something went wrong with maf2synteny")
 
         for block_size in self.synteny_blocks:
